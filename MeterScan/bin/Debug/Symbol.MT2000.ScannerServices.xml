@@ -1,0 +1,3728 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Symbol.MT2000.ScannerServices</name>
+    </assembly>
+    <members>
+        <member name="T:Symbol.MT2000.ScannerServices.LabelType">
+            <summary>
+            Enumeration of all barcode symbologies supported. Not all scanner hardware
+            supports all symbologies, refer to your hardware manual for more information.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.UPCE0">
+            <summary>The UPC-E0 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.UPCE1">
+            <summary>The UPC-E1 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.UPCA">
+            <summary>The UPC-A symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.MSI">
+            <summary>The MSI symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.EAN8">
+            <summary>The EAN-8 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.EAN13">
+            <summary>The EAN-13 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CODABAR">
+            <summary>The CODABAR symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CODE39">
+            <summary>The CODE-39 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.D2OF5">
+            <summary>The Discrete 2 of 5 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.I2OF5">
+            <summary>The Interleaved 2 of 5 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CODE11">
+            <summary>The CODE-11 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CODE93">
+            <summary>The CODE-93 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CODE128">
+            <summary>The CODE-128 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.IATA2OF5">
+            <summary>The IATA 2 of 5 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.EAN128">
+            <summary>The EAN-128 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.PDF417">
+            <summary>The PDF 417 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.ISBT128">
+            <summary>The ISBT 128 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.TRIOPTIC39">
+            <summary>The TRIOPTIC 3 of 9 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.COUPON">
+            <summary>The COUPON CODE symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.BOOKLAND">
+            <summary>The BOOKLAND EAN symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.MICROPDF">
+            <summary>The MICRO PDF symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CODE32">
+            <summary>The CODE-32 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.MACROPDF">
+            <summary>The MACRO PDF symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.MAXICODE">
+            <summary>The MAXICODE symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.DATAMATRIX">
+            <summary>The DATAMATRIX symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.QRCODE">
+            <summary>The QRCODE symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.MACROMICROPDF">
+            <summary>The MACRO MICRO PDF symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.RSS14">
+            <summary>The RSS-14 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.RSSLIM">
+            <summary>The RSS limited symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.RSSEXP">
+            <summary>The RSS expanded symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.POINTER">
+            <summary>Pointer label type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.IMAGE">
+            <summary>Image label type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.SIGNATURE">
+            <summary>Signature label type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.RESERVED_53">
+            <summary>RESERVED.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.WEBCODE">
+            <summary>The Scanlet WEBCODE symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CUECODE">
+            <summary>The CUE CAT CODE symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.COMPOSITE_AB">
+            <summary>The COMPOSITE AB symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.COMPOSITE_C">
+            <summary>The COMPOSITE C symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.TLC39">
+            <summary>The TCIF Linked CODE 39 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.USPOSTNET">
+            <summary>The US POSTNET symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.USPLANET">
+            <summary>The US PLANET symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.UKPOSTAL">
+            <summary>The UK POSTAL symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.JAPPOSTAL">
+            <summary>The JAPANESE POSTAL symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.AUSPOSTAL">
+            <summary>The AUSTRALIAN POSTAL symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.DUTCHPOSTAL">
+            <summary>The DUTCH POSTAL symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.CANPOSTAL">
+            <summary>The CANADIAN POSTAL symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.AZTEC">
+            <summary>The AZTEC symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.MICROQR">
+            <summary>The MICROQR symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.KOREAN_3OF5">
+            <summary>The Korean 3 of 5 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.US4STATE">
+            <summary>The US4STATE symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.PARAMETER">
+            <summary>Parameter label type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LabelType.UNKNOWN">
+            <summary>The symbology or label type is unknown.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ReadRawDataEventArgs">
+            <summary>
+            ReadRawData event arguments, sent when a scan/read event has occurred
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ReadRawDataEventArgs.#ctor(Symbol.MT2000.ScannerServices.RawData,Symbol.MT2000.ScannerServices.RESULTCODE)">
+            <summary>
+            Construct a ReadRawDataEventArgs object
+            </summary>
+            <param name="rawData">the raw data that was read</param>
+            <param name="resultCode">the result of the read operation</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ReadRawDataEventArgs.RawData">
+            <summary>
+            Retrieve the data for this read raw data event
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ReadRawDataEventArgs.Result">
+            <summary>
+            Retrieve the result code for this read raw data event
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SendRawDataEventArgs">
+            <summary>
+            SendRawData event arguments, sent when a send raw data has completed
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.SendRawDataEventArgs.#ctor(Symbol.MT2000.ScannerServices.RESULTCODE)">
+            <summary>
+            Construct a SendRawDataEventArgs object
+            </summary>
+            <param name="resultCode">the result of the send operation</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.SendRawDataEventArgs.Result">
+            <summary>
+            Retrieve the result code for this send raw data event
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.Viewfinder">
+            <summary>
+            Viewfinder class, used for manipulating the viewfinder when the system is operating in snapshot mode.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.Viewfinder.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new Viewfinder object.
+            </summary>
+            <param name="scannerServices">The ScannerServicesClient object to use for communicating with Scanner Services.</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.Viewfinder.Start(System.Windows.Forms.Control)">
+            <summary>
+            Start the video viewfinder and draw it on the specified Control.
+            </summary>
+            <param name="viewfinderWindow">The control to draw the video on.</param>
+            <returns>RESULTCODE of the operation.</returns>
+            <remarks>
+            The settings will take affect either immediately if the system is in snapshot mode,
+            or when snapshot mode is next enabled.
+            </remarks>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.Viewfinder.Stop">
+            <summary>
+            Stop the video viewfinder.
+            </summary>
+            <returns>RESULTCODE of the operation.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Viewfinder.CropRectangle">
+            <summary>
+            Gets or sets the rectangle used to crop the viewfinder video.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Viewfinder.CropStyle">
+            <summary>
+            Gets or sets the display style of the cropped area. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Viewfinder.FixAspectRatio">
+            <summary>
+            Gets or sets a boolean flag indicating if the aspect ratio of the viewfinder image is forced to match that of the acquired image.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.Viewfinder.CropStyles">
+            <summary>
+            Enumeration of available crop styles to use on the viewfinder.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.Viewfinder.CropStyles.FILL">
+            <summary>Use the contents of the cropping rectangle to fill the entire viewfinder window.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.Viewfinder.CropStyles.LIGHTEN">
+            <summary>Lighten the area outside the cropping rectangle.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.Viewfinder.CropStyles.DARKEN">
+            <summary>Darken the area outside the cropping rectangle.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.Viewfinder.CropStyles.FRAME">
+            <summary>Display a frame around the cropping rectangle.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.LabelData">
+            <summary>
+            LabelData class used for passing label data to and from the scanner.
+            </summary>
+            <remarks>
+            LabelData objects can be created using either a raw byte array or a text string.
+            </remarks>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.LabelData.#ctor(System.String,Symbol.MT2000.ScannerServices.LabelType)">
+            <summary>
+            Construct a LabelData object
+            </summary>
+            <param name="decodeString">String of the decode data</param>
+            <param name="labelType">Label type</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.LabelData.#ctor(System.Byte[],System.Int32,Symbol.MT2000.ScannerServices.LabelType)">
+            <summary>
+            Construct a LabelData object
+            </summary>
+            <param name="labelData">Byte array containing raw label data</param>
+            <param name="labelLen">Length of the label in the array</param>
+            <param name="labelType">Label type</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.LabelData.ConvertToScannerServices(Symbol.MT2000.ScannerServices.LabelData)">
+            <summary>
+            Convert a LabelData object to a byte array that can be passed to Scanner Services
+            </summary>
+            <param name="labelData">The LabelData object to convert</param>
+            <returns>byte array representation of LABELDATA_T structure</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.LabelData.CreateFromScannerServices(System.Byte[])">
+            <summary>
+            Convert a Scanner Services LABELDATA_T byte array to a LabelData object
+            </summary>
+            <param name="byteArray">The LABELDATA_T structure as a byte array</param>
+            <returns>new LabelData object</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.LabelData.ToString">
+            <summary>
+            Return the LabelData as a string
+            </summary>
+            <returns>Text string of the decode data </returns>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.LabelData.Data">
+            <summary>
+            Returns a copy of the raw label data
+            </summary>
+            <remarks>Data cannot be modified directly, but can be used to create a new LabelData object</remarks>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.LabelData.Text">
+            <summary>
+            Text string of the label data 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.LabelData.Type">
+            <summary>
+            Label type of the label data
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesClient">
+            <summary>
+            ScannerServicesClient object, used to interface with Scanner Services.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadLabel(Symbol.MT2000.ScannerServices.LabelData@,System.UInt32)">
+            <summary>
+            Read label data synchronously.
+            </summary>
+            <param name="labelData">LabelData object for the received label.</param>
+            <param name="timeoutMs">Timeout, in milliseconds.</param>
+            <returns>ResultCode of the read operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.BeginReadLabel">
+            <summary>
+            Start an asynchronous read request.
+            </summary>
+            <remarks>Subscribe to the ReadLabelHandler event to receive completed label reads.</remarks>		
+            <returns>true if successful, false otherwise</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.CancelReadLabel">
+            <summary>
+            Cancel an outstanding asynchronous read request.
+            </summary>		
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadLabelThread">
+            <summary>
+            Thread that performs an asynchronous Read Label request
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendLabel(Symbol.MT2000.ScannerServices.LabelData,System.UInt32)">
+            <summary>
+            Send label data to the host synchronously
+            </summary>
+            <param name="labelData">Scanner Label Data to send</param>
+            <param name="timeoutMs">timeout, in milliseconds</param>
+            <returns>ResultCode of the send operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.BeginSendLabel(Symbol.MT2000.ScannerServices.LabelData)">
+            <summary>
+            Start an asynchronous send label request. 
+            </summary>
+            <remarks>
+            Subscribe to the SendLabelHandler event to receive completed label sends.
+            </remarks>		
+            <returns>true if successful, false otherwise</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.CancelSendLabel">
+            <summary>
+            Cancel an outstanding send label request
+            </summary>		
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendLabelThread">
+            <summary>
+            Thread that performs an asynchronous Send Label request
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadRawData(Symbol.MT2000.ScannerServices.RawData@,System.UInt32)">
+            <summary>
+            Read raw  data synchronously.
+            </summary>
+            <param name="rawData">RawData object for the received data.</param>
+            <param name="timeoutMs">Timeout, in milliseconds.</param>
+            <returns>RESULTCODE of the read operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.BeginReadRawData">
+            <summary>
+            Start an asynchronous read request. 
+            </summary>
+            <remarks>Subscribe to the ReadRawDataHandler event to receive completed raw data reads.</remarks>		
+            <returns>RESULTCODE of the read operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.CancelReadRawData">
+            <summary>
+            Cancel an outstanding asynchronous read raw data request.
+            </summary>		
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadRawDataThread">
+            <summary>
+            Thread that performs an asynchronous Read Raw request
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendRawData(Symbol.MT2000.ScannerServices.RawData,System.UInt32)">
+            <summary>
+            Send raw data to the host synchronously
+            </summary>
+            <param name="rawData">Scanner Raw Data to send</param>
+            <param name="timeoutMs">timeout, in milliseconds</param>
+            <returns>RESULTCODE of the read operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.BeginSendRawData(Symbol.MT2000.ScannerServices.RawData)">
+            <summary>
+            Start an asynchronous send raw data request. 
+            </summary>
+            <remarks>
+            Subscribe to the SendRawDataHandler event to receive completed raw data sends.
+            </remarks>		
+            <returns>RESULTCODE of the send operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.CancelSendRawData">
+            <summary>
+            Cancel an outstanding send raw data request
+            </summary>		
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendRawDataThread">
+            <summary>
+            Thread that performs an asynchronous Send Raw Data request
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadImage(Symbol.MT2000.ScannerServices.ImageData@,System.UInt32)">
+            <summary>
+            Read image data synchronously.
+            </summary>
+            <param name="imageData">ImageData for the received image.</param>
+            <param name="timeoutMs">Timeout, in milliseconds</param>
+            <returns>RESULTCODE of the read operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.BeginReadImage">
+            <summary>
+            Start an asynchronous read request. 
+            Subscribe to the ReadImageHandler event to receive completed image reads.
+            </summary>
+            <returns>RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.CancelReadImage">
+            <summary>
+            Cancel an outstanding asynchronous read image request.
+            </summary>		
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadImageThread">
+            <summary>
+            Read image thread, for performing asynchronous image read operations
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendImage(Symbol.MT2000.ScannerServices.ImageData,System.UInt32)">
+            <summary>
+            Send image data to the host synchronously
+            </summary>
+            <param name="scannerImageData">Scanner ImageData to send</param>
+            <param name="timeoutMs">timeout, in milliseconds</param>
+            <returns>RESULTCODE of the send operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.BeginSendImage(Symbol.MT2000.ScannerServices.ImageData)">
+            <summary>
+            Start an asynchronous send image request. 
+            Subscribe to the SendImageHandler event to receive completed image sends.
+            </summary>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.CancelSendImage">
+            <summary>
+            Cancel an outstanding asynchronous send image request.
+            </summary>		
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendImageThread">
+            <summary>
+            Thread that performs an asynchronous Send Image request
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.#ctor">
+            <summary>
+            Scanner object constructor
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.Finalize">
+            <summary>
+            Scanner object destructor
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.Dispose">
+            <summary>
+            Dispose of all managed and unmanaged resources
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes of managed and unmanaged resources
+            </summary>
+            <param name="disposing">true if managed resources should be disposed</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetVersion">
+            <summary>
+            Retrieve the version numbers of Scanner Services and related APIs.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StartService">
+            <summary>
+            Start Scanner Services
+            </summary>
+            <returns>RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StopService">
+            <summary>
+            Stop Scanner Services
+            </summary>
+            <returns>RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.Connect(System.Boolean)">
+            <summary>
+            Open the connection to Scanner Services and prepare for scanning
+            </summary>
+            <param name="requiresDecoding">Whether or not decode permissions are required</param>
+            <returns>true if successful, false if failed</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.Disconnect">
+            <summary>
+            Closes the connection to Scanner Services and shuts down any running threads
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetMode(Symbol.MT2000.ScannerServices.SCANNERSVC_MODE)">
+            <summary>
+            Change the operating mode between decode, snapshot and video
+            </summary>
+            <remarks>
+            Any outstanding read or send requests will be cancelled if they are 
+            no longer valid in the current mode
+            </remarks>
+            <param name="mode">the new scanner mode</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetMode(Symbol.MT2000.ScannerServices.SCANNERSVC_MODE@)">
+            <summary>
+            Retrieve the operating mode.
+            </summary>
+            <remarks>
+            Since SetMode is asynchronous, the system mode may not reflect the mode set immediately
+            after a call to SetMode.
+            </remarks>
+            <param name="mode">the current scanner mode</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SoftTrigger(System.Boolean)">
+            <summary>
+            Assert/deassert the soft trigger
+            </summary>
+            <param name="assertSoftTrigger">true to disable, false to enable</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetOrStoreAttribute(System.UInt16,System.Byte[],System.UInt16,System.Boolean)">
+            <summary>
+            Set/store an attribute value
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>
+            <param name="length">the length of the byte array</param>
+            <param name="persist">true to store the value to persistent memory</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetAttribute(System.UInt16,System.Byte[],System.UInt16)">
+            <summary>
+            Set an attribute value
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>
+            <param name="length">the length of the byte array</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StoreAttribute(System.UInt16,System.Byte[],System.UInt16)">
+            <summary>
+            Store an attribute value
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>
+            <param name="length">the length of the byte array</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetAttributeFlag(System.UInt16,System.Boolean)">
+            <summary>
+            Set an attribute whose value is a bool
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetAttributeByte(System.UInt16,System.Byte)">
+            <summary>
+            Set an attribute whose value is a Byte
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetAttributeWord(System.UInt16,System.UInt16)">
+            <summary>
+            Set an attribute whose value is a Word
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetAttributeDWord(System.UInt16,System.UInt32)">
+            <summary>
+            Set an attribute whose value is a DWord
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.SetAttributeString(System.UInt16,System.String)">
+            <summary>
+            Set an attribute whose value is a string
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to set</param>				
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StoreAttributeFlag(System.UInt16,System.Boolean)">
+            <summary>
+            Store an attribute whose value is a bool
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to store</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StoreAttributeByte(System.UInt16,System.Byte)">
+            <summary>
+            Store an attribute whose value is a Byte
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to store</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StoreAttributeWord(System.UInt16,System.UInt16)">
+            <summary>
+            Store an attribute whose value is a Word
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to store</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StoreAttributeDWord(System.UInt16,System.UInt32)">
+            <summary>
+            Store an attribute whose value is a DWord
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to store</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.StoreAttributeString(System.UInt16,System.String)">
+            <summary>
+            Store an attribute whose value is a string
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>
+            <param name="newValue">the value to store</param>				
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetAttribute(System.UInt16,System.Byte[]@)">
+            <summary>
+            Get an attribute value
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>		
+            <param name="value">the returned value of attribute</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetAttributeFlag(System.UInt16,System.Boolean@)">
+            <summary>
+            Get an attribute whose value is a bool
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>		
+            <param name="value">the returned value of attribute</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetAttributeByte(System.UInt16,System.Byte@)">
+            <summary>
+            Get an attribute whose value is a byte
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>		
+            <param name="value">the returned value of attribute</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetAttributeWord(System.UInt16,System.UInt16@)">
+            <summary>
+            Get an attribute whose value is a word
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>		
+            <param name="value">the returned value of attribute</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetAttributeDWord(System.UInt16,System.UInt32@)">
+            <summary>
+            Get an attribute whose value is a dword
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>		
+            <param name="value">the returned value of attribute</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.GetAttributeString(System.UInt16,System.String@)">
+            <summary>
+            Get an attribute whose value is a string
+            </summary>
+            <param name="attributeNumber">the Scanner Services attribute number</param>		
+            <param name="value">the returned value of attribute</param>		
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesClient.ExecuteUIFCommand(Symbol.MT2000.ScannerServices.UIF_COMMAND)">
+            <summary>
+            Execute a UIF beep or LED command.
+            </summary>
+            <param name="command">the command to execute</param>
+            <returns>The Scanner Services RESULTCODE of the operation.</returns>
+        </member>
+        <member name="E:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadLabelEvent">
+            <summary>
+            Read label event handler.
+            </summary>
+            <remarks>Attach a ReadLabelHandler delegate to subscribe to read label events.</remarks>
+        </member>
+        <member name="E:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendLabelEvent">
+            <summary>
+            Send label event handler
+            </summary>
+            <remarks>Attach a SendLabelHandler delegate to subscribe to send label events.</remarks>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsReadingLabel">
+            <summary>
+            Return whether this client connection is performing a label read
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsSendingLabel">
+            <summary>
+            Return whether this client connection is performing a label send
+            </summary>
+        </member>
+        <member name="E:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadRawDataEvent">
+            <summary>
+            Read raw data event handler
+            </summary>
+            <remarks>Attach a ReadRawDataHandler delegate to subscribe to read raw events.</remarks>
+        </member>
+        <member name="E:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendRawDataEvent">
+            <summary>
+            Send raw channel event handler
+            </summary>
+            <remarks>Attach a SendRawDataHandler delegate to subscribe to send raw events.</remarks>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsReadingRawData">
+            <summary>
+            Return whether this client connection is performing a raw data read
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsSendingRawData">
+            <summary>
+            Return whether this client connection is performing a raw data send
+            </summary>
+        </member>
+        <member name="E:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadImageEvent">
+            <summary>
+            Read image event handler
+            </summary>
+            <remarks>Attach a ReadImageHandler delegate to subscribe to read image events.</remarks>
+        </member>
+        <member name="E:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendImageEvent">
+            <summary>
+            Send image event handler
+            </summary>
+            <remarks>Attach a SendImageHandler delegate to subscribe to send image events.</remarks>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsReadingImage">
+            <summary>
+            Returns whether or not this client connection is performing an image read
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsSendingImage">
+            <summary>
+            Returns whether or not this client connection is performing an image send
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.ServiceVersion">
+            <summary>
+            Get the version of Scanner Services
+            </summary>		
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.CAPIVersion">
+            <summary>
+            Get the version of the underlying C API to Scanner Services
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.ServiceStringVersion">
+            <summary>
+            Get the Scanner Services version string
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsServiceRunning">
+            <summary>
+            Return whether or not Scanner Services is alive and ready
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.IsConnected">
+            <summary>
+            Return whether we are connected to Scanner Services
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.Handle">
+            <summary>
+            Return the Scanner Services handle for this object
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.Attributes">
+            <summary>
+            Returns the ScannerServicesAttributes object for this object
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.HostParameters">
+            <summary>
+            Returns the ScannerHostParameters object for this object
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.Viewfinder">
+            <summary>
+            Returns the Viewfinder object for this object
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesClient.CanDecode">
+            <summary>
+            Return whether or not the connection has decode privileges
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadLabelHandler">
+            <summary>
+            ReadLabelHandler delegate for receving asynchronous read label results.
+            </summary>
+            <param name="sender">Sending object.</param>
+            <param name="e">Event data holding the result of the read label operation.</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendLabelHandler">
+            <summary>
+            SendLabelHandler delegate for receving asynchronous send label results.
+            </summary>
+            <param name="sender">Sending object.</param>
+            <param name="e">Event data holding the result of the send label operation</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadRawDataHandler">
+            <summary>
+            ReadRawDataHandler delegate for receving asynchronous read raw results.
+            </summary>
+            <param name="sender">Sending object.</param>
+            <param name="e">Event data holding the result of the read raw operation</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendRawDataHandler">
+            <summary>
+            SendRawDataHandler delegate for receving asynchronous send raw results.
+            </summary>
+            <param name="sender">Sending object.</param>
+            <param name="e">Event data holding the result of the send raw operation</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesClient.ReadImageHandler">
+            <summary>
+            ReadImageHandler delegate for receving asynchronous read image results.
+            </summary>
+            <param name="sender">Sending object.</param>
+            <param name="e">Event data holding the result of the read image operation</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesClient.SendImageHandler">
+            <summary>
+            SendImageHandler delegate for receving asynchronous send image results.
+            </summary>
+            <param name="sender">Sending object.</param>
+            <param name="e">Event data holding the result of the send image operation</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ReadImageEventArgs">
+            <summary>
+            ReadImage event arguments, sent when a read image event has occurred
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ReadImageEventArgs.#ctor(Symbol.MT2000.ScannerServices.ImageData,Symbol.MT2000.ScannerServices.RESULTCODE)">
+            <summary>
+            Construct a ReadImageEventArgs object
+            </summary>
+            <param name="imageData">the image data that was read</param>
+            <param name="resultCode">the result of the read operation</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ReadImageEventArgs.ImageData">
+            <summary>
+            Retrieve the decode data for this read image event
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ReadImageEventArgs.Result">
+            <summary>
+            Retrieve the result code for this read image event
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SendImageEventArgs">
+            <summary>
+            SendImage event arguments, sent when a send image has completed
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.SendImageEventArgs.#ctor(Symbol.MT2000.ScannerServices.RESULTCODE)">
+            <summary>
+            Construct a SendImageEventArgs object
+            </summary>
+            <param name="resultCode"></param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.SendImageEventArgs.Result">
+            <summary>
+            Retrieve the result code for this read label event
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.AimModes">
+            <summary>
+            Enumeration of the aiming modes.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.AimModes.None">
+            <summary>No aiming.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.AimModes.Dot">
+            <summary>Dot aiming.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.AimModes.Slab">
+            <summary>Slab aiming.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.AimModes.Reticule">
+            <summary>Reticule aiming.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.LinearSecurityLevels">
+            <summary>
+            Enumeration of the linear security levels to use during decoding.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LinearSecurityLevels.ShortOrCodabar">
+            <summary>Two times redundancy if short bar code or CODABAR.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LinearSecurityLevels.AllTwice">
+            <summary>Two times redundancy for all bar codes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LinearSecurityLevels.LongAndShort">
+            <summary>Two times redundancy for long bar codes, three times for short bar codes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.LinearSecurityLevels.AllThrice">
+            <summary>Three times redundancy for all bar codes.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.LaserAttributes">
+            <summary>
+            LaserAttributes class, used for getting and setting attributes
+            that are specific to the laser.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributeGroup">
+            <summary>
+            ScannerServicesAttributeGroup class, used to hold a group of IScannerServicesAttribute objects
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeGroup.#ctor">
+            <summary>
+            Construct a new ScannerServicesAttributeGroup
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeGroup.AddAttribute(Symbol.MT2000.ScannerServices.IScannerServicesAttribute)">
+            <summary>
+            Add a new attribute to the list
+            </summary>
+            <param name="attribute">the attribute to add to the list</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeGroup.Save">
+            <summary>
+            Save the current value of all contained attributes to persistent storage.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeGroup.GetEnumerator">
+            <summary>
+            Returns an enumerator to iterate through the available attributes
+            </summary>
+            <returns>IEnumerator to iterate through the available attributes</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeGroup.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator to iterate through the available attributes
+            </summary>
+            <returns>IEnumerator to iterate through the available attributes</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.LaserAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new laser attributes object
+            </summary>
+            <param name="scannerServices">the ScannerServicesClient object to use for communicating with Scanner Services</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.LaserAttributes.AimDuration">
+            <summary>
+            Duration, in milliseconds, for timed aim modes.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.LaserAttributes.AimMode">
+            <summary>
+            Aim mode.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.LaserAttributes.BidirectionalRedundancy">
+            <summary>
+            Enable or disable bidirectional redundancy.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.LaserAttributes.LinearSecurityLevel">
+            <summary>
+            Linear security level used during decoding.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.FileFormats">
+            <summary>
+            File format of the image data.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.FileFormats.TIFF">
+            <summary>TIFF format.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.FileFormats.BMP">
+            <summary>BMP format.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.FileFormats.JPEG">
+            <summary>JPEG format.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.FileFormats.PNG">
+            <summary>PNG format.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.FileFormats.DIB">
+            <summary>DIB format.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ImageData">
+            <summary>
+            ImageData class, used for passing image data to and from Scanner Services.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ImageData.#ctor(System.Byte[],System.UInt32,Symbol.MT2000.ScannerServices.FileFormats,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Construct a new ImageData object
+            </summary>
+            <param name="data">The raw image data</param>
+            <param name="size">The size of the image</param>
+            <param name="type">The file format of the image</param>
+            <param name="height">Height of the image in pixels</param>
+            <param name="width">Width of the image in pixels</param>
+            <param name="bpp">Pixel depth of the image</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ImageData.CreateFromScannerServices(Symbol.MT2000.ScannerServices.ScannerServicesMarshal.IMAGEDATA_T)">
+            <summary>
+            Creates a managed ImageData object from a Scanner Services IMAGEDATA_T structure
+            </summary>
+            <param name="imageData">IMAGEDATA_T structure to create from</param>
+            <returns>new ImageData object, null if there was an error</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ImageData.GetBitmap">
+            <summary>
+            Returns a new Bitmap object created from the image data
+            </summary>
+            <returns>new Bitmap, or null if failed</returns>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImageData.Size">
+            <summary>
+            Returns the size of the image in bytes
+            </summary>		
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImageData.Data">
+            <summary>
+            Returns the raw image data
+            </summary>		
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImageData.Type">
+            <summary>
+            File format of the image data
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImageData.Bpp">
+            <summary>
+            Returns the pixel depth of the image
+            </summary>		
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImageData.Height">
+            <summary>
+            Returns the height of the image in pixels
+            </summary>		
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImageData.Width">
+            <summary>
+            Returns the width of the image in pixels
+            </summary>		
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SCANNERSVC_MODE">
+            <summary>
+            Enumeration of the available operational modes for Scanner Services
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_MODE.SVC_MODE_DECODE">
+            <summary>Decode mode</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_MODE.SVC_MODE_SNAPSHOT">
+            <summary>Snapshot mode</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_MODE.SVC_MODE_VIDEO">
+            <summary>Video mode</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SCANNERSVC_DEFAULTS">
+            <summary>
+            Enumeration of the available attribute defaults commands for Scanner Services
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_DEFAULTS.SVC_DEFAULTS_RESTORE_FROM_CUSTOM">
+            <summary>Restore all attributes to their custom defaults</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_DEFAULTS.SVC_DEFAULTS_RESTORE_FROM_FACTORY">
+            <summary>Restore all attributes to their factory defaults</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_DEFAULTS.SVC_DEFAULTS_SAVE_TO_CUSTOM">
+            <summary>Store the current attribute values as the new custom defaults</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SCANNERSVC_DATA_CONNECTION">
+            <summary>
+            Data/cable connection types
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_DATA_CONNECTION.USB_CABLE">
+            <summary>USB Connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_DATA_CONNECTION.RS232">
+            <summary>RS232 Connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_DATA_CONNECTION.BLUETOOTH">
+            <summary>Bluetooth Connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_DATA_CONNECTION.NO_CONNECTION">
+            <summary>No Connection.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SCANNERSVC_BT_CONNECTION_STATE">
+            <summary>
+            Bluetooth connection types
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BT_CONNECTION_STATE.DEVICE_BT_CONNECTED">
+            <summary>Bluetooth Active and Connected.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BT_CONNECTION_STATE.DEVICE_BT_NOTCONNECTED">
+            <summary>Bluetooth Active and Not Connected.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BT_CONNECTION_STATE.DEVICE_BT_NOTACTIVE">
+            <summary>Bluetooth Not Active.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE">
+            <summary>
+            USB cable connection types
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_HID_KEYBOARD">
+            <summary>HID Keyboard.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_IBM_HANDHELD">
+            <summary>IBM SurePOS Handheld.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_IBM_TABLETOP">
+            <summary>IBM SurePOS Tabletop.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_IBM_HANDHELD2">
+            <summary>IBM SurePOS Handheld2.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_IBM_TABLETOP2">
+            <summary>IBM SurePOS Tabletop2.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_OPOS">
+            <summary>IBM OPOS.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_SNAPI">
+            <summary>SNAPI with Imaging Interface.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_SNAPI_NO_IMAGING">
+            <summary>SNAPI without Imaging Interface.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_ACTIVESYNC">
+            <summary>ActiveSync.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_CDC_RAW">
+            <summary>CDC Raw.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_COM_EMULATION">
+            <summary> COM Emulation /// </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_USB_TYPE.USB_NONE">
+            <summary>None.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE">
+            <summary>
+            RS232 cable connection types
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_STANDARD">
+            <summary>RS232 Standard.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_ICL">
+            <summary>RS232 ICL.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_FUJITSU">
+            <summary>RS232 Fujitsu.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_NIXDORF_MODE_A">
+            <summary>RS232 Nixdorf Mode A.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_NIXDORF_MODE_B">
+            <summary>RS232 Nixdorf Mode B.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_OLIVETTI">
+            <summary>RS232 Olivetti.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_OMRON">
+            <summary>RS232 Omron.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_OPOS">
+            <summary>RS232 OPOS.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_RAW">
+            <summary>RS232 Raw.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_RS232_TYPE.RS232_NONE">
+            <summary>None.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE">
+            <summary>
+            Bluetooth cable connection types
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_CRADLE">
+            <summary>Bluetooth Cradle.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_SCAN_CLIENT">
+            <summary>Bluetooth Scan Client.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_SCAN_SERVER">
+            <summary>Bluetooth Scan Server.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_SPP_CLIENT">
+            <summary>Bluetooth SPP Client.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_SPP_SERVER">
+            <summary>Bluetooth SPP Server.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_HID_CLIENT">
+            <summary>Bluetooth HID Client.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_HID_SERVER">
+            <summary>Bluetooth HID Server.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.SCANNERSVC_BLUETOOTH_TYPE.BT_NONE">
+            <summary>None.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ENUM_HOSTS">
+            <summary>
+            Scanner Services host types
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_NULL">
+            <summary>None.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_SYNAPSE">
+            <summary>Synapse.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_USB">
+            <summary>USB.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_IBM_RS485">
+            <summary>IBM RS485.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_PC_WEDGE">
+            <summary>PC Wedge.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_RS232">
+            <summary>RS232.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_SPCI">
+            <summary>SPCI.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_WAND_EMUL">
+            <summary>Wand Emul.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_SSI">
+            <summary>SSI.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_FAT">
+            <summary>FAT.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_SCAN_EMUL">
+            <summary>Scan Emul.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_BT_SCAN_CLIENT">
+            <summary>Bluetooth Scan Client.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_BT_SCAN_SERVER">
+            <summary>Bluetooth Scan Server.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_BT_SPP_CLIENT">
+            <summary>Bluetooth SPP Client.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_BT_SPP_SERVER">
+            <summary>Bluetooth SPP Server.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_BT_HID_CLIENT">
+            <summary>Bluetooth HID Client.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_BT_HID_SERVER">
+            <summary>Bluetooth HID Server.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ENUM_HOSTS.HOST_RAW">
+            <summary>Raw.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UIF_COMMAND">
+            <summary>
+            UIF Commands definitions
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_HI1">
+            <summary>One Short High Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_HI2">
+            <summary>Two Short High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_HI3">
+            <summary>Three Short High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_HI4">
+            <summary>Four Short High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_HI5">
+            <summary>Five Short High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_LO1">
+            <summary>One Short Low Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_LO2">
+            <summary>One Short Low Beep</summary> 
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_LO3">
+            <summary>Two Short Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_LO4">
+            <summary>Three Short Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SHORT_LO5">
+            <summary>Four Short Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_HI1">
+            <summary>One Long High Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_HI2">
+            <summary>Two Long High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_HI3">
+            <summary>Three Long High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_HI4">
+            <summary>Four Long High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_HI5">
+            <summary>Five Long High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_LO1">
+            <summary>One Long Low Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_LO2">
+            <summary>Two Long Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_LO3">
+            <summary>Three Long Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_LO4">
+            <summary>Four Long Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LONG_LO5">
+            <summary>Five Long Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_FAST_WARB">
+            <summary>Fast Warble Beeps</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_SLOW_WARB">
+            <summary>Slow Warble Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_HI_LO">
+            <summary>High Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LO_HI">
+            <summary>Low High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_HI_LO_HI">
+            <summary>High Low High Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LO_HI_LO">
+            <summary>Low High Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_HI_HI_LO_LO">
+            <summary>High High Low Low Beeps</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_APP_ERR">
+            <summary>Application Error Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_APP_CLICK">
+            <summary>Application Click Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.BC_LOW_CLICK">
+            <summary>Application Low Click Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.SVC_UIF_DECODE">
+            <summary>Decode Beep</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.SVC_UIF_GREEN_LED_ON">
+            <summary>Green LED ON</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.SVC_UIF_GREEN_LED_OFF">
+            <summary>Gren LED OFF</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.SVC_UIF_RED_LED_ON">
+            <summary>Red LED ON</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UIF_COMMAND.SVC_UIF_RED_LED_OFF">
+            <summary>Red LED OFF</summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.ADCAPI_HOST_CABLE_ID_USB">
+            <summary>
+            Synapse USB cable ID
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.ADCAPI_HOST_CABLE_ID_HID">
+            <summary>
+            Synapse Bluetooth HID cable ID
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.ADCAPI_HOST_CABLE_ID_RS232">
+            <summary>
+            Synapse RS232 cable ID
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.ADCAPI_HOST_CABLE_ID_RAW">
+            <summary>
+            Synapse RAW cable ID
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.ADCAPI_CONNECTION_TYPE">
+            <summary>
+            Enumeration of the type of connection to make to Scanner Services.
+            </summary>
+            <remarks>
+            Use ADCAPI_CONNECTION_TYPE_DECODE for label reading/sending.
+            Otherwise, ADCAPI_CONNECTION_TYPE_CONFIGURATION is sufficient. 
+            </remarks>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.DESTINATION_ADDRESS">
+            <summary>
+            Destination Address for messages within Scanner Services
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.USB_PARAM_T">
+            <summary>
+            USB Host Parameters Structure
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.RAWHOST_PARAMS">
+            <summary>
+            Raw Parameters Structure
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.LABELDATA_T_OFFSETS">
+            <summary>
+            Byte offsets of fields within the LABELDATA_T structure.		
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.RAWDATA_T_OFFSETS">
+            <summary>
+            Byte offsets of fields within the RAWDATA_T structure.		
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.STRUCT_INFO_T">
+            <summary>
+            Structure information.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesMarshal.IMAGEDATA_T">
+            <summary>
+            Structure for sending Image Data to Scanner Services
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.BeeperVolumes">
+            <summary>
+            Enumeration of possible beeper volumes.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.BeeperVolumes.High">
+            <summary>High.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.BeeperVolumes.Medium">
+            <summary>Medium.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.BeeperVolumes.Low">
+            <summary>Low.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.BeeperFrequencies">
+            <summary>
+            Enumeration of possible beeper frequencies.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.BeeperFrequencies.High">
+            <summary>High.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.BeeperFrequencies.Medium">
+            <summary>Medium.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.BeeperFrequencies.Low">
+            <summary>Low.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SystemAttributes">
+            <summary>
+            SystemAttributes class, used for getting and setting miscellaneous
+            system attrbiutes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.SystemAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new system attributes object
+            </summary>
+            <param name="scannerServices">the ScannerServicesClient object to use for communicating with Scanner Services</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.SystemAttributes.BeeperVolume">
+            <summary>
+            Beeper volume.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.SystemAttributes.BeeperFrequency">
+            <summary>
+            Beeper frequency.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.SystemAttributes.BeepOnGoodDecode">
+            <summary>
+            Beep on Good Decode.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RawParameters">
+            <summary>
+            RawParameters class, used for manipulating Raw Host parameters.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.Type">
+            <summary>The raw host type to use when connected via raw interface.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.BaudRate">
+            <summary>The baud rate to use over the raw interface</summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RawParameters.#ctor">
+            <summary>
+            Construct a RawParameters object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RawParameters.ConvertToScannerServices(Symbol.MT2000.ScannerServices.RawParameters)">
+            <summary>
+             Create a new Scanner Services RAWHOST_PARAMS structure object from a RawParameters object
+            </summary>
+            <returns>a new RAWHOST_PARAMS structure</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RawParameters.CreateFromScannerServices(Symbol.MT2000.ScannerServices.ScannerServicesMarshal.RAWHOST_PARAMS)">
+            <summary>
+            Create a new RawParameters object from a Scanner Services RAWHOST_PARAMS structure
+            </summary>
+            <param name="rawParams">RAWHOST_PARAMS to create a new object from</param>
+            <returns>a new RawParameters object</returns>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RawParameters.RawHostType">
+            <summary>
+            Enumeration of all Raw host types.
+            </summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawHostType.Auto">
+            <summary>Auto.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawHostType.RS232">
+            <summary>RS232.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawHostType.USB">
+            <summary>USB.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates">
+            <summary>
+            Enumeration of all Raw baud rates.
+            </summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_9600">
+            <summary>9600 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_600">
+            <summary>600 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_1200">
+            <summary>1200 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_2400">
+            <summary>2400 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_4800">
+            <summary>4800 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_19200">
+            <summary>19200 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_38400">
+            <summary>38400 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_57600">
+            <summary>57600 bps.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RawParameters.RawBaudRates.RAWSERIAL_115200">
+            <summary>115200 bps.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.DecoderAttributes">
+            <summary>
+            DecoderAttributes class, used for manipulating a decoder's attributes.
+            </summary>	
+            <remarks>Specific decoders will be derived from this class.</remarks>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.DecoderAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16)">
+            <summary>
+            Construct a new DecoderAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+            <param name="enableAttributeNumber">The attribute identifier for the Enabled attribute for this decoder.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.DecoderAttributes.Enabled">
+            <summary>
+            Enable the decoder.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UPCPreamble">
+            <summary>
+            Preamble applied to UPC labels
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCPreamble.None">
+            <summary>No preamble.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCPreamble.System">
+            <summary>System code preamble.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCPreamble.CountryAndSystem">
+            <summary>Both country and system code preamble.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UPCEANAttributes">
+            <summary>
+            UPCEANAttributes class, used for manipulating common UPC/EAN attributes.
+            </summary>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.UPCEANAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new UPCEANAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.SecurityLevel">
+            <summary>
+            The UPC/EAN security level.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.Supplemental2">
+            <summary>
+            Enable length 2 supplementals.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.Supplemental5">
+            <summary>
+            Enable length 5 supplementals.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.SupplementalMode">
+            <summary>
+            The supplemental mode. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.SupplementalRetryCount">
+            <summary>
+            Retry count for auto-discriminating for supplementals.
+            </summary>
+            <remarks>Note that this flag is only considered if the SupplementalMode has been set to Auto.</remarks>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.RandomWeightCheckDigit">
+            <summary>
+            Enable random weight check digit verification. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.LinearDecode">
+            <summary>
+            Enable linear decode. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.BooklandCode">
+            <summary>
+            Enable Bookland code decoding. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEANAttributes.CouponCode">
+            <summary>
+            Enable Coupon Code decoding. 
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UPCEANAttributes.SecurityLevels">
+            <summary>
+            Enumeration of all UPC/EAN security levels. 
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCEANAttributes.SecurityLevels.None">
+            <summary>No UPC/EAN security.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCEANAttributes.SecurityLevels.Ambiguous">
+            <summary>Check ambiguous characters.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCEANAttributes.SecurityLevels.All">
+            <summary>Check all characters.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UPCEANAttributes.SupplementalModes">
+            <summary>
+            Enumeration of supplemental mode types.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCEANAttributes.SupplementalModes.None">
+            <summary>Supplementals ignored.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCEANAttributes.SupplementalModes.Always">
+            <summary>Will not decode UPC/EAN without supplementals.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.UPCEANAttributes.SupplementalModes.Auto">
+            <summary>Auto-discriminates supplementals.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.Code39Attributes">
+            <summary>
+            Code39Attributes class, used for manipulating CODE-39 attributes.
+            </summary>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.Code39Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new Code39Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.FullASCII">
+            <summary>
+            Enable Full ASCII.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.CheckDigit">
+            <summary>
+            Enable check digit.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.TransmitCheckDigit">
+            <summary>
+            Transmit check digit.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.ConvertToCode32">
+            <summary>
+            Convert to CODE-32.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code39Attributes.Code32Prefix">
+            <summary>
+            Enable CODE-32 prefix.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UPCEAttributes">
+            <summary>
+            UPCEAttributes class, used for manipulating UPC-E attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.UPCEAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new UPCEAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEAttributes.CheckDigit">
+            <summary>
+            Enable check digit,
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEAttributes.Preamble">
+            <summary>
+            Apply preamble.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCEAttributes.ConvertToUPCA">
+            <summary>
+            Convert to UPC-A.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.EAN8Attributes">
+            <summary>
+            EAN8Attributes class, used for manipulating EAN-8 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.EAN8Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new EAN8Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.EAN8Attributes.ConvertToEAN13">
+            <summary>
+            Convert to EAN-13.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.EAN13Attributes">
+            <summary>
+            EAN13Attributes class, used for manipulating EAN-13 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.EAN13Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new EAN8Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UPCAAttributes">
+            <summary>
+            UPCAAttributes class, used for manipulating UPC-A attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.UPCAAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new UPCAAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCAAttributes.CheckDigit">
+            <summary>
+            Enable check digit.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCAAttributes.Preamble">
+            <summary>
+            Apply preamble.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.D2of5Attributes">
+            <summary>
+            D2of5Attributes class, used for manipulating Discrete 2 of 5 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.D2of5Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new D2of5Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.D2of5Attributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.D2of5Attributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.I2of5Attributes">
+            <summary>
+            I2of5Attributes class, used for manipulating Interleaved 2 of 5 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.I2of5Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new I2of5Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.I2of5Attributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.I2of5Attributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.I2of5Attributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.I2of5Attributes.CheckDigitType">
+            <summary>
+            Check digit type.
+            </summary>		
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.I2of5Attributes.TransmitCheckDigit">
+            <summary>
+            Transmit check digit.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.I2of5Attributes.ConvertToEAN13">
+            <summary>
+            Convert to EAN-13.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.I2of5Attributes.CheckDigitTypes">
+            <summary>
+            Enumeration of Interleaved 2 of 5 check digit types.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.I2of5Attributes.CheckDigitTypes.None">
+            <summary>No check digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.I2of5Attributes.CheckDigitTypes.USS">
+            <summary>USS check digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.I2of5Attributes.CheckDigitTypes.OPCC">
+            <summary>OPCC check digit.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.CODABARAttributes">
+            <summary>
+            CODABARAttributes class, used for manipulating CODABAR attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.CODABARAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new CODABARAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CODABARAttributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CODABARAttributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CODABARAttributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CODABARAttributes.CLSIEditing">
+            <summary>
+            Enable CLSI Editing.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CODABARAttributes.NotisEditing">
+            <summary>
+            Enable Notis Editing.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.Code128Attributes">
+            <summary>
+            Code128Attributes class, used for manipulating CODE-128 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.Code128Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new Code128Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code128Attributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code128Attributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code128Attributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code128Attributes.EAN128Enabled">
+            <summary>
+            Enable EAN-128 subtype.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code128Attributes.ISBT128Enabled">
+            <summary>
+            Enable ISBT-128 subtype.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.Code93Attributes">
+            <summary>
+            Code93Attributes class, used for manipulating CODE-93 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.Code93Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new Code93Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code93Attributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code93Attributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code93Attributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.Code11Attributes">
+            <summary>
+            Code11Attributes class, used for manipulating CODE-11 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.Code11Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new Code11Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code11Attributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code11Attributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code11Attributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code11Attributes.CheckDigitCount">
+            <summary>
+            Number of check digits to verify.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.Code11Attributes.TransmitCheckDigit">
+            <summary>
+            Transmit check digit.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.Code11Attributes.CheckDigitCounts">
+            <summary>
+            Enumeration of the possible number of check digits to verify for CODE-11.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.Code11Attributes.CheckDigitCounts.None">
+            <summary>No check digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.Code11Attributes.CheckDigitCounts.One">
+            <summary>One check digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.Code11Attributes.CheckDigitCounts.Two">
+            <summary>Two check digits.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.MSIAttributes">
+            <summary>
+            MSIAttributes class, used for manipulating MSI attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.MSIAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new MSIAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.MSIAttributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.MSIAttributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.MSIAttributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitCount">
+            <summary>
+            The number of check digits to verify.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitAlgorithm">
+            <summary>
+            The check digit scheme to verify.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.MSIAttributes.TransmitCheckDigit">
+            <summary>
+            Transmit check digit.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitCounts">
+            <summary>
+            Enumeration of the possible number of check digits to verify for MSI.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitCounts.One">
+            <summary>One check digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitCounts.Two">
+            <summary>Two check digits.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitAlgorithms">
+            <summary>
+            Enumeration of check digit schemes for MSI.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitAlgorithms.Mod_11_10">
+            <summary>The first check digit is MOD 11, the second is MOD 10.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.MSIAttributes.CheckDigitAlgorithms.Mod_10_10">
+            <summary>Both check digits are MOD 10.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.UPCE1Attributes">
+            <summary>
+            UPCE1Attributes class, used for manipulating UPC-E1 attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.UPCE1Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new UPCE1Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCE1Attributes.CheckDigit">
+            <summary>
+            Enable check digit.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCE1Attributes.Preamble">
+            <summary>
+            Apply UPC preamble.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.UPCE1Attributes.ConvertToUPCA">
+            <summary>
+            Convert to UPC-A.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.TriopticAttributes">
+            <summary>
+            TriopticAttributes class, used for manipulating TRIOPTIC attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.TriopticAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new TriopticAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.TriopticAttributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.TriopticAttributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.TriopticAttributes.Redundancy">
+            <summary>
+            Enable redundancy.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.WebcodeAttributes">
+            <summary>
+            WebcodeAttributes class, used for manipulating WEBCODE attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.WebcodeAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new WebcodeAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.WebcodeAttributes.MinimumLength">
+            <summary>
+            Minimum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.WebcodeAttributes.MaximumLength">
+            <summary>
+            Maximum length of a valid barcode for the decoder. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.WebcodeAttributes.GTSubtype">
+            <summary>
+            Enable GT subtype.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RSS14Attributes">
+            <summary>
+            RSS14 Decoder Attributes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RSS14Attributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new RSS14Attributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RSSLimited">
+            <summary>
+            RSS Limited Decoder Attributes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RSSLimited.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new RSSLimited object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RSSExpandedAttributes">
+            <summary>
+            RSS Expanded Decoder Attributes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RSSExpandedAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new RSSExpandedAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.DecoderAttributeList">
+            <summary>
+            DecoderAttributes class, used to manipulate attributes related to decoders.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.CODE39">
+            <summary>CODE-39 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.UPCA">
+            <summary>UPC-A decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.UPCE">
+            <summary>UPC-E decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.EAN13">
+            <summary>EAN-13 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.EAN8">
+            <summary>EAN-8 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.D2OF5">
+            <summary>Discrete 2 of 5 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.I2OF5">
+            <summary>Interleaved 2 of 5 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.CODABAR">
+            <summary>CODABAR decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.CODE128">
+            <summary>CODE-128 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.CODE93">
+            <summary>CODE-93 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.CODE11">
+            <summary>CODE-11 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.MSI">
+            <summary>MSI decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.UPCE1">
+            <summary>UPC-E1 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.TRIOPTIC">
+            <summary>TRIOPTIC decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.WEBCODE">
+            <summary>WEBCODE decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.RSS14">
+            <summary>RSS-14 decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.RSSLIM">
+            <summary>RSS limited decoder attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.DecoderAttributeList.RSSEXP">
+            <summary>RSS expanded decoder attributes.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.DecoderAttributeList.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new DecoderAttributes object.
+            </summary>
+            <param name="scannerServices">ScannerServicesClient object for getting/setting attributes.</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.DecoderAttributeList.GetEnumerator">
+            <summary>
+            Returns an enumerator to iterate through the available decoders
+            </summary>
+            <returns>IEnumerator to iterate through the available decoders</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.DecoderAttributeList.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator to iterate through the available decoders
+            </summary>
+            <returns>IEnumerator to iterate through the available decoders</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.DecoderAttributeList.EnableAll">
+            <summary>
+            Enable all supported decoders
+            </summary>
+            <returns>true if successful, false otherwise</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.DecoderAttributeList.DisableAll">
+            <summary>
+            Disable all supported decoders
+            </summary>
+            <returns>true if successful, false otherwise</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.DecoderAttributeList.Save">
+            <summary>
+            Stores all decoder attribute settings to persistent storage.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesOperationFailedException">
+            <summary>
+            ScannerServicesOperationFailedException, thrown when attempting a Scanner Services operation failed.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesOperationFailedException.#ctor(Symbol.MT2000.ScannerServices.RESULTCODE)">
+            <summary>
+            Initializes a new instance of the ScannerServicesOperationFailedException class.
+            </summary>
+            <param name="result">The ResultCode indicating the reason for failure.</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesOperationFailedException.Result">
+            <summary>
+            Gets the RESULTCODE indicating the reason for failure.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.IScannerServicesAttribute">
+            <summary>
+            IScannerServicesAttribute interface must be implemented by all attribute objects in order
+            to be added to enumerable attribute lists.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.IScannerServicesAttribute.Save">
+            <summary>Save the current value of the attribute to persistent storage</summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.IScannerServicesAttribute.AttributeNumber">
+            <summary>The number used to identify the attribute with Scanner Services</summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.IScannerServicesAttribute.AttributeType">
+            <summary>Returns the managed type of the attribute</summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.IScannerServicesAttribute.Value">
+            <summary> Get or set the current value of the attribute</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1">
+            <summary>
+            ScannerServicesAttributeValue class is the base class used for manipulating individual
+            Scanner Services attributes.
+            </summary>
+            <typeparam name="TAttributeType">The managed type of the attribute.</typeparam>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.m_scannerSvc">
+            <summary>The connected ScannerServicesClient object to use when getting or setting attributes.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.m_attributeNumber">
+            <summary>The number used to identify the attribute with Scanner Services.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16)">
+            <summary>
+            Constructs a new ScannerServicesAttributeValue object.
+            </summary>
+            <param name="scannerServices">The ScannerServicesClient object to use when getting or setting attributes.</param>
+            <param name="attributeNumber">The attribute identifier.</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.Save">
+            <summary>
+            Save the current value of the attribute to persistent storage.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.AttributeNumber">
+            <summary>
+            The number used to identify the attribute with Scanner Services.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.AttributeType">
+            <summary>
+            Returns the underlying type of the attribute
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.Symbol#MT2000#ScannerServices#IScannerServicesAttribute#Value">
+            <summary>
+            Get or set the current value of the attribute
+            </summary>		
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeValue`1.Value">
+            <summary>
+            Get or set the current value of the attribute
+            </summary>		
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributeBool">
+            <summary>
+            ScannerServicesAttributeBool class, used for manipulating Scanner Services
+            attributes with boolean values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeBool.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16)">
+            <summary>
+            Construct a new ScannerServicesAttributeBool
+            </summary>
+            <param name="scanner">the scanner object to use when getting and setting the attribute</param>
+            <param name="attributeNumber">the attribute identifier</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeBool.Save">
+            <summary>
+            Save the current value of every attrbiute in the list to persistent storage
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeBool.Value">
+            <summary>
+            Get or set the current value of the attribute
+            </summary>		
+            <exception cref="T:Symbol.MT2000.ScannerServices.ScannerServicesOperationFailedException">The get or set operation failed.</exception>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte">
+            <summary>
+            ScannerServicesAttributeByte class, used for manipulating Scanner Services
+            attributes with byte values. It can optionally be created with a valid
+            range for the value.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte.RangeCheck(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Check the range of a byte value and correct it based on a max and min value
+            </summary>
+            <param name="value">the value to check</param>
+            <param name="minValue">the minimum value allowed</param>
+            <param name="maxValue">the maximum value allowed</param>
+            <returns>the range-corrected value</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16)">
+            <summary>
+            Construct a new ScannerServicesAttributeByte
+            </summary>
+            <param name="scanner">the scanner object to use when getting and setting the attribute</param>
+            <param name="attributeNumber">the attribute identifier</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16,System.Byte,System.Byte)">
+            <summary>
+            Construct a new ScannerServicesAttributeByte
+            </summary>
+            <param name="scanner">the scanner object to use when getting and setting the attribute</param>
+            <param name="attributeNumber">the attribute identifier</param>
+            <param name="minValue">the minimum value allowed</param>
+            <param name="maxValue">the maximum value allowed</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte.Save">
+            <summary>
+            Save the current value of every attrbiute in the list to persistent storage
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte.Value">
+            <summary>
+            Get or set the current value of the attribute
+            </summary>
+            <exception cref="T:Symbol.MT2000.ScannerServices.ScannerServicesOperationFailedException">The get or set operation failed.</exception>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte.MinValue">
+            <summary>
+            Returns the minimum value allowed for the attribute
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeByte.MaxValue">
+            <summary>
+            Returns the maximum value allowed for attribute
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord">
+            <summary>
+            ScannerServicesAttributeWord class, used for manipulating Scanner Services
+            attributes with word values. It can optionally be created with a valid
+            range for the value.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord.RangeCheck(System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Check the range of a ushort value and correct it based on a max and min value
+            </summary>
+            <param name="value">the value to check</param>
+            <param name="minValue">the minimum value allowed</param>
+            <param name="maxValue">the maximum value allowed</param>
+            <returns>the range-corrected value</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16)">
+            <summary>
+            Construct a new ScannerServicesAttributeWord
+            </summary>
+            <param name="scanner">the scanner object to use when getting and setting the attribute</param>
+            <param name="attributeNumber">the attribute identifier</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16,System.UInt16,System.UInt16)">
+            <summary>
+            Construct a new ScannerServicesAttributWord
+            </summary>
+            <param name="scanner">the scanner object to use when getting and setting the attribute</param>
+            <param name="attributeNumber">the attribute identifier</param>
+            <param name="minValue">the minimum value allowed</param>
+            <param name="maxValue">the maximum value allowed</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord.Save">
+            <summary>
+            Save the current value of every attribute in the list to persistent storage
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord.Value">
+            <summary>
+            Get or set the current value of the attribute
+            </summary>
+            <exception cref="T:Symbol.MT2000.ScannerServices.ScannerServicesOperationFailedException">The get or set operation failed.</exception>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord.MinValue">
+            <summary>
+            Returns the minimum value allowed for the attribute
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeWord.MaxValue">
+            <summary>
+            Returns the maximum value allowed for attribute
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributeEnum`1">
+            <summary>
+            ScannerServicesAttributeEnum class, used for manipulating Scanner Services
+            attributes with byte values, where the possible values belong to an enumeration.
+            </summary>
+            <typeparam name="TEnum">the enumeration type</typeparam>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeEnum`1.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient,System.UInt16,`0)">
+            <summary>
+            Construct a new ScannerServicesAttributeEnum
+            </summary>
+            <param name="scanner">the scanner object to use when getting and setting the attribute</param>
+            <param name="attributeNumber">the attribute identifier</param>
+            <param name="defaultValue">the default value to use when the value in Scanner Services does not belong to the enumeration</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributeEnum`1.Save">
+            <summary>
+            Save the current value of every attribute in the list to persistent storage
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributeEnum`1.Value">
+            <summary>
+            Get or set the current value of the attribute
+            </summary>
+            <exception cref="T:Symbol.MT2000.ScannerServices.ScannerServicesOperationFailedException">The get or set operation failed.</exception>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ReadLabelEventArgs">
+            <summary>
+            ReadLabel event arguments, sent when a read label event has occurred
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ReadLabelEventArgs.#ctor(Symbol.MT2000.ScannerServices.LabelData,Symbol.MT2000.ScannerServices.RESULTCODE)">
+            <summary>
+            Construct a ReadLabelEventArgs object
+            </summary>
+            <param name="labelData">the label data that was read</param>
+            <param name="resultCode">the result of the read operation</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ReadLabelEventArgs.LabelData">
+            <summary>
+            Retrieve the decode data for this read label event
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ReadLabelEventArgs.Result">
+            <summary>
+            Retrieve the result code for this read label event
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.SendLabelEventArgs">
+            <summary>
+            SendLabel event arguments, sent when a send label has completed
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.SendLabelEventArgs.#ctor(Symbol.MT2000.ScannerServices.RESULTCODE)">
+            <summary>
+            Construct a SendLabelEventArgs object
+            </summary>
+            <param name="resultCode">the result of the send operation</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.SendLabelEventArgs.Result">
+            <summary>
+            Retrieve the result code for this read label event
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES">
+            <summary>
+            Scanner Services attribute types.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_ARRAY">
+            <summary>Array attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_BYTE">
+            <summary>Byte attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_CHAR">
+            <summary>Char attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_DWORD">
+            <summary>Dword attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_FLAG">
+            <summary>Flag attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_INT">
+            <summary>Integer attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_LONGINT">
+            <summary>Long Integer attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_STRING">
+            <summary>String attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_WORD">
+            <summary>Word attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_ACTION">
+            <summary>Action attribute type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_TYPES.ATT_TYPE_NONE">
+            <summary>None or unknown attribute type.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER">
+            <summary>
+            Scanner Services attribute identifiers.
+            </summary>
+            <remarks>
+            These identifiers can be used to get or set attributes directly using the SetAttribute and GetAttribute members of the <see cref="T:Symbol.MT2000.ScannerServices.ScannerServicesClient"/> class.
+            Consult your documentation for information on the type and range of each attribute. It is recommended that
+            most attributes be set using the <see cref="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributes"/> class.
+            </remarks>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CODE39">
+            <summary>CODE-39 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCA">
+            <summary>UPC-A symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE">
+            <summary>UPC-E symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_EAN13">
+            <summary>EAN-13 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_EAN8">
+            <summary>EAN-8 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_D25">
+            <summary>Discrete 2 of 5 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_I25">
+            <summary>Interleaved 2 of 5 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CODABAR">
+            <summary>CODABAR symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CODE128">
+            <summary>CODE-128 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CODE93">
+            <summary>CODE-93 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CODE11">
+            <summary>CODE-11 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MSI">
+            <summary>MSI symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE1">
+            <summary>UPC-E symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_TRIOPTIC">
+            <summary>TRIOPTIC symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_EAN128">
+            <summary>EAN-128 symbology.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_SUPPS">
+            <summary>UPC/EAN Supplemental Mode.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C39_FULL_ASCII">
+            <summary>CODE-39 Full ASCII.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C39_LEN1">
+            <summary>CODE-39 Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C39_LEN2">
+            <summary>CODE-39 Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_D25_LEN1">
+            <summary>Discrete 2 of 5 Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_D25_LEN2">
+            <summary>Discrete 2 of 5 Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_I25_LEN1">
+            <summary>Interleaved 2 of 5 Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_I25_LEN2">
+            <summary>Interleaved 2 of 5 Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CBR_LEN1">
+            <summary>CODABAR Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CBR_LEN2">
+            <summary>CODABAR Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C93_LEN1">
+            <summary>CODE-93 Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C93_LEN2">
+            <summary>CODE-93 Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C11_LEN1">
+            <summary>CODE-11 Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C11_LEN2">
+            <summary>CODE-11 Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MSI_LEN1">
+            <summary>MSI Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MSI_LEN2">
+            <summary>MSI Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_TRI_LEN1">
+            <summary>TRIOPTIC Length 1.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_TRI_LEN2">
+            <summary>TRIOPTIC Length 2.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCA_PREAM">
+            <summary>UPC-A Preamble.</summary>	
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE_PREAM">
+            <summary>UPC-E Preamble.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE1_PREAM">
+            <summary>UPC-E1 Preamble.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE_TO_A">
+            <summary>Convert UPC-E to UPC-A.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE1_TO_A">
+            <summary>Convert UPC-E1 to UPC-A.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_EAN8_TO_13">
+            <summary>Convert EAN-8 to EAN-13.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCA_CHK">
+            <summary>UPC-A Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE_CHK">
+            <summary>UPC-E Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCE1_CHK">
+            <summary>UPC-E1 Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_XMIT_C39_CHK">
+            <summary>Transmit CODE-39 Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_XMIT_I25_CHK">
+            <summary>Transmit Interleaved 2 of 5 Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_XMIT_MSI_CHK">
+            <summary>Transmit MSI Check Digit.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_XMIT_C11_CHK">
+            <summary>Transmit CODE-11 Check Digit.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C39_CHK_EN">
+            <summary>CODE-29 Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_I25_CHK_TYPE">
+            <summary>Interleaved 2 of 5 Check Type.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MSI_CHK_1_2">
+            <summary>MSI Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MSI_CHK_SCHEME">
+            <summary>MSI Check Digit Algorithm.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C11_CHK_TYPE">
+            <summary>CODE-11 Check Digit Count.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPCA_RAN_WGHT">
+            <summary>UPC/EAN Random Weight Check Digit.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CLSI">
+            <summary>CLSI Editing.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_NOTIS">
+            <summary>NOTIS Editing.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_DEC_BEEP">
+            <summary>Beep on Good Decode</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C11_REDUN">
+            <summary>CODE-11 Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C39_REDUN">
+            <summary>CODE-39 Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C128_REDUN">
+            <summary>CODE-128 Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MSI_REDUN">
+            <summary>MSI Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CBR_REDUN">
+            <summary>CODABAR Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_I25_REDUN">
+            <summary>Interleaved 2 of 5 Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C93_REDUN">
+            <summary>CODE-93 Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_TRI_REDUN">
+            <summary>TRIPOPTIC Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BIDIR_REDUN">
+            <summary>Bi-directional Redundancy.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_LINEAR_UPC">
+            <summary>UPC/EAN Linear Decode.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_UPC_SEC_LEV">
+            <summary>UPC Security Level.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_LIN_SEC_LEV">
+            <summary>Linear Security Level.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_SUPP_REDUN">
+            <summary>UPC/EAN Supplemental Redundancy Mode.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_PDF_TRIG_MODE">
+            <summary>Laser Aim Mode.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_I25_TO_EAN13">
+            <summary>ISBT 128 Subtype.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BOOKLAND">
+            <summary>UPC/EAN Bookland.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_ISBT_128">
+            <summary>CODE-128 ISBT 128 Subtype.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_COUPON">
+            <summary>UPC/EAN Coupon Code.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_CODE32">
+            <summary>Convert CODE-39 to CODE-32.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYCAT_1">
+            <summary>ADF Key Cat 1.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYCAT_2">
+            <summary>ADF Key Cat 2.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYCAT_3">
+            <summary>ADF Key Cat 3.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYCAT_4">
+            <summary>ADF Key Cat 4.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYCAT_5">
+            <summary>ADF Key Cat 5.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYCAT_6">
+            <summary>ADF Key Cat 6.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYVAL_1">
+            <summary>ADF Key Val 1.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYVAL_2">
+            <summary>ADF Key Val 2.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYVAL_3">
+            <summary>ADF Key Val 3.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYVAL_4">
+            <summary>ADF Key Val 4.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYVAL_5">
+            <summary>ADF Key Val 5.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_KEYVAL_6">
+            <summary>ADF Key Val 6.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_PAUSE_DUR">
+            <summary>ADF Pause Duration.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_LASER_ON_PRIM">
+            <summary>Decode Session Timeout.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_PRIM_TRIG_MODE">
+            <summary>Trigger Mode.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BEEPER_VOLUME">
+            <summary>Beeper Volume.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BEEPER_FREQ">
+            <summary>Beeper Frequency.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_SUPP2">
+            <summary>UPC/EAN Supplemental 2.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_SUPP5">
+            <summary>UPC/EAN Supplemental 5.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C128_LEN1">
+            <summary>CODE-128 Length 1.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C128_LEN2">
+            <summary>CODE-128 Length 2.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_C32_PREFIX">
+            <summary>CODE-39 CODE-32 Prefix.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_AIM_DURATION">
+            <summary>Aim Duration</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_ILLUM">
+            <summary>Imager Decode Illumination.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_AIM_SNAPSHOT">
+            <summary>Image Capture Aim Mode.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_JPEG_QUAL">
+            <summary>Image Capture Jpeg Quality.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_AIM_MODE">
+            <summary>Imager Decode Aim Mode.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_CROP_TOP">
+            <summary>Image Crop Top.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_CROP_LEFT">
+            <summary>Image Crop Left.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_CROP_BOT">
+            <summary>Image Crop Bottom.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_CROP_RIGHT">
+            <summary>Image Crop Right.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_VIDEOVF">
+            <summary>Video Viewfinder.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_RSS_14">
+            <summary>RSS 14 symbology.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_RSS_LIM">
+            <summary>RSS 14 Limited symbology.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_RSS_EXP">
+            <summary>RSS 14 Expanded symbology.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_WEBCODE">
+            <summary>WEBCODE symbology.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMG_IMAGE_ILLUM">
+            <summary>Image Capture Illumination.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_WEBCODE_LEN1">
+            <summary>WEBCODE Length 1.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_WEBCODE_LEN2">
+            <summary>WEBCODE Length 2.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_GT_WEBCODE">
+            <summary>WEBCODE GT subtype.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MIA_HOSTNUM">
+            <summary>Installed Host.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_ADF_RULES">
+            <summary>ADF Rules.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_SCANLINE_WIDTH">
+            <summary>Scan Line Width.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_PICO_FOCUS_MODE">
+            <summary>Focus Mode.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_IMAGE_FUZZY_1D">
+            <summary>Image Poor Quality 1D.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_MODEL_NUMBER">
+            <summary>Model Number.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_SERIAL_NUMBER">
+            <summary>Serial Number.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_DATE_OF_MANUFACTURE">
+            <summary>Date of Manufacture.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_DATE_OF_SERVICE">
+            <summary>Date of Service.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_PAIR_ON_CONTACT">
+            <summary>Bluetooth Pair on Contact.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BT_AUTHENTICATION">
+            <summary>Bluetooth Authentication.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BT_ENCRYPTION">
+            <summary>Bluetooth Encryption.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BT_PINCODE">
+            <summary>Bluetooth PIN Code.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_RECONNECT_ATTEMPTS">
+            <summary>Bluetooth Number of Reconnect Attempts.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BEEP_ON_RECON_ATTEMPT">
+            <summary>Bluetooth Beep on Reconnect Attempt.</summary>		
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_HID_AUTO_RECON">
+            <summary>HID Server Auto Reconnect Mode.</summary>			
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BT_FRIENDLY_NAME">
+            <summary>Bluetooth Friendly Name.</summary>			
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_PIN_CODE_TYPE">
+            <summary>Bluetooth PIN Code Type.</summary>			
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.ATTRIBUTE_NUMBER.ATT_BT_INQUIRY_MODE">
+            <summary>Bluetooth Inquiry Mode.</summary>			
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.FocusModes">
+            <summary>
+            Enurmation of available focus modes.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.FocusModes.Fixed">
+            <summary>Fixed focus mode.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.CropRectangleAttributes">
+            <summary>
+            Crop rectangle attribute for cropping the acquired image.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.CropRectangleAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new CropRectangleAttributes object
+            </summary>
+            <param name="scannerServices">the ScannerServicesClient object to use for communicating with Scanner Services</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CropRectangleAttributes.Rectangle">
+            <summary>
+            Rectangle to get or set all four cropping values simultaneously.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CropRectangleAttributes.Top">
+            <summary>
+            Crop top.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CropRectangleAttributes.Left">
+            <summary>
+            Crop left.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CropRectangleAttributes.Bottom">
+            <summary>
+            Crop bottom.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.CropRectangleAttributes.Right">
+            <summary>
+            Crop right.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ImagerAttributes">
+            <summary>
+            ImagerAttributes class, used for getting and setting attributes
+            that are specific to the imager
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ImagerAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a new imager attributes object
+            </summary>
+            <param name="scannerServices">the ScannerServicesClient object to use for communicating with Scanner Services</param>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.AimMode">
+            <summary>
+            Aim mode.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.ImageCaptureTimeout">
+            <summary>
+            Timeout for image capture (in milliseconds).
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.LinearSecurityLevel">
+            <summary>
+            Linear security level used during decoding.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.FocusMode">
+            <summary>
+            Focus mode to use for imaging.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.PoorQuality1DMode">
+            <summary>
+            Allow poor quality 1D barcodes to be read, at the expense of image quality. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.PicklistMode">
+            <summary>
+            Allow the imager to decode only the barcode that is directly under the cross-hair/reticule (+) part of the AIM pattern.
+            </summary>
+            <remarks>
+            This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session 
+            and only one of them is targeted for decode. If AimMode if set to AimModes.None, AimModes.Reticule will be used. Enabling this feature
+            may adversely affect overall decoding performance.		
+            </remarks>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.CropRectangle">
+            <summary>
+            Allow poor quality 1D barcodes to be read, at the expense of image quality. 
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ImagerAttributes.Illumination">
+            <summary>
+            Enable or disable illumination.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.BluetoothParameters">
+            <summary>
+            BluetoothParameters class, used for manipulating Bluetooth Host parameters.
+            </summary>
+            <remarks>Not implemented yet.</remarks>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerHostParameters">
+            <summary>
+            ScannerHostParameters class, used for configuring connected hosts.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a ScannerHostParameters object
+            </summary>
+            <param name="scannerServices">the ScannerServicesClient object to use for setting/getting host parameters</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.GetUSBParameters(Symbol.MT2000.ScannerServices.USBHostParameters@)">
+            <summary>
+            Retrieve the USB Host Parameters from the scanner
+            </summary>
+            <param name="usbHostParams">the USBHostParameters that were read from the scanner</param>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.StoreUSBParameters(Symbol.MT2000.ScannerServices.USBHostParameters)">
+            <summary>
+            Set and save the USB Host Parameters to the scanner
+            </summary>
+            <param name="usbHostParams">the USBHostParameters to save</param>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.GetRS232Parameters(Symbol.MT2000.ScannerServices.RS232Parameters@)">
+            <summary>
+            Retrieve the RS232 Host Parameters from the scanner
+            </summary>
+            <param name="rs232Params">the RS232Parameters that were read from the scanner</param>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.StoreRS232Parameters(Symbol.MT2000.ScannerServices.RS232Parameters)">
+            <summary>
+            Set and save the RS232 Host Parameters to the scanner
+            </summary>
+            <param name="rs232Params">the RS232Parameters to save</param>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.GetBluetoothParameters(Symbol.MT2000.ScannerServices.BluetoothParameters@)">
+            <summary>
+            Retrieve the Bluetooth Host Parameters from the scanner
+            </summary>
+            <param name="bluetoothParams">the BluetoothParameters that were read from the scanner</param>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.StoreBluetoothParameters(Symbol.MT2000.ScannerServices.BluetoothParameters)">
+            <summary>
+            Set and save the Bluetooth Host Parameters to the scanner
+            </summary>
+            <param name="bluetoothParams">the BluetoothParameters to save</param>
+            <returns>true if successful, false otherwise</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.GetRawParameters(Symbol.MT2000.ScannerServices.RawParameters@)">
+            <summary>
+            Retrieve the Raw Host Parameters from the scanner
+            </summary>
+            <param name="rawHostParams">the RawParameters that were read from the scanner</param>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerHostParameters.StoreRawParameters(Symbol.MT2000.ScannerServices.RawParameters)">
+            <summary>
+            Set and save the Raw Host Parameters to the scanner
+            </summary>
+            <param name="rawHostParams">the RawParameters to save</param>
+            <returns>RESULTCODE of the operation</returns>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerHostParameters.CurrentConnection">
+            <summary>
+            The data connection type of the host the scanner is connected to.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerHostParameters.BluetoothConnectionStatus">
+            <summary>
+            The Current Bluetooth Connection Stauts
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerHostParameters.USBConnection">
+            <summary>
+            Get the USB connection type
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerHostParameters.BluetoothConnection">
+            <summary>
+            Get the Bluetooth connection type
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerHostParameters.RS232Connection">
+            <summary>
+            Get the RS232 connection type
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RESULTCODE">
+            <summary>
+            Enumeration of result codes from Scanner Services.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_OK">
+            <summary>The operation succeeded.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_OK_NO_DATA">
+            <summary>The operation succeeded, but there was no data returned.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_PARSE_ERR">
+            <summary>There was an error parsing the label.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_CONVERT_ERR">
+            <summary>There was an error converting the label.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_OUTOFMEM">
+            <summary>There was not enough memory to complete the operation.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_HOST_NOT_READY">
+            <summary>The host was not ready.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_API_NOT_READY">
+            <summary>The API was not ready.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_INVALID_PARAM">
+            <summary>There was an invalid parameter specified for the operation.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_DISPATCH_ERR">
+            <summary>The was an error dispatching the data.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_TRANSMIT_ERR">
+            <summary>The was an error transmitting the data to the host.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_NO_RESOURCE_ERR">
+            <summary>The were insufficient resources available to perform the operation.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_INCORRECT_MODE">
+            <summary>The API session does not have the required decode permissions.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_FEATURE_NOT_SUPPORTED">
+            <summary>The feature is unsupported.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_WAIT_TIMEOUT">
+            <summary>The operation timed out.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_ACCESS_ERR">
+            <summary>Invalid handle or API session.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_UNKNOWN_ERR">
+            <summary>Unknown error.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_INSUFFICIENT_BUFFER">
+            <summary>Insuffient buffer provided.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_INVALID_STRUCTINFO">
+            <summary>Invalid struct info.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_ATTR_NOT_FOUND">
+            <summary>Attribute not found.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_ATTR_ACCESS_DENIED">
+            <summary>Access denied for the attempted attribute operation.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_ATTR_STORE">
+            <summary>Problem storing attrbiute.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_ATTR_INVALID_VALUE">
+            <summary>Attribute value is invalid.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_SYNAPSE_NO_MEMORY">
+            <summary>Synapse no memory.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_SYNAPSE_UNSUPPORTED_CABLE">
+            <summary>Unsupported Synapse cable.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_SYNAPSE_BAD_BARCODE">
+            <summary>Bad Synapse barcode.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_SYNAPSE_UNSOPPORTED_BARCODE">
+            <summary>Unsupported Synapse barcode.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.RESULTCODE.E_SYNAPSE">
+            <summary>Synapse error.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.USBHostParameters">
+            <summary>
+            USBHostParameters class, used for manipulating USB Host parameters.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.Personality">
+            <summary>The USB personality type to use when connected via USB.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IgnoreInvalidCharacters">
+            <summary>Set to true to ignore invalid characters when converting a label for transmitting</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.Keyboard">
+            <summary>HID Keyboard parameters</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBM">
+            <summary>IBM SurePOS Parameters</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.SNAPI">
+            <summary>SNAPI Parameters</summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.USBHostParameters.#ctor">
+            <summary>
+            Construct a USBHostParameters object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.USBHostParameters.ConvertToScannerServices(Symbol.MT2000.ScannerServices.USBHostParameters)">
+            <summary>
+             Create a new Scanner Services USB_PARAM_T structure object from a USBHostParameters object
+            </summary>
+            <returns>a new USB_PARAM_T structure</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.USBHostParameters.CreateFromScannerServices(Symbol.MT2000.ScannerServices.ScannerServicesMarshal.USB_PARAM_T)">
+            <summary>
+            Create a new USBHostParameters object from a Scanner Services USB_PARAM_T structure
+            </summary>
+            <param name="usbParams">USB_PARAM_T to create a new object from</param>
+            <returns>a new USBHostParameters object</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.USBHostParameters.BitSet(System.Byte,System.Int32,System.Boolean)">
+            <summary>
+            set or clear a bit in a byte value
+            </summary>
+            <param name="value">the byte to modify</param>
+            <param name="index">the index of the bit to set or clear</param>
+            <param name="set">true if the bit should be set, false if it should be cleared</param>
+            <returns>the modified byte</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.USBHostParameters.BitTest(System.Byte,System.Int32)">
+            <summary>
+            test whether a bit is set or cleared in a byte value
+            </summary>
+            <param name="value">the byte to test</param>
+            <param name="index">the index of the bit to test</param>
+            <returns>true if the bit is set, false if not</returns>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType">
+            <summary>
+            Enumeration of all USB host types.
+            </summary>	
+            <remarks>
+            Not all host types are supported on all hardware. 
+            Consult the documentation for your scanner.
+            </remarks>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.Null">
+            <summary>Null.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.IBMSurePOSHandheld">
+            <summary>IBM SurePOS Handheld.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.IBMSurePOSTabletop">
+            <summary>IBM SurePOS Tabletop.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.HIDKeyboard">
+            <summary>HID Keyboard.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.SUPA">
+            <summary>SUPA.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.COMPortEmulation">
+            <summary>COM Port Emulation.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.IBMSurePOSHandheld2">
+            <summary>IBM SurePOS Handheld2.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.IBMSurePOSTabletop2">
+            <summary>IBM SurePOS Tabletop2.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.IBMOPOSHandheld">
+            <summary>IBM OPOS Handheld.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.SNAPIWithImaging">
+            <summary>SNAPI with imaging interface.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.SNAPIWithoutImaging">
+            <summary>SNAPI without imaging interface.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.CDC">
+            <summary>CDC - Communications Device Class - COM Emulation</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.ActiveSync">
+            <summary>ActiveSync.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.USBHostType.Unknown">
+            <summary>Unknown.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.USBHostParameters.ConvertCase">
+            <summary>
+            Enumeration defining how to convert characters when sending
+            a label over the HID keyboard interface.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.ConvertCase.NoCaseConversion">
+            <summary>Do not convert character case.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.ConvertCase.ConvertAllToUpperCase">
+            <summary>Convert all characters to upper case.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.ConvertCase.ConvertAllToLowerCase">
+            <summary>Convert all characters to lower case.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode">
+            <summary>
+            Country code to use when converting characters to keyboard keys
+            </summary>
+            <remarks>Applicable to HID Keyboard USB host type only.</remarks>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.NorthAmerica">
+            <summary>North America.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.FrenchMacintosh">
+            <summary>French (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.GermanMacintosh">
+            <summary>German (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.CanadianMacintosh">
+            <summary>Canadian (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.SpanishMacintosh">
+            <summary>Spanish (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.ItalianMacintosh">
+            <summary>Italian (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.SwedishMacintosh">
+            <summary>Swedish (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.UnitedKingdomMacintosh">
+            <summary>United Kingdom (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.JapanMacintosh">
+            <summary>Japan (Macintosh).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.FrenchWindows">
+            <summary>French (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.GermanWindows">
+            <summary>German (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.CanadianWindows">
+            <summary>Canadian (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.SpanishWindows">
+            <summary>Spanish (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.ItalianWindows">
+            <summary>Italian (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.SwedishWindows">
+            <summary>Swedish (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.UnitedKingdomWindows">
+            <summary>United Kingdom (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.JapanWindows">
+            <summary>Japan (Windows).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.CanadianWindowsXP">
+            <summary>Canadian (Windows XP).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.UCountryCode.BrazilianWindows">
+            <summary>Brazilian (Windows).</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters">
+            <summary>
+            Structure holding host settings specific to HID Keyboard
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.Country">
+            <summary>Country and operating system to use when converting characters to keyboard codes</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.KeystrokeDelay">
+            <summary>Delay in ms between successive keys when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.CapsLockOverride">
+            <summary>Temporarily override the host's CAPS LOCK key when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.Fn1Substitution">
+            <summary>Perform Fn1 Substitution when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.EmulateKeypad">
+            <summary>Emulate keypad when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.LeadingZeroOnKeypad">
+            <summary>Add a leading zero when performing keypad emulation</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.ConvertKeyCase">
+            <summary>Convert the case to upper case, lower case when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.FunctionKeyMapping">
+            <summary>Perform function key mapping when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.KeyboardParameters.SimulateCapsLock">
+            <summary>Simulate the CAPS LOCK key when sending a label</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters">
+            <summary>
+            Structure holding host settings specific to IBM SurePOS (Tabletop and Handheld)
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.IgnoreBeepSettings">
+            <summary>Ignore beep-related parameter settings from the host</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.IgnoreTypeSettings">
+            <summary>Ignore decoder type-related parameter settings from the host</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.IgnoreScannerDisableCommand">
+            <summary>Ignore scanner enable/disable commands from the host</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.IgnoreDirect">
+            <summary>Ignore Direct IO commands from the host</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.ConvertTo39">
+            <summary>Convert labels to Type99 before sending to the host</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.BeepOnOverrun">
+            <summary>Beep on USB overrun errors</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.Type99Delay">
+            <summary>Delay in ms between Type99 packets when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.UseIBMRuleMaximumLength">
+            <summary>Use the maximum label length allowed by IBM SurePOS when sending a label</summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.IBMParameters.HIDReportPollingInterval">
+            <summary>HID polling interval for the interrupt endpoint (messages from scanner to host)</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.USBHostParameters.SNAPIParameters">
+            <summary>
+            Structure holding host settings specific to SNAPI
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.ScannerServices.USBHostParameters.SNAPIParameters.DisableStatusMessages">
+            <summary>Suppress the sending of SNAPI status messages to the host</summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RS232Parameters">
+            <summary>
+            RS232Parameters class, used for manipulating RS232 Host parameters.
+            </summary>	
+            <remarks>Not implemented yet.</remarks>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.RawData">
+            <summary>
+            RawData class used for passing raw data to and from the scanner.
+            </summary>	
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RawData.#ctor(System.Byte[],System.Int32,System.Byte)">
+            <summary>
+            Construct a RawData object
+            </summary>
+            <param name="rawData">Byte array containing raw data</param>
+            <param name="dataLen">Length of the data in the array</param>
+            <param name="source">Data source</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RawData.ConvertToScannerServices(Symbol.MT2000.ScannerServices.RawData)">
+            <summary>
+            Convert a RawData object to a byte array that can be passed to Scanner Services
+            </summary>
+            <param name="rawData">The RawData object to convert</param>
+            <returns>byte array representation of RAWDATA_T structure</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.RawData.CreateFromScannerServices(System.Byte[])">
+            <summary>
+            Convert a Scanner Services RAWDATA_T byte array to a RawData object
+            </summary>
+            <param name="byteArray">The RAWDATA_T structure as a byte array</param>
+            <returns>new LabelData object</returns>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.RawData.Data">
+            <summary>
+            Returns a copy of the raw data
+            </summary>
+            <remarks>Data cannot be modified directly, but can be used to create a new RawData object</remarks>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.RawData.Source">
+            <summary>
+            Source of the raw data
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.ScannerServices.ScannerServicesAttributes">
+            <summary>
+            ScannerServicesAttributes class, used for manipulating all supported Scanner Services attributes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.#ctor(Symbol.MT2000.ScannerServices.ScannerServicesClient)">
+            <summary>
+            Construct a ScannerServicesAttributes object
+            </summary>
+            <param name="scannerServices">the ScannerServicesClient object to use for setting/getting attributes</param>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.RestoreFactoryDefaults">
+            <summary>
+            Restore all attributes to their factory defaults.
+            </summary>
+            <returns>Result of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.RestoreCustomDefaults">
+            <summary>
+            Restore all attributes to their custom defaults.
+            </summary>
+            <returns>Result of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.SaveCustomDefaults">
+            <summary>
+            Save all current attribute values as the new custom defaults.
+            </summary>
+            <returns>Result of the operation.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.Save">
+            <summary>
+            Save all attribute values to persistent storage
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.Decoders">
+            <summary>
+            Scanner decoder attributes
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.UPCEAN">
+            <summary>
+            Scanner UPC/EAN attributes
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.Laser">
+            <summary>
+            Laser specific attributes
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.Imager">
+            <summary>
+            Imager specific attributes
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.ScannerServices.ScannerServicesAttributes.System">
+            <summary>
+            System specific attributes
+            </summary>
+        </member>
+    </members>
+</doc>

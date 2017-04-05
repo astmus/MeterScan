@@ -1,0 +1,755 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Symbol.MT2000.Utils</name>
+    </assembly>
+    <members>
+        <member name="T:Symbol.MT2000.Utils.SystemHotKey">
+            <summary>
+            Wraps the Windows API RegisterHotKey functionality.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemHotKey.Register(System.Windows.Forms.Keys,System.UInt32)">
+            <summary>
+            Registers a system hot key.
+            </summary>
+            <param name="key">Key to be registered as a system hot key.</param>
+            <param name="modifiers">Modifier keys that must be pressed along with the hot key.</param>
+            <returns>Returns a non-0 identifier if successful, 0 if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemHotKey.Unregister(System.Int32)">
+            <summary>
+            Unregisters a system hot key that was registered by the Register method.
+            </summary>
+            <param name="id">Identifier of the hot key to be unregistered, as returned by the Register method.</param>
+            <returns>Returns true if the key was successfully unregistered, false if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemHotKey.WndProc(Microsoft.WindowsCE.Forms.Message@)">
+            <summary>
+            Window procedure that receives the WM_HOTKEY messages
+            and fires HotKeyPressed events in response to them.
+            </summary>
+            <param name="msg">Standard Windows message.</param>
+        </member>
+        <member name="E:Symbol.MT2000.Utils.SystemHotKey.HotKeyPressed">
+            <summary>
+            This is the event that gets fired when one of the registered hots keys is pressed.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.HotKeyPressedEventHandler">
+            <summary>
+            Event handler delegate for HotKeyPressed events.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.HotKeyPressedEventArgs">
+            <summary>
+            Arguments for the HotKeyPressed event.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.HotKeyPressedEventArgs.Key">
+            <summary>
+            The hot key that was pressed.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.HotKeyPressedEventArgs.Modifiers">
+            <summary>
+            The keyboard modifiers that were pressed along with the hot key.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.HotKeyPressedEventArgs.#ctor(System.Windows.Forms.Keys,System.UInt32)">
+            <summary>
+            Initializes the HotKeyPressed event arguments.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.BatteryState">
+            <summary>
+            Wraps various Windows API calls to get the current battery state.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.BatteryState.BATTERY_LEVEL_UNKNOWN">
+            <summary>Represents an unknown or invalid battery level (i.e. not charging and not from 0-100%).</summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.BatteryState.IOCTL_BATT(System.UInt32,System.UInt32)">
+            <summary>
+            builds the IOCTL for communicating with the battery driver
+            </summary>
+            <param name="access">type of access required, read or write</param>
+            <param name="function">command to be performed</param>
+            <returns>0 if successful, non-0 if not</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.BatteryState.Refresh">
+            <summary>
+            Updates the battery status information based on the current battery state.
+            </summary>
+            <returns>True if the battery status was successfully updated, false if not.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.BatteryState.Level">
+            <summary>
+            Gets the battery charge level (0-100% or BATTERY_LEVEL_UNKNOWN).
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.BatteryState.Charging">
+            <summary>
+            Gets a flag indicating if the battery is being charged.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.BatteryState.ManufactureDate">
+            <summary>
+            Gets the date on which the battery was manufactured.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.BatteryState.Capacity">
+            <summary>
+            Gets the battery capacity in milliamp hours (mAh).
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.BatteryState.Voltage">
+            <summary>
+            Gets the battery voltage in volts (V) to one decimal place.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.BatteryState.Temperature">
+            <summary>
+            Gets the battery temperature in celsius (C).
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.Xml">
+            <summary>
+            The Xml class contains methods for conveniently reading and writing XML node values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Xml.ReadElement(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            Reads an XML element value as a string.
+            </summary>
+            <param name="node">The node containing the Xml element to be read.</param>
+            <param name="name">The name of the Xml element to be read.</param>
+            <param name="defaultValue">The default value if it doesn't exist wihtin the Xml node.</param>
+            <returns>The value read if successful, the default value if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Xml.ReadBooleanElement(System.Xml.XmlNode,System.String,System.Boolean)">
+            <summary>
+            Reads an XML element value as a boolean.
+            </summary>
+            <param name="node">The node containing the Xml element to be read.</param>
+            <param name="name">The name of the Xml element to be read.</param>
+            <param name="defaultValue">The default value if it doesn't exist wihtin the Xml node.</param>
+            <returns>The value read if successful, the default value if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Xml.ReadIntegerElement(System.Xml.XmlNode,System.String,System.Int32)">
+            <summary>
+            Reads an XML element value as an integer.
+            </summary>
+            <param name="node">The node containing the Xml element to be read.</param>
+            <param name="name">The name of the Xml element to be read.</param>
+            <param name="defaultValue">The default value if it doesn't exist wihtin the Xml node.</param>
+            <returns>The value read if successful, the default value if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Xml.ReadUnsignedIntegerElement(System.Xml.XmlNode,System.String,System.UInt32)">
+            <summary>
+            Reads an XML element value as an unsigned integer.
+            </summary>
+            <param name="node">The node containing the Xml element to be read.</param>
+            <param name="name">The name of the Xml element to be read.</param>
+            <param name="defaultValue">The default value if it doesn't exist wihtin the Xml node.</param>
+            <returns>The value read if successful, the default value if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Xml.ReadColorElement(System.Xml.XmlNode,System.String,System.Drawing.Color)">
+            <summary>
+            Reads an XML element value as a color.
+            </summary>
+            <param name="node">The node containing the Xml element to be read.</param>
+            <param name="name">The name of the Xml element to be read.</param>
+            <param name="defaultValue">The default value if it doesn't exist wihtin the Xml node.</param>
+            <returns>The value read if successful, the default value if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Xml.ReadFontStyleElement(System.Xml.XmlNode,System.String,System.Drawing.FontStyle)">
+            <summary>
+            Reads an XML element value as a font style.
+            </summary>
+            <param name="node">The node containing the Xml element to be read.</param>
+            <param name="name">The name of the Xml element to be read.</param>
+            <param name="defaultValue">The default value if it doesn't exist wihtin the Xml node.</param>
+            <returns>The value read if successful, the default value if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Xml.WriteElement(System.Xml.XmlTextWriter,System.String,System.String)">
+            <summary>
+            Writes a string value as an XML element.
+            </summary>
+            <param name="textWriter">The XML writer that will do the writing.</param>
+            <param name="name">The name of the value to be written.</param>
+            <param name="value">The string value to be written.</param>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.Counts">
+            <summary>
+            Some useful constants defining the number of elements in some of the enumerations.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.Counts.NumBatteryLevels">
+            <summary>The number of battery levels.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.Counts.NumSignalQualities">
+            <summary>The number of signal qualities.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.Counts.NumKeyStates">
+            <summary>The number of key states.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.Counts.NumConnectivityTypes">
+            <summary>The number of connectivity types.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.SignalQuality">
+            <summary>
+            The Wi-Fi signal quality.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQuality.None">
+            <summary>There is no Wi-Fi connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQuality.Poor">
+            <summary>There is a poor Wi-Fi connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQuality.Fair">
+            <summary>There is a fair Wi-Fi connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQuality.Good">
+            <summary>There is a good Wi-Fi connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQuality.VeryGood">
+            <summary>There is a very good Wi-Fi connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQuality.Excellent">
+            <summary>There is a excellent Wi-Fi connection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQuality.NoAdapter">
+            <summary>No Wi-Fi Adapter detected</summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.KeyState">
+            <summary>
+            The state of the special blue and orange keyboard keys.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyState.None">
+            <summary>No special keys are active.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyState.Blue">
+            <summary>The Blue special key is active (i.e. has been pressed once).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyState.BlueLocked">
+            <summary>The Blue special key is locked (i.e. has been pressed twice).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyState.Orange">
+            <summary>The Orange special key is active.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyState.OrangeBlue">
+            <summary>The Orange and Blue special keys are active (i.e. the Orange keys has been pressed and the Blue key has been pressed once).</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyState.OrangeBlueLocked">
+            <summary>The Orange special key is active and the Blue special key is locked (i.e. the Orange keys has been pressed and the Blue key has been pressed twice).</summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.ConnectivityType">
+            <summary>
+            Type of connectivity with a host.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ConnectivityType.None">
+            <summary>There is no connection with a host.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ConnectivityType.Batch">
+            <summary>There is a batch mode connection with a host.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ConnectivityType.Wireless">
+            <summary>There is a wireless connection with a host.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ConnectivityType.USB">
+            <summary>There is a USB connection with a host.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ConnectivityType.RS232">
+            <summary>There is a serial port connection with a host.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.BTConnectivityType">
+            <summary>
+            Type of connectivity with a host.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.BTConnectivityType.Connected">
+            <summary>Bluetooth Active and Connected.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.BTConnectivityType.NotConnected">
+            <summary>Bluetooth Active and Not Connected.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.BTConnectivityType.NotActive">
+            <summary>Bluetooth Not Active.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.KeyStateNotifier">
+            <summary>
+            Wraps the special key notifications from the keyboard driver with a set of C# events.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyStateNotifier.KeyStateChanged">
+            <summary>This is the event that gets fired whenever a key state
+            change notification is received from the keyboard driver.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.KeyStateNotifier.#ctor">
+            <summary>
+            Initializes a new instance of the KeyStateNotifier class and registers
+            with the keyboard driver to start receiving key state change notifications.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.KeyStateNotifier.Finalize">
+            <summary>
+            Cleans up when the object is being destroyed.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.KeyStateNotifier.Dispose">
+            <summary>
+            Unregisters with the keyboard driver.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.KeyStateNotifier.UpdateState(System.UInt32)">
+            <summary>
+            updates the key state variables from a driver state mask
+            </summary>
+            <param name="state">driver state mask</param>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.KeyStateNotifier.WndProc(Microsoft.WindowsCE.Forms.Message@)">
+            <summary>
+            Window procedure that receives the key state notifications from the keyboard driver
+            and fires KeyStateChanged events in response to them.
+            </summary>
+            <param name="msg">Standard Windows message.</param>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.KeyStateNotifier.Blue">
+            <summary>
+            Gets a value indicating whether or not the Blue key has been pressed once
+            (i.e. a single special key can be pressed).
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.KeyStateNotifier.BlueLocked">
+            <summary>
+            Gets a value indicating whether or not the Blue key has been pressed twice
+            (i.e. multiple special keys can be pressed).
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.KeyStateNotifier.Orange">
+            <summary>
+            Gets a value indicating whether or not the Orange key has been pressed once (i.e. CAPS Lock enabled).
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.ResourceLoader">
+            <summary>
+            The ResourceLoader class is used to quickly load embedded resources from an assembly.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.ResourceLoader.#ctor(System.Reflection.Assembly,System.String)">
+            <summary>
+            Initializes the resource loader from a specific assembly and resource path.
+            </summary>
+            <param name="asm">Assembly containing the resources to be loaded.</param>
+            <param name="path">Path to the resources within the assembly.</param>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.ResourceLoader.#ctor(System.String)">
+            <summary>
+            Initializes the resource loader for the calling assembly and a specific resource path.
+            </summary>
+            <param name="path">Path to the resources within the calling assembly.</param>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.ResourceLoader.LoadBitmap(System.String)">
+            <summary>
+            Loads a bitmap from the resource assembly.
+            </summary>
+            <param name="name">Name of the bitmap resource to be loaded.</param>
+            <returns>A Bitmap object if the resource was successfully loaded, null if not.</returns>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.ProcessInfo">
+            <summary>
+            The ProcessInfo class wraps the Windows PROCESSENTRY32 structure that describes a running process.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ProcessInfo.FileName">
+            <summary>File name of the program that was run to create the process.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ProcessInfo.ProcessID">
+            <summary>Process identifier.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ProcessInfo.ParentProcessID">
+            <summary>Process identifier of the process that created this process.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ProcessInfo.NumThreads">
+            <summary>Number of execution threads started by this process.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ProcessInfo.BaseThreadPriority">
+            <summary>Base priority of any threads created by this process.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ProcessInfo.MemoryBase">
+            <summary>Load address of the executable file.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ProcessInfo.AccessKey">
+            <summary>Access bit required to see the process' address space.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.ProcessInfo.#ctor(Symbol.MT2000.Win32.Win32Api.PROCESSENTRY32)">
+            <summary>
+            Initializes this class from a PROCESSENTRY32 structure.
+            </summary>
+            <param name="processEntry">A PROCESSENTRY32 structure to initialize this class from.</param>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.ProcessInfoList">
+            <summary>
+            A list of ProcessInfo objects.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.Misc">
+            <summary>
+            The Misc class is a catch-all group of methods for doing various things.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Misc.GetProcesses">
+            <summary>
+            Gets a list of the currently running programs.
+            </summary>
+            <returns>A list of the currently running programs.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Misc.LoadIcon(System.String)">
+            <summary>
+            Loads an icon as a bitmap from either an icon file (*.ico) or an executable file (*.exe).
+            </summary>
+            <param name="fileName">The name of the file containing the icon.</param>
+            <returns>A bitmap object created from the icon if successful, null if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Misc.GetWrappedTextSize(System.Drawing.Graphics,System.Drawing.Font,System.String@,System.Int32)">
+            <summary>
+            Gets the size for a piece of wrapped text using a specific font and a maximum width.
+            </summary>
+            <param name="graphics">The Graphics object to be used when drawing the text.</param>
+            <param name="font">The font to be used when drawing the text.</param>
+            <param name="text">The text to be drawn.</param>
+            <param name="width">The width of the area within which to draw the text.</param>
+            <returns>The minimum size of the area required to display all of the text.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Misc.ReadAllBytes(System.String)">
+            <summary>
+            Reads all of the bytes in a file into a byte array.
+            </summary>
+            <param name="fileName">The name of the file to read.</param>
+            <returns>A byte array containing the file contents if successful, null if not.</returns>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.SystemMonitor">
+            <summary>
+            Monitors various system facilities (battery, wireless, host connectivity,
+            bluetooth, keyboard, etc.) and fires events when state changes occur.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.Start">
+            <summary>
+            Connects to various system facilities and starts monitoring them for changes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.Stop">
+            <summary>
+            Disconnects from various system facilities and stops monitoring them for changes.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.Fire">
+            <summary>
+            Triggers all of the notification events. Used to establish the
+            initial state in a program that wants to monitor system events.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.testTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            cycles the key state images
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.FireBatteryLevelChanged">
+            <summary>
+            fires the BatteryLevelChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.batteryTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            update the battery level
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.FireSignalQualityChanged">
+            <summary>
+            fires the KeyStateChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.SetSignalQuality(Symbol.Fusion.WLAN.Adapter)">
+            <summary>
+            update the signal quality from an adapter
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.SignalQualityChangedHandler(System.Object,Symbol.Fusion.WLAN.StatusChangeArgs)">
+            <summary>
+            update the signal quality when it changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.FireConnectivityChanged">
+            <summary>
+            fires the ConnectivityChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.FireBluetoothChanged">
+            <summary>
+            fires the BluetoothChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.GetScannerServicesState">
+            <summary>
+            update the connectivity and bluetooth states from scanner services
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.scannerServicesTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            update the connectivity type and the bluetooth state
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.FireKeyStateChanged">
+            <summary>
+            fires the KeyStateChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SystemMonitor.OnKeyStateChanged(System.Object,System.EventArgs)">
+            <summary>
+            updates the key state whenever the state changes
+            </summary>
+        </member>
+        <member name="E:Symbol.MT2000.Utils.SystemMonitor.BatteryLevelChanged">
+            <summary>This is the event that gets fired when the battery state changes.</summary>
+        </member>
+        <member name="E:Symbol.MT2000.Utils.SystemMonitor.SignalQualityChanged">
+            <summary>This is the event that gets fired when the Wi-Fi signal quality changes.</summary>
+        </member>
+        <member name="E:Symbol.MT2000.Utils.SystemMonitor.ConnectivityChanged">
+            <summary>This is the event that gets fired when the host connectivity type changes.</summary>
+        </member>
+        <member name="E:Symbol.MT2000.Utils.SystemMonitor.BluetoothChanged">
+            <summary>This is the event that gets fired when the Bluetooth state changes.</summary>
+        </member>
+        <member name="E:Symbol.MT2000.Utils.SystemMonitor.KeyStateChanged">
+            <summary>This is the event that gets fired when the special key state changes.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.SystemMonitor.TestMode">
+            <summary>
+            Gets and sets test mode, in which monitoring is stopped and the events are instead fired at regular intervals.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.SystemMonitor.BatteryLevel">
+            <summary>
+            Gets the battery charge level as a percentage (0 - 100).
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.SystemMonitor.BatteryCharging">
+            <summary>
+            Gets a value indicating whether or not the battery is being charged (i.e is connected to AC power).
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.SystemMonitor.SignalQuality">
+            <summary>
+            Gets the signal quality of the Wi-Fi connection.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.SystemMonitor.Connectivity">
+            <summary>
+            Gets the type of host connection.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.SystemMonitor.BTConnectivity">
+            <summary>
+            Gets a value indicating whether or not Bluetooth is enabled.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.SystemMonitor.KeyState">
+            <summary>
+            Gets the state of the special keys.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.BatteryLevelChangedEventHandler">
+            <summary>
+            Event handler delegate for BatteryLevelChanged events.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.BatteryLevelChangedEventArgs">
+            <summary>
+            Arguments for the BatteryLevelChanged event.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.BatteryLevelChangedEventArgs.Level">
+            <summary>
+            The battery charge level as a percentage (0 - 100).
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.BatteryLevelChangedEventArgs.Charging">
+            <summary>
+            Indicates whether or not the battery is being charged (i.e is connected to AC power).
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.BatteryLevelChangedEventArgs.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initializes the BatteryLevelChanged event arguments.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.SignalQualityChangedEventHandler">
+            <summary>
+            Event handler delegate for SignalQualityChanged events.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.SignalQualityChangedEventArgs">
+            <summary>
+            Arguments for the SignalQualityChanged event.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.SignalQualityChangedEventArgs.SignalQuality">
+            <summary>
+            The signal quality of the Wi-Fi connection.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.SignalQualityChangedEventArgs.#ctor(Symbol.MT2000.Utils.SignalQuality)">
+            <summary>
+            Initializes the SignalQualityChanged event arguments.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.ConnectivityChangedEventHandler">
+            <summary>
+            Event handler delegate for ConnectivityChanged events.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.ConnectivityChangedEventArgs">
+            <summary>
+            Arguments for the ConnectivityChanged event.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.ConnectivityChangedEventArgs.ConnectivityType">
+            <summary>
+            The type of host connection.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.ConnectivityChangedEventArgs.#ctor(Symbol.MT2000.Utils.ConnectivityType)">
+            <summary>
+            Initializes the ConnectivityChanged event arguments.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.BluetoothChangedEventHandler">
+            <summary>
+            Event handler delegate for BluetoothChanged events.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.BluetoothChangedEventArgs">
+            <summary>
+            Arguments for the BluetoothChanged event.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.BluetoothChangedEventArgs.BluetoothConnectivity">
+            <summary>
+            Indicates whether or not Bluetooth is enabled.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.BluetoothChangedEventArgs.#ctor(Symbol.MT2000.Utils.BTConnectivityType)">
+            <summary>
+            Initializes the BluetoothChanged event arguments.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.KeyStateChangedEventHandler">
+            <summary>
+            Event handler delegate for KeyStateChanged events.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.KeyStateChangedEventArgs">
+            <summary>
+            Arguments for the KeyStateChanged event.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.Utils.KeyStateChangedEventArgs.KeyState">
+            <summary>
+            The state of the special keys.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.KeyStateChangedEventArgs.#ctor(Symbol.MT2000.Utils.KeyState)">
+            <summary>
+            Initializes the KeyStateChanged event arguments.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.Utils.Backlight">
+            <summary>
+            Provides access to the backlight settings.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Backlight.SetValue(System.String,System.UInt32)">
+            <summary>
+            sets a backlight value in the registry
+            </summary>
+            <param name="name">name of the value to be set</param>
+            <param name="value">value to be set</param>
+        </member>
+        <member name="M:Symbol.MT2000.Utils.Backlight.GetDisplayInterface">
+            <summary>
+            gets the display interface from the Symbol.Display interface
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.On">
+            <summary>
+            Gets and sets the backlight on/off state.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.Brightness">
+            <summary>
+            Gets and sets the backlight brightness level.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.NumBrightnessLevels">
+            <summary>
+            Gets the number of backlight brightness levels.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.BatteryTimeout">
+            <summary>
+            Gets and sets the backlight timeout (in seconds) when running on battery power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.ACTimeout">
+            <summary>
+            Gets and sets the backlight timeout (in seconds) when running on AC power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.OnTap">
+            <summary>
+            Gets and sets whether or not tap events turn on the backlight when running on battery power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.ACOnTap">
+            <summary>
+            Gets and sets whether or not tap events turn on the backlight when running on AC power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.OnKeyboard">
+            <summary>
+            Gets and sets whether or not keyboard events turn on the backlight when running on battery power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.ACOnKeyboard">
+            <summary>
+            Gets and sets whether or not keyboard events turn on the backlight when running on AC power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.OnTouch">
+            <summary>
+            Gets and sets whether or not touch events turn on the backlight when running on battery power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.ACOnTouch">
+            <summary>
+            Gets and sets whether or not touch events turn on the backlight when running on AC power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.OnTrigger">
+            <summary>
+            Gets and sets whether or not trigger events turn on the backlight when running on battery power.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.Utils.Backlight.ACOnTrigger">
+            <summary>
+            Gets and sets whether or not trigger events turn on the backlight when running on AC power.
+            </summary>
+        </member>
+    </members>
+</doc>

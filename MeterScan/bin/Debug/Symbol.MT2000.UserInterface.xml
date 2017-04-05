@@ -1,0 +1,3093 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Symbol.MT2000.UserInterface</name>
+    </assembly>
+    <members>
+        <member name="T:Symbol.MT2000.UserInterface.InputForm">
+            <summary>
+            The InputForm displays a prompt above a single-line or multi-line text box
+            and allows the user to edit the value in the text box. It can also use one
+            of the InputValidator objects to validate the input text.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.BaseForm">
+            <summary>
+            The base form is a full screen form displaying a title bar at the top and
+            soft key descriptions at the bottom. It is commonly used to derive other
+            forms containing program specific controls between the title bar and soft keys.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.BaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.#ctor">
+            <summary>
+            Initializes a new instance of the BaseForm class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.BaseForm_Resize(System.Object,System.EventArgs)">
+            <summary>
+            resizes the form to make it full screen
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.BaseForm_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            paints the separators and controls
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.initTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            pre-load the utility forms asynchronously
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.BatteryLevelChanged(Symbol.MT2000.Utils.BatteryLevelChangedEventArgs)">
+            <summary>
+            update the battery level bitmap when the battery state changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.SignalQualityChanged(Symbol.MT2000.Utils.SignalQualityChangedEventArgs)">
+            <summary>
+            update the signal quality bitmap when the battery state changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.ConnectivityChanged(Symbol.MT2000.Utils.ConnectivityChangedEventArgs)">
+            <summary>
+            update the connectivity state bitmap when the battery state changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.BluetoothChanged(Symbol.MT2000.Utils.BluetoothChangedEventArgs)">
+            <summary>
+            update the bluetooth bitmap when the bluetooth state changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.KeyStateChanged(Symbol.MT2000.Utils.KeyStateChangedEventArgs)">
+            <summary>
+            update the key state bitmap when the key state changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Records the key that was pressed for later use by the KeyUp event.
+            This helps avoid some keybaord anomolies due to focus problems.
+            </summary>
+            <param name="e">The keyboard event parameters.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Fires the appropriate event (LeftSoftKeyPressed or RightSoftKeyPressed)
+            when one of the soft keys is pressed.
+            </summary>
+            <param name="e">The keyboard event parameters.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BaseForm.Reconfigure">
+            <summary>
+            Reconfigures the controls based on the current Config values.
+            </summary>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.BaseForm.LeftSoftKeyPressed">
+            <summary>This event is fired when the left soft key is pressed.</summary>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.BaseForm.RightSoftKeyPressed">
+            <summary>This event is fired when the right soft key is pressed.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.TitleFont">
+            <summary>
+            Gets and sets the font used in the title bar.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.SoftKeysFont">
+            <summary>
+            Gets and sets the font used in the soft keys bar.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.TitleText">
+            <summary>
+            Gets and sets the title bar text.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.LeftSoftKeyText">
+            <summary>
+            Gets and sets the left soft key text.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.RightSoftKeyText">
+            <summary>
+            Gets and sets the right soft key text.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.HighlightLeftSoftKey">
+            <summary>
+            Gets and sets whether or not the left soft key is highlighted.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.HighlightRightSoftKey">
+            <summary>
+            Gets and sets whether or not the right soft key is highlighted.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BaseForm.ShowSpinner">
+            <summary>
+            Shows and hides the spinner, which indicates that the device is busy processing something.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.#ctor">
+            <summary>
+            Initializes a new instance of the InputForm class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Initialize">
+            <summary>
+            Used by the UserInterface library to force pre-loading of the InputForm.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Configure">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Configure(Symbol.MT2000.UserInterface.InputForm)">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+            <param name="inputForm">InputForm form to be configured</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Show(System.Windows.Forms.Form,System.String,System.String,System.String,System.Boolean,Symbol.MT2000.UserInterface.InputValidator)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for a soft key to be pressed.
+            The form uses a single-line or multi-line text box and the input is validated (with the passed
+            in validator) if OK (right soft key) is pressed.
+            </summary>
+            <param name="owner">The InputForm will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed at the top of the window.</param>
+            <param name="prompt">The prompt to be displayed above the input field.</param>
+            <param name="text">The text to be edited within the input field.</param>
+            <param name="multiLine">Indicates whether or not a multi-line input box is to be displayed.</param>
+            <param name="validator">The validator to be used when OK (right soft key) is pressed.</param>
+            <returns>Returns the modified text if OK (right soft key) is pressed, null if Cancel (left soft key) is pressed.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Show(System.Windows.Forms.Form,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for a soft key to be pressed.
+            The form uses a single-line or multi-line text box and the input is NOT validated if OK (right soft key) is pressed.
+            </summary>
+            <param name="owner">The InputForm will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed at the top of the window.</param>
+            <param name="prompt">The prompt to be displayed above the input field.</param>
+            <param name="text">The text to be edited within the input field.</param>
+            <param name="multiLine">Indicates whether or not a multi-line input box is to be displayed.</param>
+            <returns>Returns the modified text if OK (right soft key) is pressed, null if Cancel (left soft key) is pressed.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Show(System.Windows.Forms.Form,System.String,System.String,System.String,Symbol.MT2000.UserInterface.InputValidator)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for a soft key to be pressed.
+            The form uses a single-line text box and the input is validated (with the passed
+            in validator) if OK (right soft key) is pressed.
+            </summary>
+            <param name="owner">The InputForm will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed at the top of the window.</param>
+            <param name="prompt">The prompt to be displayed above the input field.</param>
+            <param name="text">The text to be edited within the input field.</param>
+            <param name="validator">The validator to be used when OK (right soft key) is pressed.</param>
+            <returns>Returns the modified text if OK (right soft key) is pressed, null if Cancel (left soft key) is pressed.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Show(System.Windows.Forms.Form,System.String,System.String,System.String)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for a soft key to be pressed.
+            The form uses a single-line text box and the input is NOT validated if OK (right soft key) is pressed.
+            </summary>
+            <param name="owner">The InputForm will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed at the top of the window.</param>
+            <param name="prompt">The prompt to be displayed above the input field.</param>
+            <param name="text">The text to be edited within the input field.</param>
+            <returns>Returns the modified text if OK (right soft key) is pressed, null if Cancel (left soft key) is pressed.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.InputForm_LeftSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            sets the result to PopUpResult.LeftSoftKey and closes the form
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.InputForm_RightSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            if the input validates, sets the result to PopUpResult.RightSoftKey and closes the form
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.InputForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.BitmapBox">
+            <summary>
+            Displays a bitmap centered or scaled to fit (while maintaining the aspect ratio) within a rectangle.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.BitmapBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapBox.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of a BitmapBox control with a specific transparency color.
+            </summary>
+            <param name="transparentColor">The color to be used as transparent when drawing the bitmap.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapBox.#ctor">
+            <summary>
+            Initializes a new instance of a BitmapBox control with a no transparency color.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapBox.BitmapBox_Resize(System.Object,System.EventArgs)">
+            <summary>
+            resizes the painter when the control is resized
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapBox.BitmapBox_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            uses the painter to draw the bitmap
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapBox.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Doesn't paint anything in order to avoid flickering when the bitmap is changed.
+            </summary>
+            <param name="e">The paint event parameters, including the graphics object to be drawn to.</param>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BitmapBox.Bitmap">
+            <summary>
+            Gets and sets the bitmap to be drawn.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BitmapBox.BackColor">
+            <summary>
+            Gets and sets the background color which will be visible around the bitmap
+            if it doesn't fit perfectly within the BitmapBox.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BitmapBox.TransparentColor">
+            <summary>
+            Gets and sets the transparency color within the bitmap.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.Spinner">
+            <summary>
+            The Spinner control draws a spinning circle that is used to indicate that the device is busy
+            performing an operation that will take some time (i.e. not instantaneous). This control is
+            already embedded in the full screen form that all other full screen forms are derived from
+            (BaseForm), so it is only required if you are creating a new type of form (i.e. something
+            that can’t be derived from BaseForm).
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.Spinner.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.#ctor">
+            <summary>
+            Initializes a new instance of the Spinner class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.Spinner_GotFocus(System.Object,System.EventArgs)">
+            <summary>
+            start the spinner when the control gets the focus
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.Spinner_LostFocus(System.Object,System.EventArgs)">
+            <summary>
+            stop the spinner when the control loses the focus
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.Spinner_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            don't paint anything
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Doesn't paint anything in order to avoid flickering when the bitmap is changed.
+            </summary>
+            <param name="e">The paint event parameters, including the graphics object to be drawn to.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Spinner.SpinnerThread">
+            <summary>
+            displays the spinner images
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.QuestionForm">
+            <summary>
+            The QuestionForm displays a question and allows the user to answer the
+            question by pressing one of the soft keys. There is built-in support
+            for OK/Cancel and Yes/No questions.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.QuestionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.#ctor">
+            <summary>
+            Initializes a new instance of the InputForm class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.Initialize">
+            <summary>
+            Used by the UserInterface library to force pre-loading of the InputForm.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.Configure">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.Configure(Symbol.MT2000.UserInterface.QuestionForm)">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+            <param name="questionForm">QuestionForm form to be configured</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.Show(System.Windows.Forms.Form,System.String,System.String,System.String,System.String)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for a soft key to be pressed.
+            </summary>
+            <param name="owner">The QuestionForm will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed at the top of the window.</param>
+            <param name="message">The message/question to be displayed.</param>
+            <param name="leftSoftKeyText">The text to be displayed for the left soft key.</param>
+            <param name="rightSoftKeyText">The text to be displayed for the right soft key.</param>
+            <returns>Returns a value that specifies which soft key was pressed.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.ShowOKCancel(System.Windows.Forms.Form,System.String,System.String)">
+            <summary>
+            Shows the form modally in front of a specific owner form, displays OK and Cancel
+            as the soft key choices, and waits for a soft key to be pressed.
+            </summary>
+            <param name="owner">The QuestionForm will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed at the top of the window.</param>
+            <param name="message">The message/question to be displayed.</param>
+            <returns>Returns true if OK was pressed (right soft key), false if Cancel was pressed (left soft key).</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.ShowYesNo(System.Windows.Forms.Form,System.String,System.String)">
+            <summary>
+            Shows the form modally in front of a specific owner form, displays Yes and No
+            as the soft key choices, and waits for a soft key to be pressed.
+            </summary>
+            <param name="owner">The QuestionForm will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed at the top of the window.</param>
+            <param name="message">The message/question to be displayed.</param>
+            <returns>Returns true if Yes was pressed (right soft key), false if No was pressed (left soft key).</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.QuestionForm_LeftSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            sets the result to PopUpResult.LeftSoftKey and closes the form
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.QuestionForm.QuestionForm_RightSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            sets the result to PopUpResult.RightSoftKey and closes the form
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.QuestionForm.Result">
+            <summary>
+            Gets the answer to the question (i.e. which soft key was pressed).
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.LocationCorner">
+            <summary>
+            Specifies which corner the menu location applies to.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.LocationCorner.TopLeft">
+            <summary>Menu is drawn with the top left corner at the location.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.LocationCorner.TopRight">
+            <summary>Menu is drawn with the top right corner at the location.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.LocationCorner.BottomLeft">
+            <summary>Menu is drawn with the bottom left corner at the location.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.LocationCorner.BottomRight">
+            <summary>Menu is drawn with the bottom right corner at the location.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ButtonBorders">
+            <summary>
+            Specifies which borders to draw with a ButtonPainter.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ButtonBorders.None">
+            <summary>No borders are drawn.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ButtonBorders.Left">
+            <summary>The left border is drawn.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ButtonBorders.Right">
+            <summary>The right border is drawn.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ButtonBorders.Top">
+            <summary>The top border is drawn.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ButtonBorders.Bottom">
+            <summary>The bottom border is drawn.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ButtonBorders.All">
+            <summary>All the borders are drawn.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.PopUpResult">
+            <summary>
+            The result returned by popups.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.PopUpResult.LeftSoftKey">
+            <summary>Indicates that the left soft key was pressed.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.PopUpResult.RightSoftKey">
+            <summary>Indicates that the right soft key was pressed.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollableListItems">
+            <summary>
+            A list of ScrollableListItem objects.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.#ctor">
+            <summary>
+            Initializes a new instance of the ScrollableListItems class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.FireListChanged">
+            <summary>
+            fires the ListChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.ItemChanged(System.Object,System.EventArgs)">
+            <summary>
+            fires the ListChanged event when an item changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.MatchItemForRemoval(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            matches items for removal
+            </summary>
+            <param name="item">item to be matched</param>
+            <returns>true if the item matches, false if not</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.Add(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Adds a new item to the list and fires the ListChanged event.
+            </summary>
+            <param name="item">The item to be added to the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.AddRange(System.Collections.Generic.IEnumerable{Symbol.MT2000.UserInterface.ScrollableListItem})">
+            <summary>
+            Adds a list of new items to the list and fires the ListChanged event.
+            </summary>
+            <param name="collection">The list of items to be added to the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.Clear">
+            <summary>
+            Removes all items from the list and fires the ListChanged event.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.Insert(System.Int32,Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Inserts an item into the list at a specific location and fires the ListChanged event.
+            </summary>
+            <param name="index">The index at which to insert the new item.</param>
+            <param name="item">The item to be inserted into the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{Symbol.MT2000.UserInterface.ScrollableListItem})">
+            <summary>
+            Inserts a list of items into the list at a specific location and fires the ListChanged event.
+            </summary>
+            <param name="index">The index at which to insert the list of items.</param>
+            <param name="collection">The list of items to be inserted into the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.Remove(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Removes an item from the list and fires the ListChanged event.
+            </summary>
+            <param name="item">The item to be removed from the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.RemoveAll(System.Predicate{Symbol.MT2000.UserInterface.ScrollableListItem})">
+            <summary>
+            Removes all matching items from the list and fires the ListChanged event.
+            </summary>
+            <param name="match">Delegate for a function that determines whether or not an item matches (i.e. should be deleted).</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.RemoveAt(System.Int32)">
+            <summary>
+            Removes an item at a specific location and fires the ListChanged event.
+            </summary>
+            <param name="index">The index of the item to be removed from the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.RemoveRange(System.Int32,System.Int32)">
+            <summary>
+            Removes several items starting at a specific location and fires the ListChanged event.
+            </summary>
+            <param name="index">The index at which to start removing items.</param>
+            <param name="count">The number of items to be removed from the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItems.Replace(System.Int32,Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Replaces an item at a specific index and fires the ListChanged event.
+            </summary>
+            <param name="index">The index of the item to be replaced.</param>
+            <param name="item">The new item to replace the existing item with.</param>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.ScrollableListItems.ListChanged">
+            <summary>
+            This is the event that gets fired when the list contents are changed.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItems.Columns">
+            <summary>
+            Gets and sets the columns to be used when displaying the list.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.TitleBar">
+            <summary>
+            The TitleBar control draws the title text along with several state icons
+            at the top of a full screen form. This control is already embedded in the
+            full screen form that all other full screen forms are derived from (BaseForm),
+            so it is only required if you are creating a new type of form (i.e. something
+            that can’t be derived from BaseForm).
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TitleBar.#ctor">
+            <summary>
+            Initializes a new instance of the TitleBar class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TitleBar.TitleBar_Resize(System.Object,System.EventArgs)">
+            <summary>
+            resizes the painters when the control is resized
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TitleBar.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Paints the title text and the key state images.
+            </summary>
+            <param name="e">The paint event parameters, including the graphics object to be drawn to.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TitleBar.Configure">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TitleBar.SetBattery(System.Int32,System.Boolean)">
+            <summary>
+            Sets the battery image.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.TitleBar.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TitleBar.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TitleBar.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TitleBar.TitleText">
+            <summary>
+            Gets and sets the title text.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TitleBar.Font">
+            <summary>
+            Gets and sets the title font.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TitleBar.SignalQuality">
+            <summary>
+            Sets the signal quality image.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TitleBar.BluetoothEnabled">
+            <summary>
+            Sets the Bluetooth image.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TitleBar.Connectivity">
+            <summary>
+            Sets the connectivity image.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.InputValidator">
+            <summary>
+            The abstract base class for the various input validators.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.InputValidator.errorMessage">
+            <summary>The error message to be displayed when validation fails.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.InputValidator.maxLength">
+            <summary>The maximum length of the text to be validated, 0 for no maximum.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.InputValidator.ok">
+            <summary>Indicates whether or not OK was pressed and the value was validated, false if not (i.e. Cancel was pressed).</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputValidator.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the InputValidator control with a maximum text length and an error message.
+            </summary>
+            <param name="maxLength">The maximum text length, 0 for no maximum.</param>
+            <param name="errorMessage">The error message to be displayed if validation fails.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.InputValidator.Validate(System.String)">
+            <summary>
+            Validates the input text.
+            </summary>
+            <param name="text">The current input text to be validated.</param>
+            <returns>Returns true if the text is valid, false if not.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.InputValidator.MaxLength">
+            <summary>
+            Gets and sets the maximum text length.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.InputValidator.OK">
+            <summary>
+            Gets the validation result, true if validated, false if canceled.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.StringValidator">
+            <summary>
+            A validation class for string values.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.StringValidator.value">
+            <summary>The succesfully validated string.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.StringValidator.zeroLengthAllowed">
+            <summary>Indicates whether or not 0-length values are allowed.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.StringValidator.#ctor(System.Int32,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of a StringValidator with a maximum text length,
+            a flag indicating whether or not 0-length values are allowed, and an error message.
+            </summary>
+            <param name="maxLength">The maximum string length, 0 for no maximum.</param>
+            <param name="zeroLengthAllowed">Indicates whether or not 0-length values are allowed.</param>
+            <param name="errorMessage">The error message to be displayed if validation fails.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.StringValidator.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of a StringValidator with a maximum text length
+            and a flag indicating whether or not 0-length values are allowed.
+            </summary>
+            <param name="maxLength">The maximum string length, 0 for no maximum.</param>
+            <param name="zeroLengthAllowed">Indicates whether or not 0-length values are allowed.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.StringValidator.Validate(System.String)">
+            <summary>
+            Validates the input text.
+            </summary>
+            <param name="text">The current input text to be validated.</param>
+            <returns>Returns true if the text is valid, false if not.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.StringValidator.Value">
+            <summary>
+            Gets the validated string.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.IntegerValidator">
+            <summary>
+            A validation class for integer (int) values.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.IntegerValidator.value">
+            <summary>The succesfully validated integer.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.IntegerValidator.min">
+            <summary>The minimum value allowed for the integer.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.IntegerValidator.max">
+            <summary>The maximum value allowed for the integer.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IntegerValidator.#ctor">
+            <summary>
+            Initializes a new instance of an IntegerValidator with a minimum of 0
+            and a maximum of 100.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IntegerValidator.#ctor(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of an IntegerValidator with a minimum value,
+            maximum value, maximum text length, and an error message.
+            </summary>
+            <param name="minimum">The minimum integer value</param>
+            <param name="maximum">The maximum integer value</param>
+            <param name="maxLength">The maximum number of digits, 0 for no maximum.</param>
+            <param name="errorMessage">The error message to be displayed if validation fails.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IntegerValidator.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of an IntegerValidator with a minimum value,
+            maximum value, and an error message.
+            </summary>
+            <param name="minimum">The minimum integer value</param>
+            <param name="maximum">The maximum integer value</param>
+            <param name="errorMessage">The error message to be displayed if validation fails.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IntegerValidator.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of an IntegerValidator with a minimum value,
+            maximum value, and a maximum text length.
+            </summary>
+            <param name="minimum">The minimum integer value</param>
+            <param name="maximum">The maximum integer value</param>
+            <param name="maxLength">The maximum number of digits, 0 for no maximum.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IntegerValidator.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of an IntegerValidator with a minimum value and a
+            maximum value.
+            </summary>
+            <param name="minimum">The minimum integer value</param>
+            <param name="maximum">The maximum integer value</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IntegerValidator.Validate(System.String)">
+            <summary>
+            Validates the input text.
+            </summary>
+            <param name="text">The current input text to be validated.</param>
+            <returns>Returns true if the text is valid, false if not.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.IntegerValidator.Value">
+            <summary>
+            Gets the validated integer.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.UnsignedIntegerValidator">
+            <summary>
+            A validation class for unsigned integer (uint) values.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.value">
+            <summary>The succesfully validated unsigned integer.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.min">
+            <summary>The minimum value allowed for the unsigned integer.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.max">
+            <summary>The maximum value allowed for the unsigned integer.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.#ctor">
+            <summary>
+            Initializes a new instance of an UnsignedIntegerValidator with a minimum of 0
+            and a maximum of 100.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.#ctor(System.UInt32,System.UInt32,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of an UnsignedIntegerValidator with a minimum value,
+            maximum value, maximum text length, and an error message.
+            </summary>
+            <param name="minimum">The minimum unsigned integer value</param>
+            <param name="maximum">The maximum unsigned integer value</param>
+            <param name="maxLength">The maximum number of digits, 0 for no maximum.</param>
+            <param name="errorMessage">The error message to be displayed if validation fails.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.#ctor(System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Initializes a new instance of an UnsignedIntegerValidator with a minimum value,
+            maximum value, and an error message.
+            </summary>
+            <param name="minimum">The minimum unsigned integer value</param>
+            <param name="maximum">The maximum unsigned integer value</param>
+            <param name="errorMessage">The error message to be displayed if validation fails.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.#ctor(System.UInt32,System.UInt32,System.Int32)">
+            <summary>
+            Initializes a new instance of an UnsignedIntegerValidator with a minimum value,
+            maximum value, and a maximum text length.
+            </summary>
+            <param name="minimum">The minimum unsigned integer value</param>
+            <param name="maximum">The maximum unsigned integer value</param>
+            <param name="maxLength">The maximum number of digits, 0 for no maximum.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.#ctor(System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of an UnsignedIntegerValidator with a minimum value
+            and a maximum value.
+            </summary>
+            <param name="minimum">The minimum unsigned integer value</param>
+            <param name="maximum">The maximum unsigned integer value</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.Validate(System.String)">
+            <summary>
+            Validates the input text.
+            </summary>
+            <param name="text">The current input text to be validated.</param>
+            <returns>Returns true if the text is valid, false if not.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.UnsignedIntegerValidator.Value">
+            <summary>
+            Gets the validated unsigned integer.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.IPAddressValidator">
+            <summary>
+            A validation class for IP address values.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.IPAddressValidator.value">
+            <summary>The succesfully validated IP address as a string.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IPAddressValidator.#ctor">
+            <summary>
+            Initializes a new instance of an IPAddressValidator with a default error message.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IPAddressValidator.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of an IPAddressValidator with a custom error message.
+            </summary>
+            <param name="errorMessage">The error message to be displayed if validation fails.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.IPAddressValidator.Validate(System.String)">
+            <summary>
+            Validates the input text.
+            </summary>
+            <param name="text">The current input text to be validated.</param>
+            <returns>Returns true if the text is valid, false if not.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.IPAddressValidator.Value">
+            <summary>
+            Gets the validated IP address.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ListForm">
+            <summary>
+            The ListForm is a full screen form (derived from BaseForm) that displays a
+            generic list of items and allows the user to select a specific item using
+            the up and down arrow keys. If the list doesn’t fit on the screen, it will
+            be scrolled (one line at a time) as needed. If enabled, the left and right
+            arrow keys can be used to scroll the list up and down (respectively) one page
+            at a time.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ListForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ListForm.List">
+            <summary>list of items displayed on the screen</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ListForm.Screens">
+            <summary>The list of screens that can be displayed on this form.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ListForm.ScreenStack">
+            <summary>The current stack of active screens, the topmost screen is currently displayed.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ListForm.currScreen">
+            <summary>The screen that is currently displayed.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.#ctor">
+            <summary>
+            Initializes a new instance of the ListForm class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.ListForm_Closed(System.Object,System.EventArgs)">
+            <summary>
+            clean up when the form closes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.Configure">
+            <summary>
+            Configures the controls based on the current Config values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.ListForm_ExecuteListItem(System.Object,Symbol.MT2000.UserInterface.ScrollableListEventArgs)">
+            <summary>
+            perform the action for the selected list item
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.ListForm_LeftSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            perform the left soft key action
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.ListForm_RightSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            perform the right soft key action
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.List_SelectionChanging(System.Object,Symbol.MT2000.UserInterface.ScrollableListEventArgs)">
+            <summary>
+            handles list selection changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.List_SelectionChanged(System.Object,System.EventArgs)">
+            <summary>
+            handles list selection changes
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Handles the list arrow keys for movement within the list. Records
+            all other keys for later use by the KeyUp event. This helps avoid
+            some keybaord anomolies due to focus problems.
+            </summary>
+            <param name="e">The keyboard event parameters.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Handles the Enter, Backspace and numeric shortcut keys for selecting
+            items in the list by firing the ExecuteListItem event.
+            </summary>
+            <param name="e">The keyboard event parameters.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.ListForm_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            passes key presses to the active screen
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.PushScreen(Symbol.MT2000.UserInterface.ListScreen)">
+            <summary>
+            Displays a new screen and pushes it onto the screen stack.
+            </summary>
+            <param name="newScreen">The new screen to be displayed.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListForm.PopScreen">
+            <summary>
+            Pops the current screen off the screen stack and displays the new
+            "top of the stack" screen.
+            </summary>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.ListForm.ExecuteListItem">
+            <summary>This is the event that gets fired when the Enter key is pressed while a line in the list is selected.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ListForm.CurrScreen">
+            <summary>
+            Gets the currently displayed screen.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.FileOpenForm">
+            <summary>
+            The FileOpenForm displays a list of files and directories and allows the user
+            to move around within the file system tree and then select an existing file.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.FileOpenForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.#ctor">
+            <summary>
+            Initializes a new instance of the FileOpenForm class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.FileOpenForm_ExecuteListItem(System.Object,Symbol.MT2000.UserInterface.ScrollableListEventArgs)">
+            <summary>
+            moves within the list or selects the current file
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.FileOpenForm_LeftSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            cancels the file open operation and hides the form
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.FileOpenForm_RightSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            selects the current file and hides the form
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.GetFiles(System.String)">
+            <summary>
+            gets and displays the directories and files in a directory
+            </summary>
+            <param name="selectedFileName">name of the file to be selected, null to select the first file</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileOpenForm.Show(System.Windows.Forms.Form)">
+            <summary>
+            Shows the form modally in front of a specific owner form.
+            </summary>
+            <param name="owner">The FileOpenForm will be displayed in front of this form.</param>
+            <returns>Returns true if a file was selected, false if not.</returns>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileOpenForm.Directory">
+            <summary>
+            Gets and sets the directory path to be displayed.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileOpenForm.Filter">
+            <summary>
+            Gets and sets the file name filter to be used when displaying files.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileOpenForm.FileName">
+            <summary>
+            Gets the full path and file name of the selected file.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileOpenForm.OK">
+            <summary>
+            Gets a value indicating whether or not a file was selected.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.SoftKeys">
+            <summary>
+            A control to draw the soft key text along with a key state indicator at the
+            bottom of a full screen form. This control is already embedded in the full
+            screen form that all other full screen forms are derived from (BaseForm),
+            so it is only required if you are creating a new type of form (i.e. something
+            that can’t be derived from BaseForm).
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.SoftKeys.#ctor">
+            <summary>
+            Initializes a new instance of the SoftKeys class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.SoftKeys.SoftKeys_Resize(System.Object,System.EventArgs)">
+            <summary>
+            resizes the painters when the control is resized
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.SoftKeys.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Paints the soft key text and the key state image.
+            </summary>
+            <param name="e">The paint event parameters, including the graphics object to be drawn to.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.SoftKeys.Configure">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.SoftKeys.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.SoftKeys.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.SoftKeys.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.SoftKeys.Font">
+            <summary>
+            Gets and sets the soft key font.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.SoftKeys.LeftKeyText">
+            <summary>
+            Gets and sets the left soft key text.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.SoftKeys.RightKeyText">
+            <summary>
+            Gets and sets the right soft key text.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.SoftKeys.HighlightLeftKey">
+            <summary>
+            Gets and sets whether or not the left soft key is highlighted.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.SoftKeys.HighlightRightKey">
+            <summary>
+            Gets and sets whether or not the right soft key is highlighted.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.SoftKeys.KeyState">
+            <summary>
+            Sets the key state image.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.FileSaveForm">
+            <summary>
+            The FileSaveForm displays a list of files and directories and allows the
+            user to move around within the file system tree and then select an existing
+            file. It also includes a text box at the bottom of the form that allows the
+            user to enter the name of a file to be created.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.#ctor">
+            <summary>
+            Initializes a new instance of the FileSaveForm class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.Configure">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.FileSaveForm_ExecuteListItem(System.Object,Symbol.MT2000.UserInterface.ScrollableListEventArgs)">
+            <summary>
+            moves within the list or selects the current file
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.FileSaveForm_LeftSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            cancels the file save operation and hides the form
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.FileSaveForm_RightSoftKeyPressed(System.Object,System.EventArgs)">
+            <summary>
+            makes sure there is a file name and returns if there is
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.GetFiles(System.String)">
+            <summary>
+            gets and displays the directories and files in a directory
+            </summary>
+            <param name="selectedFileName">name of the file to be selected, null to select the first file</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.Show(System.Windows.Forms.Form)">
+            <summary>
+            Shows the form modally in front of a specific owner form.
+            </summary>
+            <param name="owner">The FileSaveForm will be displayed in front of this form.</param>
+            <returns>Returns true if a file was selected, false if not.</returns>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.FileSaveForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.FileSaveForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileSaveForm.Directory">
+            <summary>
+            Gets and sets the directory path to be displayed.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileSaveForm.Filter">
+            <summary>
+            Gets and sets the file name filter to be used when displaying files.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileSaveForm.FileName">
+            <summary>
+            Gets the full path and file name of the selected file.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileSaveForm.DefaultExtension">
+            <summary>
+            Fets and sets the default file name extension.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.FileSaveForm.OK">
+            <summary>
+            Gets a value indicating whether or not a file was selected.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ButtonPainter">
+            <summary>
+            draws a bitmap into a graphics object
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.Painter">
+            <summary>
+            base class for drawing objects into a graphics object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Painter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            initializes the painter
+            </summary>
+            <param name="x">X coordinate of the bounding rectangle</param>
+            <param name="y">Y coordinate of the bounding rectangle</param>
+            <param name="width">width of the bounding rectangle</param>
+            <param name="height">height of the bounding rectangle</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Painter.Paint(System.Drawing.Graphics)">
+            <summary>
+            draws into a graphics object
+            </summary>
+            <param name="graphics">graphics object to draw into</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Painter.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Painter.Location">
+            <summary>
+            gets and sets the location of the bounding rectangle
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Painter.Size">
+            <summary>
+            gets and sets the size of the bounding rectangle
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ButtonPainter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,Symbol.MT2000.UserInterface.ButtonBorders,System.Boolean,System.Drawing.Color)">
+            <summary>
+            initialize the button painter
+            </summary>
+            <param name="x">X coordinate at which to paint the button</param>
+            <param name="y">Y coordinate at which to paint the button</param>
+            <param name="width">width of the button's bounding rectangle</param>
+            <param name="height">height of the button's bounding rectangle</param>
+            <param name="borders">indicates which borders to draw within the button's bounding rectangle</param>
+            <param name="showEmpty">true to show the borders when there's no text or bitmap inside</param>
+            <param name="transparentColor">transparent color within the bitmap</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ButtonPainter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,Symbol.MT2000.UserInterface.ButtonBorders,System.Boolean)">
+            <summary>
+            initialize the button painter
+            </summary>
+            <param name="x">X coordinate at which to paint the button</param>
+            <param name="y">Y coordinate at which to paint the button</param>
+            <param name="width">width of the button's bounding rectangle</param>
+            <param name="height">height of the button's bounding rectangle</param>
+            <param name="borders">indicates which borders to draw within the button's bounding rectangle</param>
+            <param name="showEmpty">true to show the borders when there's no text or bitmap inside</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ButtonPainter.#ctor(Symbol.MT2000.UserInterface.ButtonBorders,System.Boolean)">
+            <summary>
+            initialize the button painter
+            </summary>
+            <param name="borders">indicates which borders to draw within the button's bounding rectangle</param>
+            <param name="showEmpty">true to show the borders when there's no text or bitmap inside</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ButtonPainter.#ctor">
+            <summary>
+            initialize the button painter
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ButtonPainter.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn by combining the background and bitmap
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.Text">
+            <summary>
+            gets and sets the string to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.Font">
+            <summary>
+            gets and sets the font to draw the button text with
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.ForeColor">
+            <summary>
+            gets and sets the foreground (text) color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.ForeHighlightColor">
+            <summary>
+            gets and sets the highlighted foreground (text) color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.BackColor">
+            <summary>
+            gets and sets the background color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.BackHighlightColor">
+            <summary>
+            gets and sets the highlighted background color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.ButtonBitmap">
+            <summary>
+            gets and sets the button bitmap
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.ButtonHighlightBitmap">
+            <summary>
+            gets and sets the highlighted button bitmap
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.Bitmap">
+            <summary>
+            gets and sets the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.TransparentColor">
+            <summary>
+            gets and sets the transparent color within the bitmap
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ButtonPainter.Highlight">
+            <summary>
+            gets and sets whether or not the button is highlighted
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.AboutScreen">
+            <summary>
+            The about screen displays a list of lines containing
+            information about the running program (calling assembly).
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ListScreen">
+            <summary>
+            The ListScreen object is an abstract class that serves as the base for defining
+            screens that can be displayed on a ListForm.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ListScreen.listForm">
+            <summary>The ListForm that this screen will be drawn on.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ListScreen.Closed">
+            <summary>The event that is fired when the screen is closed.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.#ctor(Symbol.MT2000.UserInterface.ListForm)">
+            <summary>
+            Initializes the member variables that are the same each time the screen is displayed.
+            </summary>
+            <param name="listForm">The form to display the screen on.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.Initialize">
+            <summary>
+            Initializes the screen immediately prior to being drawn and determines
+            if it's OK to call Display to actually display the screen.
+            </summary>
+            <returns>Returns true if initialization was successful and it's now OK to call Display, false if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.Show">
+            <summary>
+            Displays the screen by setting the form title, softkey text, and list contents.
+            Can also add any other controls used by the screen.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.Hide">
+            <summary>
+            Cleans up the screen before it is hidden, mostly this amounts to hiding or destroying
+            any controls added by the Show method.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.Done">
+            <summary>
+            Cleans up the screen before it is closed and destroyed.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.ExecuteListItem(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Performs the action associated with the selected list item. Invoked by the user
+            pressing the Enter key, the Backspace key, or one of the shortcut keys.
+            </summary>
+            <param name="item">The currently selected item within the list (i.e. the item to be "executed").</param>
+            <returns>Returns the new screen to be displayed, or 'this' to stay on the same screen,
+            or null to pop to the previous screen.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.LeftSoftKeyPressed">
+            <summary>
+            Performs the action associated with the left soft key.
+            Invoked by the user pressing the left soft key.
+            </summary>
+            <returns>Returns the new screen to be displayed, or 'this' to stay on the same screen,
+            or null to pop to the previous screen.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.RightSoftKeyPressed">
+            <summary>
+            Performs the action associated with the right soft key.
+            Invoked by the user pressing the right soft key.
+            </summary>
+            <returns>Returns the new screen to be displayed, or 'this' to stay on the same screen,
+            or null to pop to the previous screen.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.KeyPressed(System.Char)">
+            <summary>
+            Performs the action associated with a key press. Invoked by the user
+            pressing a key other than one of the soft keys, the Enter key,
+            the Backspace key, or one of the shortcut keys.
+            </summary>
+            <param name="key">The key that was pressed.</param>
+            <returns>Returns true if the key press was handled, false if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.SelectionChanging(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Called when the list selection is about to change.
+            </summary>
+            <param name="item">The currently selected list item, or null if there's no selection.</param>
+            <returns>Returns true if the selection can be changed, false to prevent it from happening.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ListScreen.SelectionChanged(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Called after the list selection has changed.
+            </summary>
+            <param name="item">The newly selected list item, or null if there's no selection.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.AboutScreen.#ctor(Symbol.MT2000.UserInterface.ListForm)">
+            <summary>
+            Initializes the member variables with information about the running program (calling assembly).
+            </summary>
+            <param name="listForm">The form to display the about screen on.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.AboutScreen.Show">
+            <summary>
+            Displays the about screen, adjusting the title font size if necessary.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.AboutScreen.Hide">
+            <summary>
+            Restores the title font size if necessary when the about screen is being closed.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.AboutScreen.ExecuteListItem(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Displays the full text of the current line in a MsgBox window.
+            </summary>
+            <param name="item">The list item (i.e. the current line) to be displayed.</param>
+            <returns>Returns 'this' to stay on the about screen.</returns>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.TextPainter">
+            <summary>
+            draws a string into a graphics object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TextPainter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.StringAlignment)">
+            <summary>
+            initialize the text painter
+            </summary>
+            <param name="x">X coordinate of the bounding rectangle</param>
+            <param name="y">Y coordinate of the bounding rectangle</param>
+            <param name="width">width of the bounding rectangle</param>
+            <param name="height">height of the bounding rectangle</param>
+            <param name="alignment">alignment of the string within the bounding rectangle</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TextPainter.#ctor(System.Drawing.StringAlignment)">
+            <summary>
+            initialize the text painter
+            </summary>
+            <param name="alignment">alignment of the string within the bounding rectangle</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TextPainter.#ctor">
+            <summary>
+            initialize the text painter
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.TextPainter.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TextPainter.Text">
+            <summary>
+            gets and sets the string to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TextPainter.Font">
+            <summary>
+            gets and sets the font to draw the string with
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TextPainter.ForeColor">
+            <summary>
+            gets and sets the foreground color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TextPainter.BackColor">
+            <summary>
+            gets and sets the background color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.TextPainter.Alignment">
+            <summary>
+            gets and sets the horizontal string alignment
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.PopupMenu">
+            <summary>
+            The PopupMenu is a popup form (i.e. not full screen) that displays a scrollable
+            list of items and allows the user to choose one using the up and down arrow keys
+            along with the Enter key. The user can also cancel the menu, usually with the
+            left soft key.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.#ctor">
+            <summary>
+            Initializes a new instance of the PopupMenu class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.Initialize">
+            <summary>
+            Used by the UserInterface library to force pre-loading of the MsgBox.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.Configure">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.Configure(Symbol.MT2000.UserInterface.PopupMenu)">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+            <param name="popupMenu">PopupMenu form to be configured</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.Show(System.Windows.Forms.Form,Symbol.MT2000.UserInterface.MenuDataList,System.Drawing.Point,Symbol.MT2000.UserInterface.LocationCorner,System.Int32)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for the
+            Enter, Esc, Backspace or exit key to be pressed.
+            </summary>
+            <param name="owner">The PopupMenu will be displayed in front of this form.</param>
+            <param name="menuDataList">The menu items to be displayed.</param>
+            <param name="location">The form location.</param>
+            <param name="corner">The corner of the form that the location applies to.</param>
+            <param name="exitKey">A key code that will exit the menu without selecting an item (in addition to Escape and Backspace)</param>
+            <returns>Returns a menu item if one is selected (Enter), null if not (Esc, Backspace or exit key)</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.Show(System.Windows.Forms.Form,Symbol.MT2000.UserInterface.MenuDataList,System.Drawing.Point,Symbol.MT2000.UserInterface.LocationCorner)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for the
+            Enter, Esc, Backspace or Left Soft Key to be pressed.
+            </summary>
+            <param name="owner">The PopupMenu will be displayed in front of this form.</param>
+            <param name="menuDataList">The menu items to be displayed.</param>
+            <param name="location">The form location.</param>
+            <param name="corner">The corner of the form that the location applies to.</param>
+            <returns>Returns a menu item if one is selected (Enter), null if not (Esc, Backspace or exit key)</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.Show(System.Windows.Forms.Form,Symbol.MT2000.UserInterface.MenuDataList)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for the
+            Enter, Esc, Backspace or Left Soft Key to be pressed.
+            </summary>
+            <param name="owner">The PopupMenu will be displayed in front of this form.</param>
+            <param name="menuDataList">The menu items to be displayed.</param>
+            <returns>Returns a menu item if one is selected (Enter), null if not (Esc, Backspace or exit key)</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.PopupMenu_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            handle the list navigation keys
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.PopupMenu_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            handle the Enter and Esc keys
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.PopupMenu.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.PopupMenu.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.PopupMenu.List">
+            <summary>list of menu items displayed on the screen</summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.LinePainter">
+            <summary>
+            draws a line (bitmap, text, bitmap) within a graphics object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LinePainter.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            initialize the line painter
+            </summary>
+            <param name="x">X coordinate of the line's bounding rectangle</param>
+            <param name="y">Y coordinate of the line's bounding rectangle</param>
+            <param name="width">width of the line's bounding rectangle</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LinePainter.Clear">
+            <summary>
+            clears the bitmaps and text
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LinePainter.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.Item">
+            <summary>
+            gets and sets the item associated with this line
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.ShowIcon">
+            <summary>
+            shows or hides the left bitmap
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.Icon">
+            <summary>
+            gets and sets the left bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.IconTransparentColor">
+            <summary>
+            gets and sets the transparent color within the left bitmap
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.Text">
+            <summary>
+            gets and sets the text to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.Font">
+            <summary>
+            gets and sets the font to draw the text with
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.ForeColor">
+            <summary>
+            gets and sets the foreground color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.BackColor">
+            <summary>
+            gets and sets the background color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.Alignment">
+            <summary>
+            gets and sets the horizontal string alignment
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LinePainter.Columns">
+            <summary>
+            gets and set the columns
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.LinePainterList">
+            <summary>
+            collection of LinePainter objects
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrAbout">
+            <summary>
+              Looks up a localized string similar to About.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrCancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrCopyright">
+            <summary>
+              Looks up a localized string similar to Copyright.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrDone">
+            <summary>
+              Looks up a localized string similar to Done.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrError">
+            <summary>
+              Looks up a localized string similar to Error.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrErrorBadInteger">
+            <summary>
+              Looks up a localized string similar to You must enter a number between {0} and {1}..
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrErrorBadIPAddress">
+            <summary>
+              Looks up a localized string similar to Invalid IP address..
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrErrorCantSelectFile">
+            <summary>
+              Looks up a localized string similar to The selected file can&apos;t be opened..
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrErrorNoFileName">
+            <summary>
+              Looks up a localized string similar to You must enter a file name..
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrErrorNoString">
+            <summary>
+              Looks up a localized string similar to You must enter a value..
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrFileAlreadyExists">
+            <summary>
+              Looks up a localized string similar to File {0} already exists. Are you sure you want to overwrite it?.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrFileName">
+            <summary>
+              Looks up a localized string similar to File Name.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrNo">
+            <summary>
+              Looks up a localized string similar to No.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrNoAssemblyCopyright">
+            <summary>
+              Looks up a localized string similar to No Assembly Copyright.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrNoAssemblyTitle">
+            <summary>
+              Looks up a localized string similar to No Assembly Title.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrOK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrOpen">
+            <summary>
+              Looks up a localized string similar to Open.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrProgramTitle">
+            <summary>
+              Looks up a localized string similar to Program Title.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrSave">
+            <summary>
+              Looks up a localized string similar to Save.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrSaveFile">
+            <summary>
+              Looks up a localized string similar to Save File.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrVersion">
+            <summary>
+              Looks up a localized string similar to Version.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Properties.Resources.StrYes">
+            <summary>
+              Looks up a localized string similar to Yes.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.LineChooser">
+            <summary>
+            A control that lets the user cycle through a set of choices
+            using the left and right arrow keys. This control is primarily
+            intended to be used as an overlay on the selected line in a
+            ScrollableList, thus allowing the option value to be edited
+            in place without having to open a separate form or screen.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.#ctor">
+            <summary>
+            Initializes a new instance of the LineChooser control.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.LineChooser_Resize(System.Object,System.EventArgs)">
+            <summary>
+            resizes the control and painters
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.LineChooser_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            uses the painters to draw the control
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Doesn't paint anything in order to avoid flickering when the control is redrawn.
+            </summary>
+            <param name="e">The paint event parameters, including the graphics object to be drawn to.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.LineChooser_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            fires the IncValue and DecValue events when the right and left arrow keys are pressed
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.Configure">
+            <summary>
+            Configures the control according to the current Config values.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.LineChooser.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineChooser.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.LineChooser.IncValue">
+            <summary>This is the event that gets fired when the right arrow key is pressed.</summary>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.LineChooser.DecValue">
+            <summary>This is the event that gets fired when the left arrow key is pressed.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LineChooser.Text">
+            <summary>
+            Gets and sets the text for the displayed choice.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.BitmapPainter">
+            <summary>
+            draws a bitmap into a graphics object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapPainter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            initialize the bitmap painter
+            </summary>
+            <param name="x">X coordinate of the bounding rectangle</param>
+            <param name="y">Y coordinate of the bounding rectangle</param>
+            <param name="width">width of the bounding rectangle</param>
+            <param name="height">height of the bounding rectangle</param>
+            <param name="transparentColor">transparent color within the bitmap</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapPainter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            initialize the bitmap painter
+            </summary>
+            <param name="x">X coordinate at which to paint the bitmap</param>
+            <param name="y">Y coordinate at which to paint the bitmap</param>
+            <param name="width">width of the bitmap's bounding rectangle</param>
+            <param name="height">height of the bitmap's bounding rectangle</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapPainter.#ctor(System.Drawing.Color)">
+            <summary>
+            initialize the bitmap painter
+            </summary>
+            <param name="transparentColor">transparent color within the bitmap</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapPainter.#ctor">
+            <summary>
+            initialize the bitmap painter
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapPainter.Paint(System.Drawing.Graphics)">
+            <summary>
+            draws the bitmap into a graphics object
+            </summary>
+            <param name="graphics">graphics object to draw the bitmap in</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BitmapPainter.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn by combining the background and bitmap
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BitmapPainter.Bitmap">
+            <summary>
+            gets and sets the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BitmapPainter.BackColor">
+            <summary>
+            gets and sets the background color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BitmapPainter.TransparentColor">
+            <summary>
+            gets and sets the transparent color within the bitmap
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.MsgBox">
+            <summary>
+            The MsgBox is a popup form (i.e. not full screen) that displays a simple
+            message and waits for the user to press Enter. It can be used for informational
+            and error messages.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.#ctor">
+            <summary>
+            Initializes a new instance of the MsgBox class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.Initialize">
+            <summary>
+            Used by the UserInterface library to force pre-loading of the MsgBox.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.Configure">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.Configure(Symbol.MT2000.UserInterface.MsgBox)">
+            <summary>
+            Configures the controls according to the current Config values.
+            </summary>
+            <param name="msgBox">MessageBox form to be configured</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.MsgBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            record the key that was pressed
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.MsgBox_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            close the window when the Enter key is pressed
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Paints everything except the actual message (i.e. the border, background,
+            title, separator and button.
+            </summary>
+            <param name="e">The paint event parameters, including the graphics object to be drawn to.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.Show(System.Windows.Forms.Form,System.String,System.String)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for the Enter key to be pressed.
+            </summary>
+            <param name="owner">The MsgBox will be displayed in front of this form.</param>
+            <param name="title">The title to be displayed.</param>
+            <param name="message">The message to be displayed.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.Error(System.Windows.Forms.Form,System.String)">
+            <summary>
+            Shows the form modally in front of a specific owner form and waits for the Enter key to be pressed.
+            The title of the window will be "Error".
+            </summary>
+            <param name="owner">The MsgBox will be displayed in front of this form.</param>
+            <param name="message">The message to be displayed.</param>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MsgBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MsgBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollableListItem">
+            <summary>
+            Describes an item in a ScrollableList control.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItem.#ctor(System.String,System.String,System.Drawing.Bitmap,System.Object)">
+            <summary>
+            Initializes a new instance of the ScrollableListItem class, specifying
+            the text, shortcut, icon, and tag.
+            </summary>
+            <param name="text">The text to be displayed in the list.</param>
+            <param name="shortcut">The shortcut character to be displayed in the list.</param>
+            <param name="icon">The icon to be displayed in the list.</param>
+            <param name="tag">Arbitrary data to be associated with the item.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItem.#ctor(System.String,System.String,System.Drawing.Bitmap)">
+            <summary>
+            Initializes a new instance of the ScrollableListItem class, specifying
+            the text, shortcut, and icon.
+            </summary>
+            <param name="text">The text to be displayed in the list.</param>
+            <param name="shortcut">The shortcut character to be displayed in the list.</param>
+            <param name="icon">The icon to be displayed in the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItem.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ScrollableListItem class, specifying
+            the text and shortcut.
+            </summary>
+            <param name="text">The text to be displayed in the list.</param>
+            <param name="shortcut">The shortcut character to be displayed in the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItem.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ScrollableListItem class, specifying the text.
+            </summary>
+            <param name="text">The text to be displayed in the list.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItem.FireItemChanged">
+            <summary>
+            fire the ItemChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListItem.ToString">
+            <summary>
+            Gets a string representing the item.
+            </summary>
+            <returns>string representing the item</returns>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.ScrollableListItem.ItemChanged">
+            <summary>
+            This is the event that gets fired when the item is changed.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItem.Text">
+            <summary>
+            Gets and sets the text to be displayed.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItem.Shortcut">
+            <summary>
+            Gets and sets the shortcut character to be displayed.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItem.Icon">
+            <summary>
+            Gets and sets the icon to be displayed.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItem.Tag">
+            <summary>
+            Gets and sets the data associated with this item.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItem.EditControl">
+            <summary>
+            Gets and sets the control used for editing the item's value.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItem.Validator">
+            <summary>
+            Gets and sets the validator used for editing the item's value.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableListItem.Suffix">
+            <summary>
+            Gets and sets the suffix attached to the value when displayed.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollableList">
+            <summary>
+            The ScrollableList control displays a scrollable list of items that depends
+            only on the keyboard for navigation.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.#ctor">
+            <summary>
+            Initializes a new instance of the ScrollableList class.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.ListChanged(System.Object,System.EventArgs)">
+            <summary>
+            redraw the lines whenever the list is changed
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.ScrollableList_Resize(System.Object,System.EventArgs)">
+            <summary>
+            handle the window being resized
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.SetLines">
+            <summary>
+            sets the line controls from the list of items
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.SetLineColors">
+            <summary>
+            sets the colors of each line
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.SetTop">
+            <summary>
+            sets the index of the top item
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.SetSelected">
+            <summary>
+            sets the index of the selected item
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.FireSelectionChanging">
+            <summary>
+            fire the SelectionChanging event
+            </summary>
+            <returns>true if the selection change should be canceled, false to continue</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.FireSelectionChanged">
+            <summary>
+            fire the SelectionChanged event
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.ShowEditControl">
+            <summary>
+            shows the edit control
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.HideEditControl">
+            <summary>
+            hides the edit control
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.Up">
+            <summary>
+            Moves the selection up one line.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.Down">
+            <summary>
+            Moves the selection down one line.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.PageUp">
+            <summary>
+            Moves the selection up one page.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.PageDown">
+            <summary>
+            Moves the selection down one page.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.ScrollableList_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            paints the lines
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ScrollableList.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableList.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.ScrollableList.SelectionChanging">
+            <summary>This is the event that gets fired when the current selection is about to change.</summary>
+        </member>
+        <member name="E:Symbol.MT2000.UserInterface.ScrollableList.SelectionChanged">
+            <summary>This is the event that gets fired when the current selection changes.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.EditControl">
+            <summary>
+            Gets the current edit control if there is one, null if not.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.Validator">
+            <summary>
+            Gets the current validator if there is one, null if not.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.EnableDrawing">
+            <summary>
+            Gets and sets the flag that enables drawing of the control.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ForeColor">
+            <summary>
+            Gets and sets the foreground color.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.BackColor">
+            <summary>
+            Gets and sets the background color.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.SelectedForeColor">
+            <summary>
+            Gets and sets the foreground color of the selected item.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.SelectedBackColor">
+            <summary>
+            Gets and sets the background color of the selected item.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.Font">
+            <summary>
+            Gets and sets the font that is used to draw the text.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ScrollbarUpImage">
+            <summary>Gets and sets the arrow to be displayed at the top of the scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ScrollbarDownImage">
+            <summary>Gets and sets the arrow to be displayed at the bottom of the scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ScrollbarLineImage">
+            <summary>Gets and sets the line to be drawn between the arrows of the scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ScrollbarThumbImage">
+            <summary>Gets and sets the thumb to be drawn on the line of the scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ScrollbarWidth">
+            <summary>Gets and sets the pixel width of the scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.Items">
+            <summary>
+            Gets and sets the items in the list.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.SelectedIndex">
+            <summary>
+            Gets and sets the selected item by index.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.SelectedItem">
+            <summary>
+            Gets and sets the selected item.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.SelectedItemLocation">
+            <summary>
+            Gets the screen location of the selected item.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ShowIcons">
+            <summary>
+            Gets and sets a value indicating whether or not icons are shown on each line of the list.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.ShowShortcuts">
+            <summary>
+            Gets and sets a value indicating whether or not shortcuts are shown on each line of the list.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollableList.Columns">
+            <summary>
+            Sets the columns to be used when displaying the list.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollableListEventHandler">
+            <summary>
+            Event handler delegate for ScrollableListEventArgs events.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollableListEventArgs">
+            <summary>
+            Arguments for the ScrollableList event.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ScrollableListEventArgs.Item">
+            <summary>The currently selected item, null if there is no selection.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ScrollableListEventArgs.Cancel">
+            <summary>Indicates whether or not the operation that triggered the event should be canceled.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListEventArgs.#ctor(Symbol.MT2000.UserInterface.ScrollableListItem)">
+            <summary>
+            Initializes the ScrollableListEventArgs event arguments.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollableListColumn">
+            <summary>
+            Describes a column to be displayed within a line of a ScrollableList control.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ScrollableListColumn.Title">
+            <summary>The title to be displayed at the top of the column.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ScrollableListColumn.Width">
+            <summary>The width of the column in pixels.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.ScrollableListColumn.Alignment">
+            <summary>The alignment of the text within the column.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollableListColumn.#ctor(System.String,System.Int32,System.Drawing.StringAlignment)">
+            <summary>
+            Initializes a new instance of the ScrollableListColumn class.
+            </summary>
+            <param name="title">The title to be displayed at the top of the column.</param>
+            <param name="width">The width of the column in pixels.</param>
+            <param name="alignment">The alignment of the text within the column.</param>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollableListColumns">
+            <summary>
+            A list of ScrollableListColumn objects.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ScrollbarPainter">
+            <summary>
+            draws a vertical or horizontal scrollbar within a graphics object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollbarPainter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            initialize the scrollbar painter
+            </summary>
+            <param name="x">X coordinate of the scrollbar's bounding rectangle</param>
+            <param name="y">Y coordinate of the scrollbar's bounding rectangle</param>
+            <param name="width">width of the scrollbar's bounding rectangle</param>
+            <param name="height">height of the scrollbar's bounding rectangle</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollbarPainter.#ctor">
+            <summary>
+            initialize the scrollbar painter
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.ScrollbarPainter.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.UpBitmap">
+            <summary>
+            gets and sets the up bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.DownBitmap">
+            <summary>
+            gets and sets the down bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.LineBitmap">
+            <summary>
+            gets and sets the line bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.ThumbBitmap">
+            <summary>
+            gets and sets the thumb bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.BackColor">
+            <summary>
+            gets and sets the background color
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.TransparentColor">
+            <summary>
+            gets and sets the transparent color within the bitmaps
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.Minimum">
+            <summary>
+            gets and sets the minimum scrollbar value
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.Maximum">
+            <summary>
+            gets and sets the maximum scrollbar value
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.ScrollbarPainter.Value">
+            <summary>
+            gets and sets the current scrollbar value
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ListScreenStack">
+            <summary>
+            A stack of the currently displayed ListScreen's.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.ListScreenDictionary">
+            <summary>
+            A dictionary of all ListScreen's used on the form.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.LineTextBox">
+            <summary>
+            A text box control that allows the user to edit a value. This control is
+            primarily intended to be used as an overlay on the selected line in a
+            ScrollableList, thus allowing the option value to be edited in place
+            without having to open a separate form or screen. This control behaves
+            much like the standard TextBox control, but allows the font to be set
+            without having the control size automatically adjusted to fit the font.
+            It also provides support for validating the entered value using one of
+            the InputValidator objects.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.#ctor">
+            <summary>
+            Initializes a new instance of the LineTextBox control.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.LineTextBox_GotFocus(System.Object,System.EventArgs)">
+            <summary>
+            select the text when we get the focus
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.LineTextBox_LostFocus(System.Object,System.EventArgs)">
+            <summary>
+            de-select the text when we lose the focus
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.LineTextBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            perform text operations on the down keystroke
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.LineTextBox_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            enter keys into the text field
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.LineTextBox_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            paints the text box bitmap
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Doesn't paint anything in order to avoid flickering when the bitmap is changed.
+            </summary>
+            <param name="e">The paint event parameters, including the graphics object to be drawn to.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.PaintBitmap(System.Drawing.Graphics)">
+            <summary>
+            paints the text box bitmap to a specific graphics object
+            </summary>
+            <param name="graphics">graphics object to paint the bitmap to</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.SetCaretPos">
+            <summary>
+            sets the caret position
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.SetPosition(System.Int32)">
+            <summary>
+            sets the new position within the string
+            </summary>
+            <param name="newPosition">new position within the string</param>
+            <returns>true if the bitmap needs to be redrawn</returns>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.LineTextBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.LineTextBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LineTextBox.Text">
+            <summary>
+            Gets and sets the text being edited.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LineTextBox.MaxLength">
+            <summary>
+            Gets and sets the maximum text length.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LineTextBox.Font">
+            <summary>
+            Gets and sets the font.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.LineTextBox.Selected">
+            <summary>
+            Gets and sets the text selection state.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.MenuDataItem">
+            <summary>
+            A single item (line) to be displayed in a PopupMenu.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MenuDataItem.Text">
+            <summary>The text to be displayed in the menu.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MenuDataItem.Command">
+            <summary>The command to be executed when the menu item is selected.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MenuDataItem.Arguments">
+            <summary>The arguments to the command to be executed when the menu item is selected.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MenuDataItem.Icon">
+            <summary>The icon to be displayed in the menu.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MenuDataItem.Items">
+            <summary>The subitems of this menu item (not displayed).</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MenuDataItem.#ctor(System.String,System.String,System.String,System.Drawing.Bitmap)">
+            <summary>
+            Initializes the menu item with text, command, arguments, and an icon.
+            </summary>
+            <param name="text">The text to be displayed in the menu.</param>
+            <param name="command">The command to be executed when the menu item is selected.</param>
+            <param name="arguments">The arguments to the command to be executed when the menu item is selected.</param>
+            <param name="icon">The icon to be displayed in the menu.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MenuDataItem.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes the menu item with text, command, and arguments.
+            </summary>
+            <param name="text">The text to be displayed in the menu.</param>
+            <param name="command">The command to be executed when the menu item is selected.</param>
+            <param name="arguments">The arguments to the command to be executed when the menu item is selected.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MenuDataItem.#ctor(System.String,System.String)">
+            <summary>
+            Initializes the menu item with text and a command.
+            </summary>
+            <param name="text">The text to be displayed in the menu.</param>
+            <param name="command">The command to be executed when the menu item is selected.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MenuDataItem.#ctor(System.String)">
+            <summary>
+            Initializes the menu item with text.
+            </summary>
+            <param name="text">The text to be displayed in the menu.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.MenuDataItem.#ctor">
+            <summary>
+            Initializes an empty menu item.
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.MenuDataList">
+            <summary>
+            A list of menu items (i.e the menu).
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MenuDataList.ShowIcons">
+            <summary>Indicates whether or not icons will be displayed in the menu.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.MenuDataList.SelectedItemIndex">
+            <summary>The index of item to be selected when the menu is first displayed.</summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.BarPainter">
+            <summary>
+            paints a solid bar into a graphics object
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BarPainter.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            initialize the bar painter
+            </summary>
+            <param name="x">X coordinate of the bounding rectangle</param>
+            <param name="y">Y coordinate of the bounding rectangle</param>
+            <param name="width">width of the bounding rectangle</param>
+            <param name="height">height of the bounding rectangle</param>
+            <param name="color">color of the bar</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BarPainter.#ctor(System.Drawing.Color)">
+            <summary>
+            initialize the bar painter
+            </summary>
+            <param name="color">color of the bar</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BarPainter.#ctor">
+            <summary>
+            initialize the bar painter
+            </summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.BarPainter.CreateDrawBitmap">
+            <summary>
+            creates the bitmap to be drawn
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.BarPainter.Color">
+            <summary>
+            gets and sets the bar color
+            </summary>
+        </member>
+        <member name="T:Symbol.MT2000.UserInterface.Config">
+            <summary>
+            Contains all the UI configuration values, including sizes, styles, colors and bitmaps.
+            </summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.Config.ScreenWidth">
+            <summary>Width of the screen in pixels.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.Config.ScreenHeight">
+            <summary>Height of the screen in pixels.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.Config.LeftSoftKey">
+            <summary>Key code for the left soft key.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.Config.RightSoftKey">
+            <summary>Key code for the right soft key.</summary>
+        </member>
+        <member name="F:Symbol.MT2000.UserInterface.Config.ConfigFileName">
+            <summary>Name of the configuration file for overriding the default Config values.</summary>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.SpinnerBitmap(System.Int32)">
+            <summary>
+            Gets one of the spinner bitmaps.
+            </summary>
+            <param name="index">The index of the spinner bitmap to get.</param>
+            <returns>A spinner bitmap if the index is valid, null if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.BatteryIndex(System.Int32)">
+            <summary>
+            gets a bitmap index from a battery level
+            </summary>
+            <param name="level">battery level to get the bitmap index for</param>
+            <returns>index into the arrays of battery bitmaps</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.BatteryBitmap(System.Int32,System.Boolean)">
+            <summary>
+            Gets one of the battery bitmaps.
+            </summary>
+            <param name="level">The battery charge level.</param>
+            <param name="charging">Inidicates whether or not the battery is charging (i.e. connected to AC power).</param>
+            <returns>A battery bitmap if successful, null if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.SignalQualityBitmap(Symbol.MT2000.Utils.SignalQuality)">
+            <summary>
+            Gets one of the signal quality bitmaps.
+            </summary>
+            <param name="quality">The signal quality.</param>
+            <returns>A signal quality bitmap if successful, null if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.BluetoothBitmap(Symbol.MT2000.Utils.BTConnectivityType)">
+            <summary>
+            Gets one of the Bluetooth bitmaps.
+            </summary>
+            <param name="connectivity">Inidicates whether or not Bluetooth is enabled.</param>
+            <returns>A Bluetooth bitmap if successful, null if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.ConnectivityBitmap(Symbol.MT2000.Utils.ConnectivityType)">
+            <summary>
+            Gets one of the connectivity bitmaps.
+            </summary>
+            <param name="connectivity">The connectivity type.</param>
+            <returns>A connectivity bitmap if successful, null if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.KeyStateBitmap(Symbol.MT2000.Utils.KeyState)">
+            <summary>
+            Gets one of the key state bitmaps.
+            </summary>
+            <param name="keyState">The state of the special keys.</param>
+            <returns>A key state bitmap if successful, null if not.</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.Load(System.Boolean)">
+            <summary>
+            Reads the default UI configuration from the UIConfig.xml file if no configuration has been loaded.
+            </summary>
+            <param name="force">Forces a reload even if a configuration has already been loaded.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.Load(System.String)">
+            <summary>
+            Reads the UI configuration from an XML file.
+            </summary>
+            <param name="fileName">The name of the XML config file to read the configuration from.</param>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.LoadImage(System.Xml.XmlNode,System.String,System.Drawing.Bitmap)">
+            <summary>
+            reads an image path and loads the image from a file
+            </summary>
+            <param name="node">node containing the element</param>
+            <param name="name">name of the element</param>
+            <param name="defaultValue">default value if it doesn't exist</param>
+            <returns>the value read</returns>
+        </member>
+        <member name="M:Symbol.MT2000.UserInterface.Config.LoadImageResource(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            reads an image path and loads the image from a file,
+            if the image doesn't exist, loads it from a resource
+            </summary>
+            <param name="node">node containing the element</param>
+            <param name="name">name of the element</param>
+            <param name="resourceName">name of the resource</param>
+            <returns>the value read</returns>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.TitleHeight">
+            <summary>Pixel height of a TitleBar control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.TitleFont">
+            <summary>Font for the text in a TitleBar control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.TitleTextColor">
+            <summary>Color of the text in a TitleBar control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.TitleBackgroundColor">
+            <summary>Color of the background in a TitleBar control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.TitleSeparatorColor">
+            <summary>Color of the separator between the title and the rest of the form in forms derived from BaseForm.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.TitleSeparatorHeight">
+            <summary>Pixel height of the separator line between a TitleBar control and the rest of the form in forms derived from BaseForm.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysHeight">
+            <summary>Pixel height of a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysFont">
+            <summary>Font for the text in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysTextColor">
+            <summary>Color of the text in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysBackgroundColor">
+            <summary>Color of the background in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysTextHighlightColor">
+            <summary>Color of the text of a highlighted soft key in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysBackgroundHighlightColor">
+            <summary>Color of the background of a highlighted soft key in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysSpaceWidth">
+            <summary>Pixel spacing between the soft keys and the key status in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysButtonImage">
+            <summary>Image used for the borders of a button in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SoftKeysButtonHighlightImage">
+            <summary>Image used for the borders of a highlighted button in a SoftKeys control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.LineHeight">
+            <summary>Pixel height of a line in a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.LineIconSize">
+            <summary>Pixel width and height of an icon in a line of a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.LineSpaceWidth">
+            <summary>Pixel spacing between elements in a line in a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.LineFont">
+            <summary>Font for the text in a line of a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.FormBackgroundColor">
+            <summary>Color of the background in forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.FormTextColor">
+            <summary>Color of the text in forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.FormInternalSpaceHW">
+            <summary>Pixel height and width spacing within forms and popups.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.NumListLines">
+            <summary>Number of list lines to display in a ListForm (from 5 to 8).</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListItemTextColor">
+            <summary>Color of the text in a line in a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListItemBackgroundColor">
+            <summary>Color of the background in a line in a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListSelectedItemTextColor">
+            <summary>Color of the text in a selected line in a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListSelectedItemBackgroundColor">
+            <summary>Color of the background in a selected line in a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListImageTransparentColor">
+            <summary>Transparent color within an image in a line of a ScrollableList control.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListScrollbarWidth">
+            <summary>Pixel width of the ScrollableList's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListScrollbarUpImage">
+            <summary>Arrow to be displayed at the top of a ScrollableList's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListScrollbarDownImage">
+            <summary>Arrow to be displayed at the bottom of a ScrollableList's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListScrollbarLineImage">
+            <summary>Line drawn between the arrows of a ScrollableList's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ListScrollbarThumbImage">
+            <summary>Thumb drawn on the line of a ScrollableList's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuBorderColor">
+            <summary>Color of the border around a PopupMenu.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuItemBackgroundColor">
+            <summary>Color of the background in a line in a PopupMenu.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuItemTextColor">
+            <summary>Color of the text in a line in a PopupMenu.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuSelectedItemBackgroundColor">
+            <summary>Color of the background in a selected line in a PopupMenu.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuSelectedItemTextColor">
+            <summary>Color of the text in a selected line in a PopupMenu.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuImageTransparentColor">
+            <summary>Transparent color within an image in a line of a PopupMenu.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuScrollbarWidth">
+            <summary>Pixel width of the PopupMenu's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuScrollbarUpImage">
+            <summary>Arrow to be displayed at the top of a PopupMenu's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuScrollbarDownImage">
+            <summary>Arrow to be displayed at the bottom of a PopupMenu's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuScrollbarLineImage">
+            <summary>Line drawn between the arrows of a PopupMenu's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuScrollbarThumbImage">
+            <summary>Thumb drawn on the line of a PopupMenu's scrollbar.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.MenuLeftPosition">
+            <summary>Position at which the menu should be anchored over the left soft key.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupBorderColor">
+            <summary>Color of the border around popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupTextColor">
+            <summary>Color of the text in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupBackgroundColor">
+            <summary>Color of the background in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupTitleTextColor">
+            <summary>Color of the text in the title of popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupTitleBackgroundColor">
+            <summary>Color of the background in the title of popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupButtonTextColor">
+            <summary>Color of the button text in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupButtonBackgroundColor">
+            <summary>Color of the button background in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupButtonImage">
+            <summary>Image for buttons in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupSeparatorColor">
+            <summary>Color of the separator between the title and the rest of the form in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupSeparatorHeight">
+            <summary>Pixel height of the separator line between a TitleBar control and the rest of the form in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupBorderHW">
+            <summary>Pixel width and height of the borders of popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupExternalSpaceHW">
+            <summary>Minimum pixel width and height spacing aroung the outside of popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupButtonWidth">
+            <summary>Pixel width of the button in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.PopupButtonHeight">
+            <summary>Pixel height of the button in popup forms.</summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.NumSpinnerBitmaps">
+            <summary>
+            Gets the number of spinner bitmaps.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ChooserLeftBitmap">
+            <summary>
+            Gets the left arrow bitmap for the Chooser control.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.ChooserRightBitmap">
+            <summary>
+            Gets the right arrow bitmap for the Chooser control.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.AboutBitmap">
+            <summary>
+            Gets the about bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.CloseBitmap">
+            <summary>
+            Gets the close bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.DeleteBitmap">
+            <summary>
+            Gets the delete bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.EditBitmap">
+            <summary>
+            Gets the edit bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.FileBitmap">
+            <summary>
+            Gets the file bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.FileNewBitmap">
+            <summary>
+            Gets the new file bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.FolderBitmap">
+            <summary>
+            Gets the folder bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.FolderNewBitmap">
+            <summary>
+            Gets the new folder bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.OpenBitmap">
+            <summary>
+            Gets the open bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.OptionsBitmap">
+            <summary>
+            Gets the options bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.QuestionBitmap">
+            <summary>
+            Gets the question bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.RefreshBitmap">
+            <summary>
+            Gets the save bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.SaveBitmap">
+            <summary>
+            Gets the save bitmap for menus and lists.
+            </summary>
+        </member>
+        <member name="P:Symbol.MT2000.UserInterface.Config.UpBitmap">
+            <summary>
+            Gets the up bitmap for menus and lists.
+            </summary>
+        </member>
+    </members>
+</doc>

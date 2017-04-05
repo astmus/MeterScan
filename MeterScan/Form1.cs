@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Symbol.Fusion.WLAN;
 using Symbol.Fusion;
 using Symbol.Exceptions;
+using Symbol.Barcode2;
 
 namespace MeterScan
 {
@@ -58,7 +59,7 @@ namespace MeterScan
                 }
                 myWlan.StatusChanged += new WLAN.StatusChangeHandler(onWlanStatusChanged);
             }
-            catch (OperationFailureException)
+            catch (Symbol.Exceptions.OperationFailureException)
             {
                 Symbol.ResourceCoordination.TerminalInfo terminalInfo = new Symbol.ResourceCoordination.TerminalInfo();
 
@@ -112,7 +113,6 @@ namespace MeterScan
                 //populate adapter power state in the list
                 label2.Text = "ON";
                 //listViewFusion.Items[adapterStatusLocation].SubItems[3].Text = adapterPowerState;
-
             }
             else if (e.StatusChange == Symbol.Fusion.WLAN.StatusChangeEventArgs.StatusChanges.AdapterPowerOFF)
             {
@@ -165,7 +165,25 @@ namespace MeterScan
 
         private void button3_Click(object sender, EventArgs e)
         {
+            barcode21.EnableScanner = false;
+            barcode21.Dispose();
             Application.Exit();
+        }
+
+        private void barcode21_OnScan(Symbol.Barcode2.ScanDataCollection scanDataCollection)
+        {
+            ScanData scanData = scanDataCollection.GetFirst;
+            if (scanData.Result == Results.SUCCESS)
+            {
+                while (listBox1.Items.Count >= 10)
+                    listBox1.Items.RemoveAt(0);
+                listBox1.Items.Add(scanData.Text + ";" + scanData.Type.ToString());
+            }
+        }
+
+        private void barcode21_OnStatus(Symbol.Barcode2.StatusData statusData)
+        {
+            label4.Text = statusData.Text;
         }
     }
 }

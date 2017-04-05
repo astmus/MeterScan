@@ -21,3 +21,5 @@ D:\MeterScan\MeterScan\bin\Debug\Symbol.xml
 D:\MeterScan\MeterScan\bin\Debug\Symbol.Notification.xml
 D:\MeterScan\MeterScan\bin\Debug\Symbol.ResourceCoordination.xml
 D:\MeterScan\MeterScan\bin\Debug\Symbol.MT2000.UserInterface.xml
+D:\MeterScan\MeterScan\bin\Debug\Symbol.Barcode2.DesignCF35.dll
+D:\MeterScan\MeterScan\bin\Debug\Symbol.Barcode2.DesignCF35.xml

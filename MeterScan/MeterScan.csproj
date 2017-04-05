@@ -47,6 +47,7 @@
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="Symbol, Version=2.8.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
+    <Reference Include="Symbol.Barcode2.DesignCF35, Version=2.9.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.Fusion, Version=2.9.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.MT2000.ScannerServices, Version=1.0.1.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.MT2000.UserInterface, Version=1.0.3.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />

@@ -125,33 +125,10 @@ namespace MeterScan
                 //populate accesspoint MAC address (BSSID) in the list
                 Symbol.Fusion.WLAN.StatusChangeEventArgs.APChangedEventData APData = (Symbol.Fusion.WLAN.StatusChangeEventArgs.APChangedEventData)(e.StatusChangeData);
 
-                if (((APData.BSSID == "") || (APData.BSSID == null)))
-                {
-                    //listViewFusion.Items[adapterStatusLocation].SubItems[3].Text = adapterPowerState + ", Not associated";
-                }
+                if (String.IsNullOrEmpty(APData.BSSID))
+                    label5.Text = "Not associated";
                 else
-                {
-                    //listViewFusion.Items[adapterStatusLocation].SubItems[3].Text = adapterPowerState + ", " + APData.BSSID;
-                }
-
-                try
-                {
-                    //populate ESSID in the list
-                    //listViewFusion.Items[essidLocation].SubItems[3].Text = "";
-                    //listViewFusion.Items[essidLocation].SubItems[3].Text = APData.Adapter.ESSID;
-                }
-                catch
-                {
-                }
-                try
-                {
-                    //populate profile name in the list
-                    //listViewFusion.Items[profileNameLocation].SubItems[3].Text = "";
-                    //listViewFusion.Items[profileNameLocation].SubItems[3].Text = APData.Adapter.ActiveProfile.Name;
-                }
-                catch
-                {
-                }
+                    label5.Text = APData.BSSID;
             }
         }
 
@@ -185,5 +162,75 @@ namespace MeterScan
         {
             label4.Text = statusData.Text;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            WLAN wlan = new WLAN(FusionAccessType.COMMAND_MODE);          
+            InfrastructureProfileData myInfrastructureProfileData = new InfrastructureProfileData("warr", "warr");            
+            myInfrastructureProfileData.Encryption.PassPhrase = "987654321";
+            myInfrastructureProfileData.CountryCode = "UA";
+            myInfrastructureProfileData.IPSettings.AddressingMode = IPSettings.AddressingModes.DHCP;            
+            myInfrastructureProfileData.Encryption.EncryptionType = Encryption.EncryptionTypes.TKIP;
+            myInfrastructureProfileData.SecurityType = WLANSecurityType.SECURITY_WPA_PERSONAL;                       
+            try
+            {
+                Profile myInfrastructureProfile = wlan.Profiles.CreateInfrastructureProfile(myInfrastructureProfileData);
+                var res = myInfrastructureProfile.Connect(true);
+                if (res != Symbol.Fusion.FusionResults.SUCCESS)
+                    MessageBox.Show("Failure in connecting to the specified profile. Result = " + res);
+                else
+                    MessageBox.Show("Connection success");
+            }
+            catch(Exception ex)
+            {
+                string s = ex.Message;
+            }
+        }
+
+        private Profile getProfileByName(string profileName, WLAN myNewWlan)
+        {
+            Symbol.Fusion.WLAN.Profiles myProfiles = myNewWlan.Profiles;
+            //traverse all Profiles
+            for (int profileIndex = 0; profileIndex < myProfiles.Length; profileIndex++)
+            {
+                Profile myProfile = myProfiles[profileIndex];
+                if (profileName == myProfile.Name)
+                {
+                    return myProfile;
+                }
+            }
+            return null;
+        }
+
+       /* private void connectToProfile(string profileID, bool persistance)
+        {
+            //Create a WLAN object in COMMAND_MODE
+            WLAN myCommandModeWlan = null;
+            try
+            {
+                myCommandModeWlan = new WLAN(FusionAccessType.COMMAND_MODE);
+            }
+            catch (Symbol.Exceptions.OperationFailureException)
+            {
+                System.Windows.Forms.MessageBox.Show("Command mode is in use", "Error");                
+                return;
+            }
+
+            //search the profile and connect if found
+            Profile myProfile = getProfileByID(profileID, myCommandModeWlan);
+            if (myProfile != null)
+            {
+                Symbol.Fusion.FusionResults result = myProfile.Connect(persistance);
+
+                if (result != Symbol.Fusion.FusionResults.SUCCESS)
+                {
+                    MessageBox.Show("Failure in connecting to the specified profile. Result = " + result);
+                }
+            }
+
+            //dispose the created WLAN object
+            myCommandModeWlan.Dispose();
+
+        }*/
     }
 }

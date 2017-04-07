@@ -126,9 +126,23 @@ namespace MeterScan
                 Symbol.Fusion.WLAN.StatusChangeEventArgs.APChangedEventData APData = (Symbol.Fusion.WLAN.StatusChangeEventArgs.APChangedEventData)(e.StatusChangeData);
 
                 if (String.IsNullOrEmpty(APData.BSSID))
-                    label5.Text = "Not associated";
+                {
+                    
+                    if (Settings.IsEmpty())
+                    {
+                        Configure conf = new Configure();
+                        conf.Show();                        
+                    }
+                    else
+                    {
+                        WLAN lan = new WLAN(FusionAccessType.COMMAND_MODE);
+                        Profile p = lan.GetProfileByName(Settings.SSIDName);
+                        lan.Dispose();
+                        label5.Text = "Not associated";
+                    }                    
+                }
                 else
-                    label5.Text = APData.BSSID;
+                    label5.Text = "Connected";
             }
         }
 
@@ -142,8 +156,8 @@ namespace MeterScan
 
         private void button3_Click(object sender, EventArgs e)
         {
-            barcode21.EnableScanner = false;
-            barcode21.Dispose();
+            //barcode21.EnableScanner = false;
+            //barcode21.Dispose();
             Application.Exit();
         }
 
@@ -165,42 +179,22 @@ namespace MeterScan
 
         private void button4_Click(object sender, EventArgs e)
         {
-            WLAN wlan = new WLAN(FusionAccessType.COMMAND_MODE);          
-            InfrastructureProfileData myInfrastructureProfileData = new InfrastructureProfileData("warr", "warr");            
-            myInfrastructureProfileData.Encryption.PassPhrase = "987654321";
-            myInfrastructureProfileData.CountryCode = "UA";
-            myInfrastructureProfileData.IPSettings.AddressingMode = IPSettings.AddressingModes.DHCP;            
-            myInfrastructureProfileData.Encryption.EncryptionType = Encryption.EncryptionTypes.TKIP;
-            myInfrastructureProfileData.SecurityType = WLANSecurityType.SECURITY_WPA_PERSONAL;                       
-            try
-            {
-                Profile myInfrastructureProfile = wlan.Profiles.CreateInfrastructureProfile(myInfrastructureProfileData);
-                var res = myInfrastructureProfile.Connect(true);
-                if (res != Symbol.Fusion.FusionResults.SUCCESS)
-                    MessageBox.Show("Failure in connecting to the specified profile. Result = " + res);
-                else
-                    MessageBox.Show("Connection success");
-            }
-            catch(Exception ex)
-            {
-                string s = ex.Message;
-            }
+           
         }
 
-        private Profile getProfileByName(string profileName, WLAN myNewWlan)
+        
+
+        private void menuItem1_Click(object sender, EventArgs e)
         {
-            Symbol.Fusion.WLAN.Profiles myProfiles = myNewWlan.Profiles;
-            //traverse all Profiles
-            for (int profileIndex = 0; profileIndex < myProfiles.Length; profileIndex++)
-            {
-                Profile myProfile = myProfiles[profileIndex];
-                if (profileName == myProfile.Name)
-                {
-                    return myProfile;
-                }
-            }
-            return null;
+            
         }
+
+        private void menuItem2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
 
        /* private void connectToProfile(string profileID, bool persistance)
         {

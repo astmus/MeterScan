@@ -147,12 +147,12 @@
 			// 
 			// button5
 			// 
-			this.button5.Location = new System.Drawing.Point(227, 50);
+			this.button5.Location = new System.Drawing.Point(209, 49);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(88, 20);
+			this.button5.Size = new System.Drawing.Size(106, 20);
 			this.button5.TabIndex = 14;
 			this.button5.Text = "tcp connect";
-			this.button5.Click += new System.EventHandler(this.button5_Click);
+			this.button5.Click += new System.EventHandler(this.button5_Click_1);
 			// 
 			// Form1
 			// 

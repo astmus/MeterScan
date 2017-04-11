@@ -205,11 +205,19 @@ namespace MeterScan
         {
             Configure conf = new Configure();
             conf.Show();
-        }
+        }		
 
-		private void button5_Click(object sender, EventArgs e)
+		private void button5_Click_1(object sender, EventArgs e)
 		{
-
+			try
+			{
+				TcpClient client = new TcpClient("192.168.123.1", 3128);
+				MessageBox.Show("Connection to 192.168.123.1 is Ok");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Connection to 192.168.123.1 is not established");
+			}
 		}
 
 

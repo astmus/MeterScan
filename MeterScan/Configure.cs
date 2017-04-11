@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using Symbol.Barcode2;
 using Symbol.Fusion.WLAN;
 using Symbol.Fusion;
+using System.Net.Sockets;
 
 namespace MeterScan
 {
     public partial class Configure : Form
     {
+        bool isWifiScan = true;
+
         public Configure()
         {
             InitializeComponent();
@@ -25,6 +28,7 @@ namespace MeterScan
             ScanData scanData = scanDataCollection.GetFirst;
             if (scanData.Result == Results.SUCCESS)
             {
+
                 string connectData = scanData.Text;
                 var splitted = connectData.Split(new char[] { ';' });
                 if (splitted.Length < 2)
@@ -33,9 +37,33 @@ namespace MeterScan
                     return;
                 }
 
-                label5.Text = splitted[0];
-                label6.Text = splitted[1];
-                ConfigureWiFiProfile(label5.Text, label6.Text);
+                if (isWifiScan)
+                {               
+                    label5.Text = splitted[0];
+                    label6.Text = splitted[1];
+                    ConfigureWiFiProfile(label5.Text, label6.Text);
+                    isWifiScan = false;
+                }
+                else
+                {
+                    label8.Text = splitted[0];
+                    label7.Text = splitted[1];
+                    this.Refresh();
+                    PingTcpServer(label8.Text, int.Parse(label7.Text));
+                }
+            }
+        }
+
+        private void PingTcpServer(string IpAddres, int port)
+        {
+            try
+            {
+                TcpClient client = new TcpClient(IpAddres, port);
+                MessageBox.Show("Connection Ok");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Connection is not established");
             }
         }
 
@@ -73,14 +101,7 @@ namespace MeterScan
                 if (res != Symbol.Fusion.FusionResults.SUCCESS)
                     MessageBox.Show("Failure in connecting to the specified profile. Result = " + res);
                 else
-                {
-                    MessageBox.Show("Connection success");
-                    barcode21.EnableScanner = false;
-                    barcode21.Dispose();
-                    ConfigureTcpConnection conf = new ConfigureTcpConnection();
-                    conf.Show();
-                    this.Close();
-                }
+                    MessageBox.Show("Connection success");                 
             }
             catch
             {

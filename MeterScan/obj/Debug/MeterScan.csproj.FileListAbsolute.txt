@@ -25,4 +25,3 @@ D:\MeterScan\MeterScan\obj\Debug\MeterScan.exe
 D:\MeterScan\MeterScan\obj\Debug\MeterScan.pdb
 D:\MeterScan\MeterScan\bin\Debug\MeterScan.exe.config
 D:\MeterScan\MeterScan\obj\Debug\MeterScan.Configure.resources
-D:\MeterScan\MeterScan\obj\Debug\MeterScan.ConfigureTcpConnection.resources

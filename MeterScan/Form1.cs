@@ -127,7 +127,6 @@ namespace MeterScan
 
                 if (String.IsNullOrEmpty(APData.BSSID))
                 {
-                    
                     if (Settings.IsEmpty())
                     {
                         Configure conf = new Configure();
@@ -192,6 +191,12 @@ namespace MeterScan
         private void menuItem2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void menuItem3_Click(object sender, EventArgs e)
+        {
+            Configure conf = new Configure();
+            conf.Show();
         }
 
 

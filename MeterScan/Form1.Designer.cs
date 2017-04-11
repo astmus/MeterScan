@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // mainMenu1
@@ -129,6 +130,7 @@
             // menuItem1
             // 
             this.menuItem1.MenuItems.Add(this.menuItem2);
+            this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.Text = "Configure connection";
             this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
@@ -136,6 +138,11 @@
             // 
             this.menuItem2.Text = "Exit";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Text = "Config";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
             // 
             // Form1
             // 
@@ -153,6 +160,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Menu = this.mainMenu1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -173,6 +181,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem menuItem3;
     }
 }
 

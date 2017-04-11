@@ -10,6 +10,8 @@ using Symbol.Fusion.WLAN;
 using Symbol.Fusion;
 using Symbol.Exceptions;
 using Symbol.Barcode2;
+using System.Net.Sockets;
+using System.Net;
 
 namespace MeterScan
 {
@@ -178,10 +180,16 @@ namespace MeterScan
 
         private void button4_Click(object sender, EventArgs e)
         {
-           
-        }
-
-        
+			try
+			{
+				TcpClient client = new TcpClient("192.168.123.1", 3128);
+				MessageBox.Show("Connection Ok");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Connection is not established");
+			}
+        }        
 
         private void menuItem1_Click(object sender, EventArgs e)
         {
@@ -198,6 +206,11 @@ namespace MeterScan
             Configure conf = new Configure();
             conf.Show();
         }
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+
+		}
 
 
 

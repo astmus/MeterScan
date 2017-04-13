@@ -44,6 +44,8 @@
 			this.button4 = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.button5 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
+			this.button7 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// mainMenu1
@@ -154,11 +156,29 @@
 			this.button5.Text = "tcp connect";
 			this.button5.Click += new System.EventHandler(this.button5_Click_1);
 			// 
+			// button6
+			// 
+			this.button6.Location = new System.Drawing.Point(209, 23);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(96, 20);
+			this.button6.TabIndex = 20;
+			this.button6.Text = "save settings";			
+			// 
+			// button7
+			// 
+			this.button7.Location = new System.Drawing.Point(88, 49);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(100, 20);
+			this.button7.TabIndex = 21;
+			this.button7.Text = "load settings";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.ClientSize = new System.Drawing.Size(318, 235);
+			this.Controls.Add(this.button7);
+			this.Controls.Add(this.button6);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.button4);
@@ -194,6 +214,8 @@
         private System.Windows.Forms.MenuItem menuItem2;
         private System.Windows.Forms.MenuItem menuItem3;
 		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button button7;
     }
 }
 

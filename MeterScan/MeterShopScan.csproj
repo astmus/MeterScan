@@ -49,6 +49,7 @@
     <Reference Include="Symbol, Version=2.8.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.Barcode2.DesignCF35, Version=2.9.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.Fusion, Version=2.9.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
+    <Reference Include="Symbol.MagStripe.DesignCF35, Version=2.8.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.MT2000.ScannerServices, Version=1.0.1.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.MT2000.UserInterface, Version=1.0.3.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
     <Reference Include="Symbol.Notification, Version=2.8.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL" />
@@ -69,6 +70,18 @@
     <Compile Include="Configure.Designer.cs">
       <DependentUpon>Configure.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigureTcpConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureTcpConnection.Designer.cs">
+      <DependentUpon>ConfigureTcpConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureWiFiNetwork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigureWiFiNetwork.Designer.cs">
+      <DependentUpon>ConfigureWiFiNetwork.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -82,6 +95,12 @@
     <EmbeddedResource Include="Configure.resx">
       <DependentUpon>Configure.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureTcpConnection.resx">
+      <DependentUpon>ConfigureTcpConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigureWiFiNetwork.resx">
+      <DependentUpon>ConfigureWiFiNetwork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define not_scaner
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +13,15 @@ using Symbol.Exceptions;
 using Symbol.Barcode2;
 using System.Net.Sockets;
 using System.Net;
+using Microsoft.Win32;
+
+
 
 namespace MeterScan
-{
+{	
     public partial class Form1 : Form
     {
+		
         private WLAN myWlan = null;
         private Timer startTimer = new Timer();
         public Form1()
@@ -48,6 +53,9 @@ namespace MeterScan
 
         private void ConfigureWirellesAdapter()
         {
+#if not_scaner
+			return;
+#else
             try
             {
                 //create a reference to WLAN
@@ -78,6 +86,7 @@ namespace MeterScan
                 return;
             }
 
+#endif
             //The variable to hold the management state. 
             //Initialize it to Fusion.
             /*Symbol.Fusion.WLAN.WLAN_MANAGEMENT_STATE managementState = WLAN_MANAGEMENT_STATE.WLAN_MANAGEMENT_FUSION_STATE;
@@ -129,7 +138,7 @@ namespace MeterScan
 
                 if (String.IsNullOrEmpty(APData.BSSID))
                 {
-                    if (Settings.IsEmpty())
+                    /*if (Settings.IsEmpty())
                     {
                         Configure conf = new Configure();
                         conf.Show();                        
@@ -137,10 +146,10 @@ namespace MeterScan
                     else
                     {
                         WLAN lan = new WLAN(FusionAccessType.COMMAND_MODE);
-                        Profile p = lan.GetProfileByName(Settings.SSIDName);
+                        Profile p = lan.GetProfileByName(Settings.Instance.SSID);
                         lan.Dispose();
                         label5.Text = "Not associated";
-                    }                    
+                    } */                   
                 }
                 else
                     label5.Text = "Connected";
@@ -218,11 +227,9 @@ namespace MeterScan
 			{
 				MessageBox.Show("Connection to 192.168.123.1 is not established");
 			}
-		}
+		}		
 
-
-
-       /* private void connectToProfile(string profileID, bool persistance)
+		/* private void connectToProfile(string profileID, bool persistance)
         {
             //Create a WLAN object in COMMAND_MODE
             WLAN myCommandModeWlan = null;

@@ -20,8 +20,7 @@ using Microsoft.Win32;
 namespace MeterScan
 {	
     public partial class Form1 : Form
-    {
-		
+    {		
         private WLAN myWlan = null;
         private Timer startTimer = new Timer();
         public Form1()
@@ -31,7 +30,7 @@ namespace MeterScan
             WLAN.Monitor.AccessPoint = true;
             startTimer.Tick += new EventHandler(onFormLoaded);
             startTimer.Interval = 1000;
-            startTimer.Enabled = true;
+            startTimer.Enabled = true;			
         }
 
         void onFormLoaded(object sender, EventArgs e)
@@ -63,10 +62,7 @@ namespace MeterScan
                 label2.Text = myWlan.Adapters[0].PowerState.ToString();
 
                 if (myWlan.Adapters[0].PowerState == Adapter.PowerStates.OFF)
-                {
-                    if (MessageBox.Show("WiFi adapter is off. Turn it on?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                        setWifiAdapterPower(Adapter.PowerStates.ON);
-                }
+					setWifiAdapterPower(Adapter.PowerStates.ON);
                 myWlan.StatusChanged += new WLAN.StatusChangeHandler(onWlanStatusChanged);
             }
             catch (Symbol.Exceptions.OperationFailureException)
@@ -185,20 +181,7 @@ namespace MeterScan
         private void barcode21_OnStatus(Symbol.Barcode2.StatusData statusData)
         {
             label4.Text = statusData.Text;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-			try
-			{
-				TcpClient client = new TcpClient("192.168.123.1", 3128);
-				MessageBox.Show("Connection Ok");
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Connection is not established");
-			}
-        }        
+        }               
 
         private void menuItem1_Click(object sender, EventArgs e)
         {
@@ -227,7 +210,14 @@ namespace MeterScan
 			{
 				MessageBox.Show("Connection to 192.168.123.1 is not established");
 			}
-		}		
+		}
+
+		private void Form1_Activated(object sender, EventArgs e)
+		{
+			int i = 0;
+		}
+
+				
 
 		/* private void connectToProfile(string profileID, bool persistance)
         {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Microsoft.Win32;
+using System.Drawing;
 
 namespace MeterScan
 {
@@ -20,7 +21,7 @@ namespace MeterScan
 
 		private Settings()
 		{
-			RegistryKey _rootFolder = Registry.CurrentUser.OpenSubKey(SETTING_REG_KEY);
+			_rootFolder = Registry.CurrentUser.OpenSubKey(SETTING_REG_KEY);
 			if (_rootFolder == null)
 			{
 				_rootFolder = Registry.CurrentUser.CreateSubKey(SETTING_REG_KEY);
@@ -36,10 +37,17 @@ namespace MeterScan
 		private static Settings _instance;
 		public static Settings Instance
 		{
-			get
-			{				
-				return _instance ?? (_instance = new Settings());
-			}
+			get	{ return _instance ?? (_instance = new Settings());	}
+		}
+
+		public Color BackColor
+		{
+			get { return Color.FromArgb(206, 222, 239); }
+		}
+
+		public Color ActiveColor
+		{
+			get { return Color.FromArgb(33, 57, 156); }
 		}
 
 		public string SSID

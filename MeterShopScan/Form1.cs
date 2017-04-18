@@ -20,44 +20,61 @@ using Microsoft.Win32;
 namespace MeterShopScan
 {	
     public partial class Form1 : Form
-    {		
-        private WLAN myWlan = null;
+    {	        
         private Timer startTimer = new Timer();
         public Form1()
         {
+			Logger.Instance.LogTrace("Application Start");
             InitializeComponent();
             WLAN.Monitor.AdapterPower = true;
-            WLAN.Monitor.AccessPoint = true;            			
+            WLAN.Monitor.AccessPoint = true;
+			ClearSettings();			
         }
+
+		private void ClearSettings()
+		{
+			Settings.Instance.Clear();
+		}
 
         void onFormLoaded(object sender, EventArgs e)
         {
+			Logger.Instance.LogTrace("MainForm onFormLoaded");
             startTimer.Enabled = false;
             startTimer.Dispose();
-            CheckTcpServerConnection();
-			//ConfigureWiFiNetwork net = new ConfigureWiFiNetwork();
-			//net.Show();
+            CheckTcpServerConnection();			
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            setWifiAdapterPower(Adapter.PowerStates.ON);
+			ConfigureWiFiNetwork form = new ConfigureWiFiNetwork();
+			form.Show();
+            //setWifiAdapterPower(Adapter.PowerStates.ON);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            setWifiAdapterPower(Adapter.PowerStates.OFF);
+			ConfigureTcpConnection form = new ConfigureTcpConnection();
+			form.Show();
+            //setWifiAdapterPower(Adapter.PowerStates.OFF);
         }
 
         private void CheckTcpServerConnection()
         {
+			Logger.Instance.LogTrace("MainForm CheckTcpServerConnection");
 #if not_scaner
 			if (Settings.Instance.SSID == null || Settings.Instance.WiFiPass == null)
 			{
 				ConfigureWiFiNetwork form = new ConfigureWiFiNetwork();
 				form.Show();
+				return;
 			}
-			return;
+			
+			if (Settings.Instance.TcpIpAddress == null || Settings.Instance.TcpPort == null)
+			{
+				ConfigureTcpConnection form = new ConfigureTcpConnection();
+				form.Show();
+				return;
+			}			
 #else
             try
             {
@@ -119,18 +136,11 @@ namespace MeterShopScan
 
         void onWlanStatusChanged(object sender, StatusChangeEventArgs e)
         {
+			Logger.Instance.LogTrace("MainForm onWlanStatusChanged Status = " + e.StatusChange.ToString());
             if (e.StatusChange == Symbol.Fusion.WLAN.StatusChangeEventArgs.StatusChanges.AdapterPowerON)
-            {
-                //populate adapter power state in the list
                 label2.Text = "ON";
-                //listViewFusion.Items[adapterStatusLocation].SubItems[3].Text = adapterPowerState;
-            }
             else if (e.StatusChange == Symbol.Fusion.WLAN.StatusChangeEventArgs.StatusChanges.AdapterPowerOFF)
-            {
                 label2.Text = "OFF";
-                //populate adapter power state in the list
-                //listViewFusion.Items[adapterStatusLocation].SubItems[3].Text = adapterPowerState;
-            }
             else if (e.StatusChange == Symbol.Fusion.WLAN.StatusChangeEventArgs.StatusChanges.AccesspointChanged)
             {
                 //populate accesspoint MAC address (BSSID) in the list
@@ -138,18 +148,22 @@ namespace MeterShopScan
 
                 if (String.IsNullOrEmpty(APData.BSSID))
                 {
-                    /*if (Settings.IsEmpty())
-                    {
-                        Configure conf = new Configure();
-                        conf.Show();                        
-                    }
-                    else
-                    {
-                        WLAN lan = new WLAN(FusionAccessType.COMMAND_MODE);
-                        Profile p = lan.GetProfileByName(Settings.Instance.SSID);
-                        lan.Dispose();
-                        label5.Text = "Not associated";
-                    } */                   
+					if (Settings.Instance.SSID == null || Settings.Instance.WiFiPass == null)
+					{
+						ConfigureWiFiNetwork wifiCong = new ConfigureWiFiNetwork();
+						wifiCong.Show();
+					}
+					else
+					{
+						WLAN lan = new WLAN(FusionAccessType.COMMAND_MODE);
+						Profile wifiProfile = lan.GetProfileByName(Settings.Instance.SSID);
+						var res = wifiProfile.Connect(true);
+						if (res != Symbol.Fusion.FusionResults.SUCCESS)
+						{
+							ConfigureWiFiNetwork wifiCong = new ConfigureWiFiNetwork();
+							wifiCong.Show();
+						}
+					}					                   
                 }
                 else
                     label5.Text = "Connected";
@@ -164,13 +178,6 @@ namespace MeterShopScan
             editWlan = null;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //barcode21.EnableScanner = false;
-            //barcode21.Dispose();
-            Application.Exit();
-        }
-
         private void barcode21_OnScan(Symbol.Barcode2.ScanDataCollection scanDataCollection)
         {
             /*ScanData scanData = scanDataCollection.GetFirst;
@@ -180,28 +187,7 @@ namespace MeterShopScan
                     listBox1.Items.RemoveAt(0);
                 listBox1.Items.Add(scanData.Text + ";" + scanData.Type.ToString());
             }*/
-        }
-
-        private void barcode21_OnStatus(Symbol.Barcode2.StatusData statusData)
-        {
-            label4.Text = statusData.Text;
-        }               
-
-        private void menuItem1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void menuItem2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void menuItem3_Click(object sender, EventArgs e)
-        {
-            Configure conf = new Configure();
-            conf.Show();
-        }		
+        }              
 
 		private void button5_Click_1(object sender, EventArgs e)
 		{
@@ -218,7 +204,6 @@ namespace MeterShopScan
 
 		private void Form1_Activated(object sender, EventArgs e)
 		{
-			int i = 0;
 			startTimer.Tick += new EventHandler(onFormLoaded);
 			startTimer.Interval = 1000;
 			startTimer.Enabled = true;

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Reflection;
 
 namespace MeterShopScan
 {
@@ -11,7 +12,8 @@ namespace MeterShopScan
 		private string pathToCurrentLogFile;
 		private Logger()
 		{
-			pathToCurrentLogFile = DateTime.Now.Date.ToString("yyyy_MM_") + "log.txt";
+			string fileName = DateTime.Now.Date.ToString("yyyy_MM_") + "log.txt";			
+			pathToCurrentLogFile = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase), fileName);
 			CreateFileIfNotExists(pathToCurrentLogFile);
 		}
 
@@ -42,7 +44,7 @@ namespace MeterShopScan
 		
 		private string FormattedLogString(string message, string type)
 		{			
-			return String.Format("{0}<{1}> -> {2};", DateTime.Now.ToString("dd.MM hh:mm:ss"), type, message);
+			return String.Format("{0}({1}) > {2};", DateTime.Now.ToString("dd.MM hh:mm:ss"), type, message);
 		}
 
 		#endregion
@@ -79,7 +81,7 @@ namespace MeterShopScan
 		public void LogDebug(string message)
 		{
 			using (StreamWriter writer = new StreamWriter(pathToCurrentLogFile, true))
-			{
+			{				
 				writer.WriteLine(FormattedLogString(message, "Debug"));
 				writer.Close();
 			}

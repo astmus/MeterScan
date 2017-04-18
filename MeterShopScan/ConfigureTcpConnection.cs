@@ -6,6 +6,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using Symbol.Barcode2;
 
 namespace MeterShopScan
 {
@@ -13,7 +15,9 @@ namespace MeterShopScan
 	{
 		public ConfigureTcpConnection()
 		{
-			InitializeComponent();			
+			InitializeComponent();
+			ipaddress.Text = Settings.Instance.TcpIpAddress;
+			port.Text = Settings.Instance.TcpPort;
 		}
 
 		private void OnClearButtonClickAction()
@@ -24,8 +28,12 @@ namespace MeterShopScan
 
 		private void OnCloseButtonClickAction()
 		{
+			Logger.Instance.LogTrace("ConfigureTcpConnection OnCloseButtonClickAction");
 #if SCANER
 			barcode21.EnableScanner = false;
+#else
+			Settings.Instance.TcpIpAddress = "192.168.0.1";
+			Settings.Instance.TcpPort = "3311";
 #endif
 			this.Close();
 		}
@@ -42,7 +50,32 @@ namespace MeterShopScan
 
 		private void barcode21_OnScan(Symbol.Barcode2.ScanDataCollection scanDataCollection)
 		{
+			ScanData scanData = scanDataCollection.GetFirst;
+			if (scanData.Result == Results.SUCCESS)
+			{
 
+				string connectData = scanData.Text;
+				var splitted = connectData.Split(new char[] { ';' });
+				ipaddress.Text = splitted[0];
+				port.Text = splitted[1];
+				PingTcpServer(ipaddress.Text, int.Parse(port.Text));
+			}
+		}
+
+		private void PingTcpServer(string IpAddres, int port)
+		{
+			try
+			{
+				TcpClient client = new TcpClient(IpAddres, port);
+				Settings.Instance.TcpIpAddress = IpAddres;
+				Settings.Instance.TcpPort = port.ToString();
+				MessageBox.Show("Connection Ok");
+				this.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Connection is not established");
+			}
 		}
 
 		private void barcode21_OnStatus(Symbol.Barcode2.StatusData statusData)

@@ -21,17 +21,19 @@ namespace MeterShopScan
 
 		private Settings()
 		{
-			_rootFolder = Registry.CurrentUser.OpenSubKey(SETTING_REG_KEY);
-			if (_rootFolder == null)
-			{
-				_rootFolder = Registry.CurrentUser.CreateSubKey(SETTING_REG_KEY);
-				_connectionFolder = _rootFolder.CreateSubKey(CONNECT_REG_KEY);
-			}
+			_rootFolder = Registry.CurrentUser.GetWritableKey(SETTING_REG_KEY);
+			_connectionFolder = _rootFolder.GetWritableKey(CONNECT_REG_KEY);			
 		}
 
 		~Settings()
 		{
 
+		}		
+
+		public void Clear()
+		{
+			_rootFolder.DeleteSubKeyTree(CONNECT_REG_KEY);
+			_instance = null;
 		}
 
 		private static Settings _instance;
@@ -53,30 +55,34 @@ namespace MeterShopScan
 		public string SSID
 		{
 			get { return _connectionFolder.GetValue(SSID_REG_KEY) as string; }
-			set { _connectionFolder.GetValue(SSID_REG_KEY); }
+			set { _connectionFolder.SetValue(SSID_REG_KEY,value); }
 		}
 
 		public string WiFiPass
 		{
 			get { return _connectionFolder.GetValue(WIFI_PASS_REG_KEY) as string; }
-			set { _connectionFolder.GetValue(WIFI_PASS_REG_KEY); }
+			set { _connectionFolder.SetValue(WIFI_PASS_REG_KEY,value); }
 		}
 
 		public string TcpPort
 		{
 			get { return _connectionFolder.GetValue(TCP_PORT_REG_KEY) as string; }
-			set { _connectionFolder.GetValue(TCP_PORT_REG_KEY); }
+			set { _connectionFolder.SetValue(TCP_PORT_REG_KEY,value); }
 		}
 
 		public string TcpIpAddress
 		{
 			get { return _connectionFolder.GetValue(TCP_IPADDRESS_REG_KEY) as string; }
-			set { _connectionFolder.GetValue(TCP_IPADDRESS_REG_KEY); }
+			set { _connectionFolder.SetValue(TCP_IPADDRESS_REG_KEY, value); }
 		}
     }
 
 	public static class RexExtension
 	{
-
+		public static RegistryKey GetWritableKey(this RegistryKey key, string name)
+		{
+			key.CreateSubKey(name);
+			return key.OpenSubKey(name, true);
+		}
 	}
 }

@@ -12,27 +12,33 @@ namespace MeterShopScan
     {
 		private RegistryKey _rootFolder;
 		private RegistryKey _connectionFolder;
-		private const string SETTING_REG_KEY = "MeterShopScaner";
+		private const string SETTING_REG_KEY = "MeterShopScanerSettings";
 		private const string CONNECT_REG_KEY = "Connection";
 		private const string SSID_REG_KEY = "SSID";
-		private const string WIFI_PASS_REG_KEY = "WiFiPass";
+		private const string WIFI_PASS_REG_KEY = "WiFiPassw";
 		private const string TCP_PORT_REG_KEY = "TCPPort";
 		private const string TCP_IPADDRESS_REG_KEY = "TCPIPAddress";
 
 		private Settings()
 		{
-			_rootFolder = Registry.CurrentUser.GetWritableKey(SETTING_REG_KEY);
-			_connectionFolder = _rootFolder.GetWritableKey(CONNECT_REG_KEY);			
+			_rootFolder = Registry.CurrentUser.OpenSubKey(SETTING_REG_KEY,true);
+			if (_rootFolder == null)
+			{
+				Registry.CurrentUser.CreateSubKey(SETTING_REG_KEY);
+				_rootFolder = Registry.CurrentUser.OpenSubKey(SETTING_REG_KEY, true);
+			}				
+			_connectionFolder = _rootFolder.CreateSubKey(CONNECT_REG_KEY);			
 		}
 
 		~Settings()
-		{
-
+		{			
 		}		
 
 		public void Clear()
-		{
-			_rootFolder.DeleteSubKeyTree(CONNECT_REG_KEY);
+		{			
+			_connectionFolder.Close();
+			_connectionFolder = null;			
+			_rootFolder.DeleteSubKey(CONNECT_REG_KEY);
 			_instance = null;
 		}
 
@@ -58,7 +64,7 @@ namespace MeterShopScan
 			set { _connectionFolder.SetValue(SSID_REG_KEY,value); }
 		}
 
-		public string WiFiPass
+		public string WiFiPassword
 		{
 			get { return _connectionFolder.GetValue(WIFI_PASS_REG_KEY) as string; }
 			set { _connectionFolder.SetValue(WIFI_PASS_REG_KEY,value); }
@@ -81,7 +87,7 @@ namespace MeterShopScan
 	{
 		public static RegistryKey GetWritableKey(this RegistryKey key, string name)
 		{
-			key.CreateSubKey(name);
+			//key.CreateSubKey(name);
 			return key.OpenSubKey(name, true);
 		}
 	}

@@ -36,6 +36,9 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.button5 = new System.Windows.Forms.Button();
 			this.keyCode = new System.Windows.Forms.Label();
+			this.button4 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
+			this.label3 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -112,12 +115,42 @@
 			this.keyCode.Size = new System.Drawing.Size(136, 27);
 			this.keyCode.Text = "Key";
 			// 
+			// button4
+			// 
+			this.button4.Location = new System.Drawing.Point(170, 91);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(136, 50);
+			this.button4.TabIndex = 18;
+			this.button4.Text = "Activity";
+			this.button4.Click += new System.EventHandler(this.button4_Click);
+			// 
+			// button6
+			// 
+			this.button6.Location = new System.Drawing.Point(28, 91);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(136, 50);
+			this.button6.TabIndex = 23;
+			this.button6.Text = "MessageBox";
+			this.button6.Click += new System.EventHandler(this.button6_Click);
+			// 
+			// label3
+			// 
+			this.label3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
+			this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(57)))), ((int)(((byte)(156)))));
+			this.label3.Location = new System.Drawing.Point(200, 22);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(95, 39);
+			this.label3.Text = "Result";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(222)))), ((int)(((byte)(239)))));
 			this.ClientSize = new System.Drawing.Size(318, 235);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.button6);
+			this.Controls.Add(this.button4);
 			this.Controls.Add(this.keyCode);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.label5);
@@ -129,6 +162,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "Form1";
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.Activated += new System.EventHandler(this.Form1_Activated);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
 			this.ResumeLayout(false);
@@ -145,6 +179,9 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Label keyCode;
+		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Label label3;
     }
 }
 

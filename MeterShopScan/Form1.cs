@@ -14,6 +14,8 @@ using Symbol.Barcode2;
 using System.Net.Sockets;
 using System.Net;
 using Microsoft.Win32;
+using MeterShopScan.Controls;
+using MeterShopScan.Properties;
 
 
 
@@ -21,27 +23,21 @@ namespace MeterShopScan
 {	
     public partial class Form1 : Form
     {	        
-        private Timer startTimer = new Timer();
+        private Timer startTimer;
         public Form1()
         {
 			Logger.Instance.LogTrace("Application Start");
             InitializeComponent();
             WLAN.Monitor.AdapterPower = true;
-            WLAN.Monitor.AccessPoint = true;
-			ClearSettings();			
-        }
-
-		private void ClearSettings()
-		{
-			Settings.Instance.Clear();
-		}
+            WLAN.Monitor.AccessPoint = true;			
+        }	
 
         void onFormLoaded(object sender, EventArgs e)
         {
 			Logger.Instance.LogTrace("MainForm onFormLoaded");
             startTimer.Enabled = false;
-            startTimer.Dispose();
-            CheckTcpServerConnection();			
+            startTimer.Dispose();			
+			CheckTcpServerConnection();			
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,7 +58,7 @@ namespace MeterShopScan
         {
 			Logger.Instance.LogTrace("MainForm CheckTcpServerConnection");
 #if not_scaner
-			if (Settings.Instance.SSID == null || Settings.Instance.WiFiPass == null)
+			if (Settings.Instance.SSID == null || Settings.Instance.WiFiPassword == null)
 			{
 				ConfigureWiFiNetwork form = new ConfigureWiFiNetwork();
 				form.Show();
@@ -92,11 +88,11 @@ namespace MeterShopScan
 
                 if (((Symbol.ResourceCoordination.WLANTypes)(terminalInfo.ConfigData.WLAN)) == Symbol.ResourceCoordination.WLANTypes.NONE)
                 {
-                    MessageBox.Show("The configuration of the device doesn't support Fusion. The application will now exit.");
+                    CustomMessageBox.Show("The configuration of the device doesn't support Fusion. The application will now exit.");
                 }
                 else
                 {
-                    MessageBox.Show("Unable to open Fusion. The application will now exit.");
+                    CustomMessageBox.Show("Unable to open Fusion. The application will now exit.");
                 }
 
                 this.Close();
@@ -148,7 +144,7 @@ namespace MeterShopScan
 
                 if (String.IsNullOrEmpty(APData.BSSID))
                 {
-					if (Settings.Instance.SSID == null || Settings.Instance.WiFiPass == null)
+					if (Settings.Instance.SSID == null || Settings.Instance.WiFiPassword == null)
 					{
 						ConfigureWiFiNetwork wifiCong = new ConfigureWiFiNetwork();
 						wifiCong.Show();
@@ -157,7 +153,9 @@ namespace MeterShopScan
 					{
 						WLAN lan = new WLAN(FusionAccessType.COMMAND_MODE);
 						Profile wifiProfile = lan.GetProfileByName(Settings.Instance.SSID);
+						Activity.Show("Please wait. Connect to WiFi network.");
 						var res = wifiProfile.Connect(true);
+						Activity.Hide();
 						if (res != Symbol.Fusion.FusionResults.SUCCESS)
 						{
 							ConfigureWiFiNetwork wifiCong = new ConfigureWiFiNetwork();
@@ -176,34 +174,25 @@ namespace MeterShopScan
             editWlan.Adapters[0].PowerState = state;
             editWlan.Dispose();
             editWlan = null;
-        }
-
-        private void barcode21_OnScan(Symbol.Barcode2.ScanDataCollection scanDataCollection)
-        {
-            /*ScanData scanData = scanDataCollection.GetFirst;
-            if (scanData.Result == Results.SUCCESS)
-            {
-                while (listBox1.Items.Count >= 10)
-                    listBox1.Items.RemoveAt(0);
-                listBox1.Items.Add(scanData.Text + ";" + scanData.Type.ToString());
-            }*/
-        }              
+        }                    
 
 		private void button5_Click_1(object sender, EventArgs e)
 		{
 			try
 			{
 				TcpClient client = new TcpClient("192.168.123.1", 3128);
-				MessageBox.Show("Connection to 192.168.123.1 is Ok");
+				CustomMessageBox.Show("Connection to 192.168.123.1 is Ok");
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Connection to 192.168.123.1 is not established");
+				CustomMessageBox.Show("Connection to 192.168.123.1 is not established");
 			}
 		}
 
 		private void Form1_Activated(object sender, EventArgs e)
 		{
+			Logger.Instance.LogTrace("Form1_Activated");
+			startTimer = new Timer();
 			startTimer.Tick += new EventHandler(onFormLoaded);
 			startTimer.Interval = 1000;
 			startTimer.Enabled = true;
@@ -211,9 +200,38 @@ namespace MeterShopScan
 
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
 		{
+			Logger.Instance.LogTrace("Form1 KeyDown keyCode = "+e.KeyCode.ToString()+" keyValue = "+e.KeyValue);
 			if (e.Control)
 				Application.Exit();
-		}				
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+			//Settings.Instance.Clear();
+		}
+
+		Timer r;
+		private void button4_Click(object sender, EventArgs e)
+		{
+			Activity.Show("Connecting o wifi network");
+			r = new Timer();
+			r.Interval = 2000;
+			r.Tick += new EventHandler(r_Tick);
+			r.Enabled = true;
+		}
+
+		void r_Tick(object sender, EventArgs e)
+		{
+			r.Enabled = false;
+			r.Dispose();
+			Activity.Hide();
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			var res = CustomMessageBox.Show("Press ok or cancel", CustomMessageBoxButtons.OkCancel,Resources.activity);
+			label3.Text = res.ToString();
+		}						
 
 		/* private void connectToProfile(string profileID, bool persistance)
         {
@@ -225,7 +243,7 @@ namespace MeterShopScan
             }
             catch (Symbol.Exceptions.OperationFailureException)
             {
-                System.Windows.Forms.MessageBox.Show("Command mode is in use", "Error");                
+                CustomMessageBox.Show("Command mode is in use", "Error");                
                 return;
             }
 
@@ -237,13 +255,11 @@ namespace MeterShopScan
 
                 if (result != Symbol.Fusion.FusionResults.SUCCESS)
                 {
-                    MessageBox.Show("Failure in connecting to the specified profile. Result = " + result);
+                    CustomMessageBox.Show("Failure in connecting to the specified profile. Result = " + result);
                 }
             }
-
             //dispose the created WLAN object
             myCommandModeWlan.Dispose();
-
         }*/
     }
 }

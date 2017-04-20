@@ -52,29 +52,33 @@ namespace MeterShopScan
 		{
 			ScanData scanData = scanDataCollection.GetFirst;
 			if (scanData.Result == Results.SUCCESS)
-			{
-
+			{				
 				string connectData = scanData.Text;
+				Logger.Instance.LogDebug("ConfigureTcpConnection scannedData = "+connectData);
 				var splitted = connectData.Split(new char[] { ';' });
 				ipaddress.Text = splitted[0];
 				port.Text = splitted[1];
+				Logger.Instance.LogDebug("ConfigureTcpConnection address = " + ipaddress + " password = " + port);
 				PingTcpServer(ipaddress.Text, int.Parse(port.Text));
 			}
 		}
 
 		private void PingTcpServer(string IpAddres, int port)
 		{
+			Logger.Instance.LogTrace("ConfigureTcpConnection PingTcpServer()");
 			try
-			{
+			{				
 				TcpClient client = new TcpClient(IpAddres, port);
 				Settings.Instance.TcpIpAddress = IpAddres;
 				Settings.Instance.TcpPort = port.ToString();
-				MessageBox.Show("Connection Ok");
+				CustomMessageBox.Show("Connection Ok");
+				Logger.Instance.LogInfo("ConfigureTcpConnection tcp conenction is ok");
 				this.Close();
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Connection is not established");
+				CustomMessageBox.Show("Connection is not established");
+				Logger.Instance.LogError("ConfigureTcpConnection tcp conenction failed");
 			}
 		}
 

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Symbol.Barcode2;
 using Symbol.Fusion.WLAN;
 using Symbol.Fusion;
+using MeterShopScan.Properties;
 
 namespace MeterShopScan
 {
@@ -18,13 +19,13 @@ namespace MeterShopScan
 		{
 			InitializeComponent();
 			ssid.Text = Settings.Instance.SSID;
-			password.Text = Settings.Instance.WiFiPass;
+			password.Text = Settings.Instance.WiFiPassword;
 		}
 
 		private void OnClearButtonClickAction()
 		{
-			ssid.Text = "000.000.000.000";
-			password.Text = "00000";
+			ssid.Text = "ssidundef";
+			password.Text = "passundef";
 		}
 
 		private void OnCloseButtonClickAction()
@@ -34,7 +35,7 @@ namespace MeterShopScan
 			barcode21.EnableScanner = false;
 #else
 			Settings.Instance.SSID = "aria";
-			Settings.Instance.WiFiPass = "qwe123qwe";
+			Settings.Instance.WiFiPassword = "qwe123qwe";
 #endif
 			this.Close();
 		}
@@ -54,11 +55,12 @@ namespace MeterShopScan
 			ScanData scanData = scanDataCollection.GetFirst;
 			if (scanData.Result == Results.SUCCESS)
 			{
-
 				string connectData = scanData.Text;
+				Logger.Instance.LogDebug("ConfigureWiFiNetwork scannedData = " + connectData);
 				var splitted = connectData.Split(new char[] { ';' });
 				ssid.Text = splitted[0];
 				password.Text = splitted[1];
+				Logger.Instance.LogDebug("ConfigureTcpConnection ssid = " + ssid + " password = " + password);
 				ConfigureWiFiProfile(ssid.Text, password.Text);
 			}
 		}
@@ -84,7 +86,7 @@ namespace MeterShopScan
 				wlan = new WLAN(FusionAccessType.COMMAND_MODE);
 				Profile already = wlan.GetProfileByName(SSID);
 				if (already != null)
-					if (MessageBox.Show("Profile with name '" + already.Name + "' already exists. It will be rewrited?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) == DialogResult.No)
+					if (CustomMessageBox.Show("Profile with name '" + already.Name + "' already exists. It will be rewrited?",CustomMessageBoxButtons.YesNo, Resources.exclamation) == DialogResult.No)
 						return;
 					else
 						wlan.Profiles.DeleteProfile(already);
@@ -106,7 +108,7 @@ namespace MeterShopScan
 				if (res != Symbol.Fusion.FusionResults.SUCCESS)
 				{
 					ssid.Text = Settings.Instance.SSID;
-					password.Text = Settings.Instance.WiFiPass;
+					password.Text = Settings.Instance.WiFiPassword;
 					MessageBox.Show("Failure in connecting to the specified profile. Result = " + res);
 					this.Close();
 				}

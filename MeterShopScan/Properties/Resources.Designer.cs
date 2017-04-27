@@ -57,13 +57,6 @@ namespace MeterShopScan.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap activity {
-            get {
-                object obj = ResourceManager.GetObject("activity", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap exclamation {
             get {
                 object obj = ResourceManager.GetObject("exclamation", resourceCulture);

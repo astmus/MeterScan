@@ -229,8 +229,14 @@ namespace MeterShopScan
 
 		private void button6_Click(object sender, EventArgs e)
 		{
-			var res = CustomMessageBox.Show("Press ok or cancel", CustomMessageBoxButtons.OkCancel,Resources.activity);
+			var res = CustomMessageBox.Show("Press ok or cancel", CustomMessageBoxButtons.OkCancel,Resources.exclamation);
 			label3.Text = res.ToString();
+		}
+
+		private void button7_Click(object sender, EventArgs e)
+		{
+			Form2 r = new Form2();
+			r.Show();
 		}						
 
 		/* private void connectToProfile(string profileID, bool persistance)

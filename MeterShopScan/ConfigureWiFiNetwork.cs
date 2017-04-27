@@ -109,11 +109,11 @@ namespace MeterShopScan
 				{
 					ssid.Text = Settings.Instance.SSID;
 					password.Text = Settings.Instance.WiFiPassword;
-					MessageBox.Show("Failure in connecting to the specified profile. Result = " + res);
+					CustomMessageBox.Show("Failure in connecting to the specified profile. Result = " + res);
 					this.Close();
 				}
 				else
-					MessageBox.Show("Connection success");
+					CustomMessageBox.Show("Connection success");
 			}
 			catch
 			{
